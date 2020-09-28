@@ -1,5 +1,5 @@
 {
-  "name": "RumbaPR - backend",
+  "name": "rumbapr-backend",
   "version": "1.0.0",
   "description": " The backend side of the RumbaPR application.",
   "main": "index.js",
@@ -17,10 +17,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.1.0",
+    "mongoose": "^5.10.7",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
