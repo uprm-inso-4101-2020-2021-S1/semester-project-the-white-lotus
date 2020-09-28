@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import forYouPage from './pages/forYouPage';
 import landingPage from './pages/landingPage';
 import Error from './pages/errorPage';
+import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 
 
 class App extends React.Component {
@@ -11,6 +12,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
+          <HamburgerMenu />
           <Switch>
             <Route path="/" component={landingPage} exact/>
             <Route path="/foryou" component={forYouPage}/>
