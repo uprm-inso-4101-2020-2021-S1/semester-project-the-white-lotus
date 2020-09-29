@@ -2,8 +2,11 @@ const express = require("express");
 const router = express.Router();
 
 // API Routing
-const users = require('./api/users');
+const place = require('./api/place');
 const posts = require('./api/posts');
+const user = require('./api/user');
+
+
 
 router.get('/', (req, res) => {
   res.json({
@@ -11,7 +14,8 @@ router.get('/', (req, res) => {
   });
 });
 
-router.use('/users', users);
+router.use('/place', place);
 router.use('/posts', posts);
+router.use('/user', user);
 
 module.exports = router
