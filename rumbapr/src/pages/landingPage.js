@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../components/MapContainer'
 
+import './landingPage.css'
+
 
 const personLocation = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
 const locations = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
@@ -32,6 +34,7 @@ export class MapContainer extends Component {
 
     render() {
         return (
+        <div className="map_container">
             <CurrentLocation
                 centerAroundCurrentLocation
                 google={this.props.google}
@@ -51,6 +54,7 @@ export class MapContainer extends Component {
                     </div>
                 </InfoWindow>
             </CurrentLocation>
+        </div>
         );
     }
 }
