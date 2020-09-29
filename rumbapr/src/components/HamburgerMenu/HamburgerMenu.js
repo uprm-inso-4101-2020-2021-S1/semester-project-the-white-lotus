@@ -1,11 +1,16 @@
 import React from 'react';
 
-const HamburgerMenu = () => {
+/*const HamburgerMenu = () => {
     return (
         <div>
-            <link rel="stylesheet" href="./HamburgerMenu/HamburgerMenuDesign.css"></link>
+            <link rel="stylesheet" href="./HamburgerMenu/HamburgerMenuDesign.css" />
             <div class="menu-wrap">
-            <input type="checkbox" name="HamburgerMenu"></input> 
+            <input 
+          type="checkbox" 
+          value="Submit" 
+          className="btn"
+          style={{flex: '1'}}
+        />
             </div>
             <ul>
                 <li>Type of location</li>
@@ -15,18 +20,12 @@ const HamburgerMenu = () => {
             </ul>
         </div>
     )
-}
+}*/
 
-function getSelectedCheckboxValues(name) {
-    const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
-    let values = [];
-    checkboxes.forEach((checkbox) => {
-        values.push(checkbox.value);
-    });
-    if(values.length<1){
-        return null;
-    }
-    return values;
+const HamburgerMenu = () => {
+    return (
+        <input type="checkbox" id="checked" onClick="clicked"/>
+    )
 }
 
 export default HamburgerMenu

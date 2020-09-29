@@ -12,7 +12,6 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <HamburgerMenu />
           <Switch>
             <Route path="/" component={landingPage} exact/>
             <Route path="/foryou" component={forYouPage}/>
@@ -23,5 +22,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
