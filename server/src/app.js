@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const middlewares = require('./middlewares');
 const api = require('./api');
+const routes = require('./routes');
 
 const app = express();
 
@@ -18,11 +19,13 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({
-    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄'
+    message: '✨🌎Server is running!🌏✨'
   });
 });
 
 app.use('/api/v1', api);
+app.use('/api/v2', routes);
+
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
