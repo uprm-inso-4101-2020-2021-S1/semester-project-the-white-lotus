@@ -32,9 +32,11 @@ const userSchema = new Schema({
     ishost: {
         type: Boolean, required: true
     },
-    commenthistory: {
-        type: Array, required: false
-    },
+    commenthistory: [{
+        place: {type: String},
+        date: {type: Date},
+        comment: {type: String}
+    }],
     hashtags: {
         type: Array, required: false
     },
