@@ -19,11 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Added .env file." />
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Added .env file.">
+      <change afterPath="$PROJECT_DIR$/server/models/Place.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/AuthController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -49,9 +62,20 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/api" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/rumbapr" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="place.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server/src/api/place.js" working-dir="$PROJECT_DIR$/server/src/api">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.place.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -67,6 +91,7 @@
       <workItem from="1600787243967" duration="475000" />
       <workItem from="1600900636508" duration="337000" />
       <workItem from="1601321331519" duration="8959000" />
+      <workItem from="1601385979589" duration="5159000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -110,7 +135,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the final A3 for RumbaPR." />
     <MESSAGE value="Added .env file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .env file." />
+    <MESSAGE value="Minor workspace changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor workspace changes." />
   </component>
   <component name="WindowStateProjectService">
     <state x="378" y="204" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601337438670">
@@ -121,22 +147,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="401" y="272" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.800@0.0.1280.800" timestamp="1601337932703" />
-    <state width="1218" height="195" key="GridCell.Tab.0.bottom" timestamp="1601383571111">
+    <state width="1218" height="244" key="GridCell.Tab.0.bottom" timestamp="1601391404548">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="195" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601383571111" />
-    <state width="1218" height="195" key="GridCell.Tab.0.center" timestamp="1601383571110">
+    <state width="1218" height="244" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601391404548" />
+    <state width="1218" height="244" key="GridCell.Tab.0.center" timestamp="1601391404546">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="195" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1601383571110" />
-    <state width="1218" height="195" key="GridCell.Tab.0.left" timestamp="1601383571109">
+    <state width="1218" height="244" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1601391404546" />
+    <state width="1218" height="244" key="GridCell.Tab.0.left" timestamp="1601391404546">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="195" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1601383571109" />
-    <state width="1218" height="195" key="GridCell.Tab.0.right" timestamp="1601383571110">
+    <state width="1218" height="244" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1601391404546" />
+    <state width="1218" height="244" key="GridCell.Tab.0.right" timestamp="1601391404547">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="195" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1601383571110" />
+    <state width="1218" height="244" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1601391404547" />
     <state x="198" y="49" key="SettingsEditor" timestamp="1600285009286">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -149,5 +175,21 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1601383587400" />
+    <state x="577" y="0" width="598" height="800" key="find.popup" timestamp="1601391042836">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="577" y="0" width="598" height="800" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601391042836" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/api/place.js</url>
+          <line>111</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
