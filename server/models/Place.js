@@ -3,9 +3,13 @@ const Schema = mongoose.Schema
 
 
 const placeSchema = new Schema({
+    placeID: {
+        type: String,
+        unique: true
+    },
     name: {
         type: String,
-        required: true
+        required: true,
     },
     email: {
         type: String,

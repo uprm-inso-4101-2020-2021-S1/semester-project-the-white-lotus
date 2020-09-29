@@ -24,7 +24,8 @@ router.post('/new/', async (req, res) => {
         city: req.body.city,
         country: req.body.country,
         photos: req.body.photos,
-        hashtags: req.body.hashtags
+        hashtags: req.body.hashtags,
+        placeID: req.body.name.replace(/\s/g, '').concat(req.body.phone)
     });
 
     await place.save();

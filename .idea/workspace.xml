@@ -19,12 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Added .env file.">
-      <change afterPath="$PROJECT_DIR$/server/models/Place.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Progress with place api.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/Place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Place.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,7 @@
       <workItem from="1600787243967" duration="475000" />
       <workItem from="1600900636508" duration="337000" />
       <workItem from="1601321331519" duration="8959000" />
-      <workItem from="1601385979589" duration="5159000" />
+      <workItem from="1601385979589" duration="9279000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -114,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601378904003</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Progress with place api.">
+      <created>1601391774575</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601391774578</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +141,8 @@
     <MESSAGE value="Added the final A3 for RumbaPR." />
     <MESSAGE value="Added .env file." />
     <MESSAGE value="Minor workspace changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor workspace changes." />
+    <MESSAGE value="Progress with place api." />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress with place api." />
   </component>
   <component name="WindowStateProjectService">
     <state x="378" y="204" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601337438670">
@@ -147,30 +153,78 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="401" y="272" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.800@0.0.1280.800" timestamp="1601337932703" />
-    <state width="1218" height="244" key="GridCell.Tab.0.bottom" timestamp="1601391404548">
+    <state width="1218" height="195" key="GridCell.Tab.0.bottom" timestamp="1601391485805">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="244" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601391404548" />
-    <state width="1218" height="244" key="GridCell.Tab.0.center" timestamp="1601391404546">
+    <state width="1218" height="195" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601391485805" />
+    <state width="1218" height="195" key="GridCell.Tab.0.center" timestamp="1601391485804">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="244" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1601391404546" />
-    <state width="1218" height="244" key="GridCell.Tab.0.left" timestamp="1601391404546">
+    <state width="1218" height="195" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1601391485804" />
+    <state width="1218" height="195" key="GridCell.Tab.0.left" timestamp="1601391485803">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="244" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1601391404546" />
-    <state width="1218" height="244" key="GridCell.Tab.0.right" timestamp="1601391404547">
+    <state width="1218" height="195" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1601391485803" />
+    <state width="1218" height="195" key="GridCell.Tab.0.right" timestamp="1601391485804">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="244" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1601391404547" />
+    <state width="1218" height="195" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1601391485804" />
+    <state width="1218" height="244" key="GridCell.Tab.1.bottom" timestamp="1601391471662">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601391471662" />
+    <state width="1218" height="244" key="GridCell.Tab.1.center" timestamp="1601391471661">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1601391471661" />
+    <state width="1218" height="244" key="GridCell.Tab.1.left" timestamp="1601391471660">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1601391471660" />
+    <state width="1218" height="244" key="GridCell.Tab.1.right" timestamp="1601391471661">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1601391471661" />
+    <state width="1218" height="244" key="GridCell.Tab.2.bottom" timestamp="1601391471664">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.2.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601391471664" />
+    <state width="1218" height="244" key="GridCell.Tab.2.center" timestamp="1601391471663">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.2.center/0.0.1280.800@0.0.1280.800" timestamp="1601391471663" />
+    <state width="1218" height="244" key="GridCell.Tab.2.left" timestamp="1601391471662">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.2.left/0.0.1280.800@0.0.1280.800" timestamp="1601391471662" />
+    <state width="1218" height="244" key="GridCell.Tab.2.right" timestamp="1601391471664">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.2.right/0.0.1280.800@0.0.1280.800" timestamp="1601391471664" />
+    <state width="1218" height="244" key="GridCell.Tab.3.bottom" timestamp="1601391471666">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.3.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601391471666" />
+    <state width="1218" height="244" key="GridCell.Tab.3.center" timestamp="1601391471665">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.3.center/0.0.1280.800@0.0.1280.800" timestamp="1601391471665" />
+    <state width="1218" height="244" key="GridCell.Tab.3.left" timestamp="1601391471665">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.3.left/0.0.1280.800@0.0.1280.800" timestamp="1601391471665" />
+    <state width="1218" height="244" key="GridCell.Tab.3.right" timestamp="1601391471666">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="244" key="GridCell.Tab.3.right/0.0.1280.800@0.0.1280.800" timestamp="1601391471666" />
     <state x="198" y="49" key="SettingsEditor" timestamp="1600285009286">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="198" y="49" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1600285009286" />
-    <state x="242" y="135" key="Vcs.Push.Dialog.v2" timestamp="1601335983364">
+    <state x="242" y="135" key="Vcs.Push.Dialog.v2" timestamp="1601391788940">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1601335983364" />
+    <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1601391788940" />
     <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601383587400">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -179,17 +233,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="577" y="0" width="598" height="800" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601391042836" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/api/place.js</url>
-          <line>111</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="349" y="106" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601401889802">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="349" y="106" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.800@0.0.1280.800" timestamp="1601401889802" />
   </component>
 </project>
