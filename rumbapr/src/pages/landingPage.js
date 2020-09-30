@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../components/MapContainer'
 import Header from '../components/header/Header'
+import HamburgerMenu from '../components/HamburgerMenu'
 
 import './landingPage.css'
 
@@ -59,6 +60,7 @@ export class MapContainer extends Component {
                             </div>
                         </InfoWindow>
                     </CurrentLocation>
+                    <HamburgerMenu />
                 </div>
             </div>
         );
