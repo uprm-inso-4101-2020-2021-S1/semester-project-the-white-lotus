@@ -1,73 +1,73 @@
-import React, { Component } from 'react';
-import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import CurrentLocation from '../components/MapContainer'
+import React, { Component, useEffect, useState } from 'react';
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Header from '../components/header/Header'
-
 import './landingPage.css'
+import * as beachData from '../dummy data/beaches.json';
 
 
-const personLocation = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
-const locations = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+export const Map = () => {
+    const [currentPosition, setCurrentPosition] = useState({});
+    const [center, setCenter] = useState({lat: 18.220833, lng: -66.590200});
+    
+
+    const success = position => {
+        const currentPosition = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        }
+        setCurrentPosition(currentPosition);
+    };
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(success);
+    })
+
+
+    return (
+        <GoogleMap
+            defaultZoom={10.55}
+            defaultCenter={{lat: 18.220833, lng: -66.590200}}
+        >
+                <Marker 
+                position={currentPosition} 
+                icon={{
+                    url: "/images/personLocation.png",
+                    scaledSize: new window.google.maps.Size(50,50),
+                }}
+                />
+                {beachData.features.map((beach) => (
+                    <Marker key={beach.properties.BEACH_ID} 
+                    position={{lat: beach.geometry.coordinates[0], lng: beach.geometry.coordinates[1]}}
+                    icon={{
+                        url: "/images/beachLocation.png",
+                        scaledSize: new window.google.maps.Size(50,50),
+                    }}
+                    />
+                ))}
+        </GoogleMap>
+    )
+}
+
+const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 
 export class MapContainer extends Component {
-    state = {
-        showingInfoWindow: false,  // Hides or shows the InfoWindow
-        activeMarker: {},          // Shows the active marker upon click
-        selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
-    };
-
-    onMarkerClick = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        });
-
-    onClose = props => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                showingInfoWindow: false,
-                activeMarker: null
-            });
-        }
-    };
-
     render() {
         return (
             <div className="landing_container">
                 <div className="header_container">
                     <Header ></Header>
                 </div>
-                <div className="map_container">
-                    <CurrentLocation
-                        centerAroundCurrentLocation
-                        google={this.props.google}
-                    >
-                        <Marker
-                            onClick={this.onMarkerClick}
-                            name={'Current Location'}
-                            icon={personLocation}
-                        />
-                        <InfoWindow
-                            marker={this.state.activeMarker}
-                            visible={this.state.showingInfoWindow}
-                            onClose={this.onClose}
-                        >
-                            <div>
-                                <h4>{this.state.selectedPlace.name}</h4>
-                            </div>
-                        </InfoWindow>
-                    </CurrentLocation>
+                <div className="map_container" style={{ width: '94vm', height: '94vh' }}>
+                    <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCA2ZMGjdPdwHx6FLSnu0d2Nro6OoukJOA`}
+                        loadingElement={<div style={{ height: "100%" }} />}
+                        containerElement={<div style={{ height: "100%" }} />}
+                        mapElement={<div style={{ height: "100%" }} />}
+                    />
                 </div>
             </div>
         );
     }
 }
 
-
-export default GoogleApiWrapper(
-    (props) => ({
-        apiKey: 'AIzaSyCA2ZMGjdPdwHx6FLSnu0d2Nro6OoukJOA'
-    }
-    ))(MapContainer)
+export default MapContainer;
