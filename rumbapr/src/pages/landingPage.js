@@ -25,7 +25,7 @@ export const Map = () => {
                 <Marker 
                 position={currentPosition} 
                 icon={{
-                    url: "/images/personLocation.jpg",
+                    url: "/images/personLocation.png",
                     scaledSize: new window.google.maps.Size(50,50),
                 }}
                 />
