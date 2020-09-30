@@ -7,6 +7,8 @@ import * as beachData from '../dummy data/beaches.json';
 
 export const Map = () => {
     const [currentPosition, setCurrentPosition] = useState({});
+    const [center, setCenter] = useState({lat: 18.220833, lng: -66.590200});
+    
 
     const success = position => {
         const currentPosition = {
@@ -19,10 +21,13 @@ export const Map = () => {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(success);
     })
+
+
     return (
         <GoogleMap
-            defaultZoom={13}
-            defaultCenter={{lat: 18.220833, lng: -66.590200}}>
+            defaultZoom={10.55}
+            defaultCenter={{lat: 18.220833, lng: -66.590200}}
+        >
                 <Marker 
                 position={currentPosition} 
                 icon={{
@@ -53,7 +58,7 @@ export class MapContainer extends Component {
                 <div className="header_container">
                     <Header ></Header>
                 </div>
-                <div className="map_container" style={{ width: '75vm', height: '75vh' }}>
+                <div className="map_container" style={{ width: '94vm', height: '94vh' }}>
                     <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCA2ZMGjdPdwHx6FLSnu0d2Nro6OoukJOA`}
                         loadingElement={<div style={{ height: "100%" }} />}
                         containerElement={<div style={{ height: "100%" }} />}
