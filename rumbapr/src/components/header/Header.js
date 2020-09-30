@@ -1,58 +1,37 @@
-import React, { useState, useEffect } from 'react';
-// import constants from '../../constants.js';
-import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import { SearchPanel } from "react-search-panel"
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+// import './Header.css'
 
-const choices = [{ key: "38963", description: "The Mandalorian" }, { key: "563", description: "Star Wars: The Clone Wars" }]
+
 
 function Header() {
-    const [input, setInput] = React.useState('');
-    const [selectedChoices, setSelectedChoices] = useState(choices);
     return (
-        <header style={kHeaderStyle}>
-            <Container>
-                <Row md={6} style={headerRowStyle}>
-                    <Button style={homeButton} >LOGO BUTTON</Button>{' '}
-                    <h1 >RumbaPR</h1>
-                    <SearchPanel
-                        choices={choices}
-                        onChange={event => setInput(event.target.value)}
-                        onSelectionChange={setSelectedChoices}
-                        placeholder="Search a place"
-                        selectedChoices={selectedChoices}
-                        value={input}
-                    />
-                    <Button style={homeButton} >ABOUT</Button>{' '}
-                    <Button style={homeButton} >HELP</Button>{' '}
-                    <Button style={homeButton} >PROFILE</Button>{' '}
-
-
-                </Row>
-            </Container>
-        </header>
+        <div>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="#home">RumbaPR</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#about">About</Nav.Link>
+                    <Nav.Link href="#help">Help</Nav.Link>
+                </Nav>
+                <Form inline>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <Button variant="outline-info">Search</Button>
+                </Form>
+                <NavDropdown title="User" id="dropdown-basic-button">
+                    <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Preferences</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action/3.3">Log-out</NavDropdown.Item>
+                </NavDropdown>
+            </Navbar>
+        </div>   
     );
-}
-
-const headerRowStyle = {
-    margin: '20px',
-    padding: '20px'
-}
-
-const homeButton = {
-    borderRadius: '50px',
-    background: '#454D51',
-    boxShadow: '10px 10px 20px #fff, - 10px - 10px 20px #fff'
-}
-
-const kHeaderStyle = {
-    background: '#454D51',
-    color: '#fff',
-    textAlign: 'center',
-    padding: '10px',
-    borderRadius: '0px 0px 22px 22px',
-    flexDirection: "row"
 }
 
 export default Header;

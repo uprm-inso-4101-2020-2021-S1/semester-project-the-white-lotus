@@ -1,0 +1,34 @@
+.header_component {
+    background: #454D51;
+    color: #fff;
+    text-align: 'center';
+    padding: '10px';
+    border-radius: '0px 0px 22px 22px';
+    height: 100px;    
+    width: auto;
+}
+
+.header_button {
+border-radius: 50%;
+background: #454D51;
+box-shadow:  27px 27px 40px #303639, 
+             -27px -27px 40px #5a6469;
+}
+
+.navbar {
+    background: #454D51;
+    height: 110px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mr-auto {
+    margin-right: auto!important;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+} 
