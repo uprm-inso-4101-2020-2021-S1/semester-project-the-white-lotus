@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Header from '../components/header/Header'
 import './landingPage.css'
+import * as beachData from '../dummy data/beaches.json';
 
 
 export const Map = () => {
@@ -20,8 +21,8 @@ export const Map = () => {
     })
     return (
         <GoogleMap
-            defaultZoom={12}
-            center={currentPosition}>
+            defaultZoom={13}
+            defaultCenter={{lat: 18.220833, lng: -66.590200}}>
                 <Marker 
                 position={currentPosition} 
                 icon={{
@@ -29,6 +30,15 @@ export const Map = () => {
                     scaledSize: new window.google.maps.Size(50,50),
                 }}
                 />
+                {beachData.features.map((beach) => (
+                    <Marker key={beach.properties.BEACH_ID} 
+                    position={{lat: beach.geometry.coordinates[0], lng: beach.geometry.coordinates[1]}}
+                    icon={{
+                        url: "/images/beachLocation.png",
+                        scaledSize: new window.google.maps.Size(50,50),
+                    }}
+                    />
+                ))}
         </GoogleMap>
     )
 }
