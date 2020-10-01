@@ -23,12 +23,10 @@ export class HamburgerMenu extends React.Component{
                 <li><a href="#">Filters</a></li>
                 <li><a href="#">Preffered distance</a></li>
                 <div class="slidecontainer">
-                <input type="range" min="1" max="3" value="2" class="slider" id="myDistance" />
-                </div>
+                <input type="range" min="1" max="3" value="2" className="slider" id="myDistance" /></div>
                 <li><a href="#">Price range</a></li>
                 <div class="slidecontainer">
-                <input type="range" min="1" max="3" value="2" class="slider" id="myPrice" />
-                </div>
+                <input type="range" min="1" max="3" value="2" className="slider" id="myPrice" /></div>
                 </ul>
               </div>
             </div>
