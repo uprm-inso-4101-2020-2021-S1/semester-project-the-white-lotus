@@ -1,0 +1,47 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+      "type": "name",
+      "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "BEACH_ID": 960,
+          "NAME": "La Poza del Obispo",
+          "ADDRESS": "8720 Russell Road",
+          "FACILITY_T": "flat",
+          "ACCESSCTRL": "no",
+          "ACCESSIBLE": "no",
+          "OPEN": null,
+          "NOTES": "Beaches",
+          "MODIFIED_D": "2018/01/18",
+          "CREATED_DA": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [18.481989, -66.696747]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "BEACH_ID": 852,
+          "NAME": "Caza y Peza Beach",
+          "ADDRESS": "8720 Russell Road",
+          "FACILITY_T": "flat",
+          "ACCESSCTRL": "no",
+          "ACCESSIBLE": "no",
+          "OPEN": null,
+          "NOTES": "Outdoor",
+          "MODIFIED_D": "2018/01/18",
+          "CREATED_DA": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [18.480919, -66.684413]
+        }
+      }
+    ]
+  }
