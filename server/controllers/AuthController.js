@@ -9,12 +9,20 @@ const register = (req, res, next) => {
                 error: err
             })
         }
+        
+        var address = req.body.address ? req.body.address : ""
+        var commenthistory = req.body.commenthistory ? req.body.commenthistory : []
+        var hashtags = req.body.hashtags ? req.body.hashtags : []
 
         let user = new User({
             name: req.body.name,
+            address: req.body.address,
             email: req.body.email,
             phone: req.body.phone,
-            password: hashedPass
+            password: hashedPass,
+            ishost: req.body.ishost,
+            commenthistory: req.body.commenthistory,
+            hashtags: req.body.hashtags
         })
         user.save()
         .then(user => {
@@ -22,7 +30,7 @@ const register = (req, res, next) => {
                 message: 'User Added Successfully!'
             })
         })
-        .catch(error => {
+        .catch(err => {
             res.json({
                 message: 'Failed to add User.'
             })
@@ -44,7 +52,7 @@ const login = (req, res, next) => {
                     })
                 }
                 if(result) {
-                    let token = jwt.sign({name: user.name}, 'verySecretValue', {expiresIn: '24h'})
+                    let token = jwt.sign({name: user.name}, 'verySecretValue', {expiresIn: '4h'})
                     res.json({
                         message: 'Login Successful!',
                         token
