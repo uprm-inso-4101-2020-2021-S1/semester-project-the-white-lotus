@@ -1,6 +1,6 @@
 .toggler {
     position: absolute;
-    top: 7.5%;
+    top: 72px;
     left: 0;
     z-index: 2;
     cursor: pointer;
@@ -10,8 +10,8 @@
   }
   
   .hamburger {
-    position: absolute;
-    top: 7.5%;
+    position: fixed;
+    top: 72px;
     left: 0;
     z-index: 1;
     width: 60px;
@@ -87,7 +87,7 @@
   
   .menu {
     position: fixed;
-    top: 7.5%;
+    top: 72px;
     left: 0;
     width: 25%;
     height: 75%;
