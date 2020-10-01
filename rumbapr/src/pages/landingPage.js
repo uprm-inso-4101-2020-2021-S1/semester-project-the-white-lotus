@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Header from '../components/header/Header'
+import BurgerMenu from '../components/HamburgerMenu'
 import './landingPage.css'
 import * as beachData from '../dummy data/beaches.json';
 
@@ -65,6 +66,7 @@ export class MapContainer extends Component {
                         mapElement={<div style={{ height: "100%" }} />}
                     />
                 </div>
+                <BurgerMenu />
             </div>
         );
     }
