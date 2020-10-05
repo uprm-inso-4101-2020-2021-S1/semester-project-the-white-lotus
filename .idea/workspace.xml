@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:test-backend" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Removed placeID from Place api.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="AlondraBranch" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hbfcJm78FgZPcJieN0cHphYohy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/api" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/rumbapr" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Server">
+    <configuration name="place.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="place.js" working-dir="$PROJECT_DIR$/server/src/api">
+      <method v="2" />
+    </configuration>
+    <configuration name="RumbaPR" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/rumbapr/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="install" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="install" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.place.js" />
+      <item itemvalue="npm.Server" />
+      <item itemvalue="npm.install" />
+      <item itemvalue="npm.RumbaPR" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.place.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="" />
+      <created>1600284791321</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600284791321</updated>
+      <workItem from="1600284792582" duration="4139000" />
+      <workItem from="1600544574307" duration="571000" />
+      <workItem from="1600645391760" duration="185000" />
+      <workItem from="1600787243967" duration="475000" />
+      <workItem from="1600900636508" duration="337000" />
+      <workItem from="1601321331519" duration="8959000" />
+      <workItem from="1601385979589" duration="5159000" />
+      <workItem from="1601931982673" duration="523000" />
+      <workItem from="1601932510767" duration="701000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
+      <created>1600286221677</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600286221678</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added .env file.">
+      <created>1601337965599</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601337965599</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added .env file.">
+      <created>1601378904003</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601378904003</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added minPrice, maxPrice, ambience and category to Place.">
+      <created>1601929075472</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601929075472</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Made minor changes.">
+      <created>1601932068926</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601932068926</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Removed placeID from Place api.">
+      <created>1601932781017</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601932781017</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test-backend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added the final A3 for RumbaPR." />
+    <MESSAGE value="Added .env file." />
+    <MESSAGE value="Minor workspace changes." />
+    <MESSAGE value="Added minPrice, maxPrice, ambience and category to Place." />
+    <MESSAGE value="Made minor changes." />
+    <MESSAGE value="Removed placeID from Place api." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed placeID from Place api." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="366" y="238" key="#Notifications" timestamp="1601931888990">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="366" y="238" key="#Notifications/0.0.1280.800@0.0.1280.800" timestamp="1601931888990" />
+    <state x="134" y="41" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601930740860">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="134" y="41" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1601930740860" />
+    <state x="378" y="204" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601337438670">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="204" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1601337438670" />
+    <state x="401" y="272" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1601337932703">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="401" y="272" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.800@0.0.1280.800" timestamp="1601337932703" />
+    <state width="1218" height="195" key="GridCell.Tab.0.bottom" timestamp="1601933164903">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="195" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1601933164903" />
+    <state width="1218" height="195" key="GridCell.Tab.0.center" timestamp="1601933164901">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="195" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1601933164901" />
+    <state width="1218" height="195" key="GridCell.Tab.0.left" timestamp="1601933164900">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="195" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1601933164900" />
+    <state width="1218" height="195" key="GridCell.Tab.0.right" timestamp="1601933164902">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1218" height="195" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1601933164902" />
+    <state x="198" y="49" key="SettingsEditor" timestamp="1601928399440">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="198" y="49" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1601928399440" />
+    <state x="242" y="135" key="Vcs.Push.Dialog.v2" timestamp="1601931843216">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1601931843216" />
+    <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601932838700">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1601932838700" />
+    <state x="577" y="0" width="598" height="800" key="find.popup" timestamp="1601391042836">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="577" y="0" width="598" height="800" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601391042836" />
+  </component>
+</project>
