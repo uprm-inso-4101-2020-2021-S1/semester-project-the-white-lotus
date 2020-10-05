@@ -24,7 +24,11 @@ router.post('/new/', async (req, res) => {
     country: req.body.country,
     photos: req.body.photos,
     hashtags: req.body.hashtags,
-    placeID: req.body.name.replace(/\s/g, '').concat(req.body.phone)
+    placeID: req.body.name.replace(/\s/g, '').concat(req.body.phone),
+    ambience: req.body.ambience,
+    category: req.body.category,
+    maximumPrice: req.body.maximumPrice,
+    minimumPrice: req.body.minimumPrice
   });
 
   await place.save();
@@ -114,7 +118,18 @@ router.patch('/update/:id', async (req, res, next) => {
   if (req.body.hashtags) {
     place.hashtags = req.body.hashtags;
   }
-
+  if (req.body.ambience) {
+    place.ambience = req.body.ambience;
+  }
+  if (req.body.minimumPrice) {
+    place.minimumPrice = req.body.minimumPrice;
+  }
+  if (req.body.maximumPrice) {
+    place.maximumPrice = req.body.maximumPrice;
+  }
+  if (req.body.category) {
+    place.category = req.body.category;
+  }
   await place.save();
 
   return res.send(place);
