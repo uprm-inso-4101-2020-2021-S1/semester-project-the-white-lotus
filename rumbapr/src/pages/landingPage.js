@@ -1,15 +1,57 @@
-import React, { Component, useEffect, useState } from 'react';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
+import React, { Component, Fragment, useEffect, useState } from 'react';
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, DirectionsRenderer } from "react-google-maps";
 import Header from '../components/header/Header'
 import BurgerMenu from '../components/HamburgerMenu'
 import './landingPage.css'
-import * as beachData from '../dummy data/beaches.json';
+import * as data from '../dummy data/data.json';
 import mapStyles from './mapStyle';
+
+class DirectionRender extends Component {
+    state = {
+        directions: null,
+        error: null,
+    }
+
+    componentDidMount() {
+        const { currentPosition, destinationLat, destinationLng } = this.props;
+
+        const destinationPosition = {
+            lat: destinationLat,
+            lng: destinationLng
+        }
+        var directionsService = new window.google.maps.DirectionsService();
+        directionsService.route(
+            {
+                origin: currentPosition,
+                destination: destinationPosition,
+                travelMode: window.google.maps.TravelMode.DRIVING,
+                //supressMarkers: true
+            },
+            (result, status) => {
+                if (status === window.google.maps.DirectionsStatus.OK) {
+                    this.setState({
+                        directions: result
+                    });
+                } else {
+                    this.setState({ error: result });
+                }
+            }
+        );
+    }
+
+    render() {
+        if (this.state.error) {
+            return <h1>{this.state.error}</h1>
+        }
+        return (this.state.directions && <DirectionsRenderer directions={this.state.directions} />)
+    }
+}
 
 
 export const Map = () => {
     const [currentPosition, setCurrentPosition] = useState({});
-    
+    const [selectedLocation, setSelectedLocation] = useState(null);
+
 
     const success = position => {
         const currentPosition = {
@@ -27,7 +69,8 @@ export const Map = () => {
     return (
         <GoogleMap
             defaultZoom={10.55}
-            defaultCenter={{lat: 18.220833, lng: -66.590200}}
+            defaultCenter={{ lat: 18.220833, lng: -66.590200 }}
+            // center= {new window.google.maps.LatLng(currentPosition.lat, currentPosition.lng)} // this works but fucks with the centering of the directions
             defaultOptions={{
                 streetViewControl: false,
                 draggable: true, // make map draggable
@@ -35,26 +78,53 @@ export const Map = () => {
                 keyboardShortcuts: false, // disable keyboard shortcuts
                 scaleControl: true, // allow scale controle
                 scrollwheel: true, // allow scroll wheel
-                styles: mapStyles,
-                mapTypeControl: false,
+                styles: mapStyles, // changes the styling of the map
+                mapTypeControl: false, // hides the type of type of maps at the top
+
             }}
         >
-                <Marker 
-                position={currentPosition} 
+            <Marker
+                position={currentPosition}
                 icon={{
                     url: "/images/personLocation.png",
-                    scaledSize: new window.google.maps.Size(50,50),
+                    scaledSize: new window.google.maps.Size(50, 50),
                 }}
-                />
-                {beachData.features.map((beach) => (
-                    <Marker key={beach.properties.BEACH_ID} 
-                    position={{lat: beach.geometry.coordinates[0], lng: beach.geometry.coordinates[1]}}
-                    icon={{
-                        url: "/images/beachLocation.png",
-                        scaledSize: new window.google.maps.Size(50,50),
-                    }}
+            />
+            {data.features.map((location) => (
+                (location.properties.NOTES === "Beaches" &&
+                    <Marker key={location.properties.LOCATION_ID}
+                        onClick={() => {
+                            setSelectedLocation(null);
+                            setSelectedLocation(location);
+                        }}
+                        position={{ lat: location.geometry.coordinates[0], lng: location.geometry.coordinates[1] }}
+                        icon={{
+                            url: "/images/beachLocation.png",
+                            scaledSize: new window.google.maps.Size(50, 50),
+                        }}
                     />
-                ))}
+                )
+                /*(location.properties.NOTES === "Hotels" &&
+                <Marker key={location.properties.LOCATION_ID}
+                    onClick={() => {
+                        setSelectedLocation(null);
+                        setSelectedLocation(location);
+                    }}
+                    position={{ lat: location.geometry.coordinates[0], lng: location.geometry.coordinates[1] }}
+                    icon={{
+                        url: "/images/hotelLocation.png",
+                        scaledSize: new window.google.maps.Size(50, 50),
+                    }}
+                />
+            ) */
+            ))}
+            {selectedLocation && (
+                <DirectionRender currentPosition={currentPosition}
+                    destinationLat={selectedLocation.geometry.coordinates[0]}
+                    destinationLng={selectedLocation.geometry.coordinates[1]}
+                />
+
+            )}
         </GoogleMap>
     )
 }
