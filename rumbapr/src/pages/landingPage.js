@@ -4,11 +4,11 @@ import Header from '../components/header/Header'
 import BurgerMenu from '../components/HamburgerMenu'
 import './landingPage.css'
 import * as beachData from '../dummy data/beaches.json';
+import mapStyles from './mapStyle';
 
 
 export const Map = () => {
     const [currentPosition, setCurrentPosition] = useState({});
-    const [center, setCenter] = useState({lat: 18.220833, lng: -66.590200});
     
 
     const success = position => {
@@ -28,6 +28,16 @@ export const Map = () => {
         <GoogleMap
             defaultZoom={10.55}
             defaultCenter={{lat: 18.220833, lng: -66.590200}}
+            defaultOptions={{
+                streetViewControl: false,
+                draggable: true, // make map draggable
+                zoomControlOptions: { position: 9 },
+                keyboardShortcuts: false, // disable keyboard shortcuts
+                scaleControl: true, // allow scale controle
+                scrollwheel: true, // allow scroll wheel
+                styles: mapStyles,
+                mapTypeControl: false,
+            }}
         >
                 <Marker 
                 position={currentPosition} 
@@ -67,6 +77,7 @@ export class MapContainer extends Component {
                     />
                 </div>
                 <BurgerMenu />
+                <button />
             </div>
         );
     }
