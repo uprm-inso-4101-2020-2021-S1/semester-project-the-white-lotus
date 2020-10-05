@@ -78,7 +78,7 @@ export const Map = () => {
                 keyboardShortcuts: false, // disable keyboard shortcuts
                 scaleControl: true, // allow scale controle
                 scrollwheel: true, // allow scroll wheel
-                //styles: mapStyles, // changes the styling of the map
+                styles: mapStyles, // changes the styling of the map
                 mapTypeControl: false, // hides the type of type of maps at the top
 
             }}
