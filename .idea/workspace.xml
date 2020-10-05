@@ -16,15 +16,17 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:JeanBranch" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Added .env file.">
-      <change afterPath="$PROJECT_DIR$/server/models/Place.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
+    <list default="true" id="30a218ce-3eea-4b75-8f82-67b5f8cb6ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/AuthController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="AlondraBranch" />
+        <entry key="$PROJECT_DIR$" value="test-backend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,6 +75,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.place.js" />
+        <item itemvalue="Node.js.place.js" />
         <item itemvalue="Node.js.place.js" />
       </list>
     </recent_temporary>
@@ -125,7 +129,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="JeanBranch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -179,17 +195,5 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="577" y="0" width="598" height="800" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601391042836" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/api/place.js</url>
-          <line>111</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
