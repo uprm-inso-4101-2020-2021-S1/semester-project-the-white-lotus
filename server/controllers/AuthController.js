@@ -9,11 +9,7 @@ const register = (req, res, next) => {
                 error: err
             })
         }
-        
-        var address = req.body.address ? req.body.address : ""
-        var commenthistory = req.body.commenthistory ? req.body.commenthistory : []
-        var hashtags = req.body.hashtags ? req.body.hashtags : []
-
+                
         let user = new User({
             name: req.body.name,
             address: req.body.address,
