@@ -182,4 +182,29 @@ router.delete('/delete/name/:name', async (req, res, next) => {
   return res.send(result);
 });
 
+// Delete all places
+router.delete('/delete_all/', async (req, res, next) => {
+  // The deleteOne() method returns an object containing three fields.
+  // n – number of matched documents
+  // ok – 1 if the operation was successful
+  // deletedCount – number of documents deletedCount
+  const [err, result] = await to(Place.remove());
+
+  // If an error occurred, throw to handler
+  if (err) {
+    return next(err);
+  }
+
+  // If n is zero, the post was deleted
+  if (!result.n) {
+    res.status(404);
+    return res.send({
+      msg: 'There are no places to delete.'
+    });
+  }
+
+  return res.send(result);
+});
+
+
 module.exports = router;
