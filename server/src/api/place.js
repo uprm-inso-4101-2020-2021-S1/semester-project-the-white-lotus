@@ -24,7 +24,6 @@ router.post('/new/', async (req, res) => {
     country: req.body.country,
     photos: req.body.photos,
     hashtags: req.body.hashtags,
-    placeID: req.body.name.replace(/\s/g, '').concat(req.body.phone),
     ambience: req.body.ambience,
     category: req.body.category,
     maximumPrice: req.body.maximumPrice,
