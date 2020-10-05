@@ -8,9 +8,9 @@
       {
         "type": "Feature",
         "properties": {
-          "BEACH_ID": 960,
+          "LOCATION_ID": 960,
           "NAME": "La Poza del Obispo",
-          "ADDRESS": "8720 Russell Road",
+          "ADDRESS": "Arecibo, 00612",
           "FACILITY_T": "flat",
           "ACCESSCTRL": "no",
           "ACCESSIBLE": "no",
@@ -21,26 +21,45 @@
         },
         "geometry": {
           "type": "Point",
-          "coordinates": [18.481989, -66.696747]
+          "coordinates": [18.481713, -66.696726]
         }
       },
       {
         "type": "Feature",
         "properties": {
-          "BEACH_ID": 852,
-          "NAME": "Caza y Peza Beach",
-          "ADDRESS": "8720 Russell Road",
+          "LOCATION_ID": 852,
+          "NAME": "Playa Mar Chiquita",
+          "ADDRESS": "Tierras Nuevas Poniente, Manatí 00674",
           "FACILITY_T": "flat",
           "ACCESSCTRL": "no",
           "ACCESSIBLE": "no",
           "OPEN": null,
-          "NOTES": "Outdoor",
+          "NOTES": "Beaches",
           "MODIFIED_D": "2018/01/18",
           "CREATED_DA": null
         },
         "geometry": {
           "type": "Point",
-          "coordinates": [18.480919, -66.684413]
+          "coordinates": [18.472710, -66.485428]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "LOCATION_ID": 852,
+          "NAME": "Manati World Point Inn",
+          "ADDRESS": "8720 Russell Road",
+          "FACILITY_T": "flat",
+          "ACCESSCTRL": "no",
+          "ACCESSIBLE": "no",
+          "OPEN": null,
+          "NOTES": "Hotels",
+          "MODIFIED_D": "2018/01/18",
+          "CREATED_DA": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [18.446716, -66.494920]
         }
       }
     ]
