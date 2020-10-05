@@ -36,6 +36,22 @@ const placeSchema = new Schema({
   },
   hashtags: {
     type: Array
+  },
+  ambience: {
+    type: String,
+    required: true
+  },
+  minimumPrice: {
+    type: String,
+    required: true
+  },
+  maximumPrice: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
   }
 }, { timestamps: true });
 
