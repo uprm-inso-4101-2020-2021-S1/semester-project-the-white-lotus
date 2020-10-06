@@ -20,17 +20,17 @@ class DirectionRender extends Component {
             lng: destinationLng
         }
         var directionsService = new window.google.maps.DirectionsService();
+
         directionsService.route(
             {
                 origin: currentPosition,
                 destination: destinationPosition,
                 travelMode: window.google.maps.TravelMode.DRIVING,
-                //supressMarkers: true
             },
             (result, status) => {
                 if (status === window.google.maps.DirectionsStatus.OK) {
                     this.setState({
-                        directions: result
+                        directions: result,
                     });
                 } else {
                     this.setState({ error: result });
@@ -103,20 +103,19 @@ export const Map = () => {
                             scaledSize: new window.google.maps.Size(50, 50),
                         }}
                     />
+                || location.properties.NOTES === "Hotels" &&
+                    <Marker key={location.properties.LOCATION_ID}
+                        onClick={() => {
+                            setSelectedLocation(null);
+                            setSelectedLocation(location);
+                        }}
+                        position={{ lat: location.geometry.coordinates[0], lng: location.geometry.coordinates[1] }}
+                        icon={{
+                            url: "/images/hotelLocation.png",
+                            scaledSize: new window.google.maps.Size(50, 50),
+                        }}
+                    />
                 )
-                /*(location.properties.NOTES === "Hotels" &&
-                <Marker key={location.properties.LOCATION_ID}
-                    onClick={() => {
-                        setSelectedLocation(null);
-                        setSelectedLocation(location);
-                    }}
-                    position={{ lat: location.geometry.coordinates[0], lng: location.geometry.coordinates[1] }}
-                    icon={{
-                        url: "/images/hotelLocation.png",
-                        scaledSize: new window.google.maps.Size(50, 50),
-                    }}
-                />
-            ) */
             ))}
             {selectedLocation && (
                 <DirectionRender currentPosition={currentPosition}
