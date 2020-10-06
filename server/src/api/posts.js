@@ -5,6 +5,22 @@ const to = require('../utils').to;
 // Post model
 const Post = require('../../models/Posts');
 
+
+/**
+ * @swagger
+ * /posts:
+ *  get:
+ *    summary: Use to request all posts
+ *    description: Get all posts stored from database in an array
+ *    tags: 
+ *      - posts
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error ocurred
+ * 
+*/
 // Get all posts
 router.get('/', async (req, res) => {
 
@@ -13,6 +29,30 @@ router.get('/', async (req, res) => {
   res.send(posts);
 });
 
+
+/**
+ * @swagger
+ * /posts:
+ *  post:
+ *    summary: Use to create a post
+ *    description: Create a post and save to database link with user
+ *    tags: 
+ *      - posts
+ *    requestBody:
+ *      description: <p>my description</p> 
+ *      required: true
+ *      content:
+ *        text/plain:
+ *          schema:
+ *            type: string
+ *          example: hello
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error ocurred
+ * 
+*/
 // Create a post
 router.post('/', async (req, res) => {
   
