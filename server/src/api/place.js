@@ -6,19 +6,65 @@ const { to } = require('../utils');
 // Place model
 const Place = require('../../models/Place');
 
-// Get all places
+/**
+ * @swagger
+ * /place/all/:
+ *  get:
+ *    summary: Use to request all places
+ *    description: Get all places stored from database in an array
+ *    tags:
+ *      - place
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error occurred
+ *
+ */
 router.get('/all/', async (req, res) => {
   const places = await Place.find();
 
   res.send(places);
 });
 
-// Create a place
+/**
+ * @swagger
+ * /place/new/:
+ *  post:
+ *    summary: Use to create a place
+ *    description: Create a place and save to database link with user
+ *    tags:
+ *      - places
+ *    requestBody:
+ *        name: <p>name</p>
+ *        required:true
+ *        email: <p>email</p>
+ *        required:true
+ *        phone: <p>phone</p>
+ *        required:true
+ *        address: <p>address</p>
+ *        city: <p>city</p>
+ *        country: <p>country</p>
+ *        photos: <p>photos</p>
+ *        hashtags: <p>hashtags</p>
+ *        ambience: <p>ambience</p>
+ *        category: <p>category</p>
+ *        maximumPrice: <p>maximumPrice</p>
+ *        minimumPrice: <p>minimumPrice</p>
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error occurred
+ *
+ */
 router.post('/new/', async (req, res) => {
   const place = new Place({
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
     address: req.body.address,
     city: req.body.city,
     country: req.body.country,
@@ -101,6 +147,12 @@ router.patch('/update/:id', async (req, res, next) => {
   }
   if (req.body.phone) {
     place.phone = req.body.phone;
+  }
+  if (req.body.longitude) {
+    place.longitude = req.body.longitude;
+  }
+  if (req.body.latitude) {
+    place.latitude = req.body.latitude;
   }
   if (req.body.address) {
     place.address = req.body.address;
@@ -205,6 +257,5 @@ router.delete('/delete_all/', async (req, res, next) => {
 
   return res.send(result);
 });
-
 
 module.exports = router;
