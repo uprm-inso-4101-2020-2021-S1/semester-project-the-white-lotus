@@ -1,23 +1,6 @@
 # RumbaPR
 
-## Problem statement
-
-
-
-## Summary
-
-
-
-## Customer profile
-
-* **WHO** - 
-* **WHAT** - 
-* **WHERE** - 
-* **WHY** - 
-* **WHEN** - 
-* **HOW** - 
-
-## In scope
+## In scope specs
 * Users can see the landing page, but will be asked to sign in to follow hashtags or bookmark any places on the map.
 * Users are able to see the map with their location and places to go.
 * Depending if the user is signed in or not, they'll be able to see preferences, if not signed in, they will prompted to sign in/sign up.
@@ -35,21 +18,9 @@
 * Users are able to acces a host profile where they'll be able to add their own information.
 * As a host user, they'll be able to have recommendations for their clients.
 
-## Out of scope
+## Out of scope specs
 * Users are able to rate and see ratings based on the tips idea.
 * Users are able to filter depending on ratings.
 * Users are able to see the rating in the location popups.
 * Users are able to choose between dark and light mode in their preferences.
 * Users are able to add their calender and the page intelligently gives recommendations on the free time that they have.
-
-
-
-
-## UX
-
-
-## Breakdown of work
-
-|  User Story | Engineering Description  | Assigned to  |
-|---|---|---|
-
