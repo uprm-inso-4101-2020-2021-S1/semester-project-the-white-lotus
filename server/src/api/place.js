@@ -68,6 +68,7 @@ router.post('/new/', async (req, res) => {
     address: req.body.address,
     city: req.body.city,
     country: req.body.country,
+    mood: req.body.mood,
     photos: req.body.photos,
     hashtags: req.body.hashtags,
     ambience: req.body.ambience,
@@ -80,7 +81,37 @@ router.post('/new/', async (req, res) => {
 
   res.send(place);
 });
-
+// Get place using filter
+router.get('/filter/', async (req, res, next) => {
+  const filter = {
+    mainCategory: req.body.mainCategory,
+    ambience: req.body.ambience,
+    mood: req.body.mood,
+    currentLocation: req.body.currentLocation,
+    preferredDistance: req.body.preferredDistance,
+    budget: req.body.budget
+  };
+  const [err, place] = await to(Place
+    .findOne({
+      maximumPrice: { $lte: filter.budget[1] },
+      minimumPrice: { $gte: filter.budget[0] },
+      category: filter.mainCategory,
+      ambience: { $all: [filter.ambience] },
+      mood: { $all: [filter.mood] }
+    }));
+  // If an error occurred, throw to handler
+  if (err) {
+    return next(err);
+  }
+  // If no place corresponds to the filter specifications, return 'not found'
+  if (!place) {
+    res.status(404);
+    return res.send({
+      msg: 'No place was found that matches the request. Try again!'
+    });
+  }
+  return res.send(place);
+});
 // Get individual place
 router.get('/:id', async (req, res, next) => {
   const [err, place] = await to(Place.findOne({ _id: req.params.id }));
@@ -162,6 +193,9 @@ router.patch('/update/:id', async (req, res, next) => {
   }
   if (req.body.country) {
     place.country = req.body.country;
+  }
+  if (req.body.mood) {
+    place.mood = req.body.mood;
   }
   if (req.body.photos) {
     place.photos = req.body.photos;

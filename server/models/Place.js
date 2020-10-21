@@ -36,6 +36,10 @@ const placeSchema = new Schema({
     type: String,
     required: true
   },
+  mood: {
+    type: Array,
+    required: true
+  },
   comments: {
     type: Array
   },
@@ -46,14 +50,14 @@ const placeSchema = new Schema({
     type: Array
   },
   ambience: {
+    type: Array,
+    required: true
+  },
+  maximumPrice: {
     type: String,
     required: true
   },
   minimumPrice: {
-    type: String,
-    required: true
-  },
-  maximumPrice: {
     type: String,
     required: true
   },
