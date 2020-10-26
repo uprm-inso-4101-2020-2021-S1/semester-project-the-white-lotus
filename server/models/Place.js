@@ -44,7 +44,8 @@ const placeSchema = new Schema({
     type: Array
   },
   photos: {
-    type: Array
+    data: Buffer,
+    contentType: String
   },
   hashtags: {
     type: Array
