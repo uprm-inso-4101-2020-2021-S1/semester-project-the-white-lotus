@@ -42,10 +42,9 @@ router.get('/', async (req, res) => {
  *      description: <p>my description</p> 
  *      required: true
  *      content:
- *        text/plain:
+ *        application/json:
  *          schema:
- *            type: string
- *          example: hello
+ *            $ref: '#/components/schemas/Posts'
  *    responses:
  *      '200':
  *        description: A successful response
