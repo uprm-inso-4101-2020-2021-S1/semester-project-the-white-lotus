@@ -19,6 +19,22 @@ app.use(cors());
 app.use(express.json());
 
 
+//import schema
+const Posts = require('../models/Posts');
+const myObj = {
+  "type": "object",
+  "properties": {
+     "title": {
+        "type": "string",
+        "example": "The best title"
+     },
+     "content": {
+        "type": "string",
+        "example": "The best content"
+     }
+  }
+};
+
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
   swaggerDefinition: {
@@ -37,11 +53,16 @@ const swaggerOptions = {
         description: "Local server"
       }
     ],
-    openapi: "3.0.0"
+    openapi: "3.0.0",
+    "components": {
+      "schemas": {
+         "Posts": {...myObj} 
+      }
+    }
   },
   // Directory to routes
   // ex to find within a folder ['./routes/*.js']
-  apis: ["./src/api/posts.js"]
+  apis: ["./src/api/posts.js", "../models/Posts"]
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -49,6 +70,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 
 app.get('/', (req, res) => {
+  console.log(Posts.schema.obj);
   res.json({
     message: '✨🌎Server is running!🌏✨'
   });
