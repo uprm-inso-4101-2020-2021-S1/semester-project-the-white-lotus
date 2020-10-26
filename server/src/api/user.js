@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const to = require('../utils').to;
+const bcrypt = require('bcryptjs')
 
 // User registration authorization
 const AuthController = require('../../controllers/AuthController')
@@ -129,18 +130,27 @@ router.patch('/update/:id', async (req, res, next) => {
 
   /* Update attributes (not allowing email change for now since
      it is unique) */
+  //Updating User name
   if(req.body.name){
     user.name = req.body.name
   }
+
+  //Updating User address
   if(req.body.address){
     user.address = req.body.address
   }
+
+  //Updating User phone
   if(req.body.phone){
     user.phone = req.body.phone
   }
+
+  //Updating user host status
   if(req.body.ishost){
     user.ishost = req.body.ishost
   }
+
+  //Updating User comment history
   if(req.body.comment){
     user.commenthistory.push({
       place: req.body.comment.place,
@@ -148,17 +158,72 @@ router.patch('/update/:id', async (req, res, next) => {
       comment: req.body.comment.comment
     })
   }
+
+  //Updating User hashtag list
   if(req.body.hashtags){
     if(!user.hashtags.includes(req.body.hashtags)){
       user.hashtags.push(req.body.hashtags)
     }
   }
 
-  //TODO: Update password
+  //Updating User password
+  var passErr = false; //Purpose of sending the right response
+  if(req.body.newpassword){ //Password change requested
+    if(req.body.newpassword2){ //Password confirmation
+      if(req.body.newpassword == req.body.newpassword2){ //Make sure both passwords are a match
+        //To change the password, User has to put the current password
+        bcrypt.compare(req.body.currentpassword, user.password, function(err, result) {
+          if(err){
+            passErr = true
+            res.json({
+              error: err
+            })
+          }
+          if(result){
+            //Current password matches with the one input as current, hence we can change password
+            bcrypt.hash(req.body.newpassword, 10, function(err1, hashedPass){
+              if(err1){
+                passErr = true
+                res.json({
+                  error: err1
+                })
+              }
+              user.password = hashedPass
+            })
+          }
+          else {
+            //Input of the current password does not match
+            passErr = true
+            res.json({
+              message: 'Invalid current password! That\'s not your password.'
+            })
+          }
+        })
+      }
+      else { //Both input passwords are not the same
+        passErr = true
+        res.json({
+          message: 'Passwords do not match.'
+        })
+      }
+    }
+    else { //No password confirmation was input
+      passErr = true
+      res.json({
+        message: 'Confirmation password needed!'
+      })
+    }
+  }
 
   // Save and send updated user
   await user.save()
-  res.send(user)
+  if(!passErr){
+    res.send(user)
+  }
+  else {
+    res.send()
+  }
+  
 })
 
 /**
