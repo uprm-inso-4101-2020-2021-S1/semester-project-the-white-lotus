@@ -27,37 +27,120 @@ router.get('/all/', async (req, res) => {
   res.send(places);
 });
 
-/**
- * @swagger
- * /place/new/:
- *  post:
- *    summary: Use to create a place
- *    description: Create a place and save to database link with user
- *    tags:
- *      - places
- *    requestBody:
- *        name: <p>name</p>
- *        required:true
- *        email: <p>email</p>
- *        required:true
- *        phone: <p>phone</p>
- *        required:true
- *        address: <p>address</p>
- *        city: <p>city</p>
- *        country: <p>country</p>
- *        photos: <p>photos</p>
- *        hashtags: <p>hashtags</p>
- *        ambience: <p>ambience</p>
- *        category: <p>category</p>
- *        maximumPrice: <p>maximumPrice</p>
- *        minimumPrice: <p>minimumPrice</p>
- *    responses:
- *      '200':
- *        description: A successful response
- *      '500':
- *        description: An internal server error occurred
- *
- */
+// /**
+//  * @swagger
+//  * /place/new/:
+//  *  post:
+//  *    summary: Use to create a place
+//  *    description: Create a place and save to database link with user
+//  *    tags:
+//  *      - places
+//  *    requestBody:
+//  *      name: <p>name</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: Rumba
+//  *      email: <p>email</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: rumba@eat.com
+//  *      phone: <p>phone</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: 7873060306
+//  *      longitude: <p>longitude</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: 40.7143528
+//  *      latitude: <p>latitude</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: 40.7143528
+//  *      address: <p>address</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: Carr 455 Km. 11.7
+//  *      city: <p>city</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: Ciudad Langosta
+//  *      country: <p>country</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: Treasure Island
+//  *      mood: <p>mood</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: array
+//  *          example: ['Happy', 'Sad']
+//  *      comments: <p>comments</p>
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: array
+//  *          example: ['This is a', 'comment']
+//  *      photos: <p>photos</p>
+//  *      hashtags: <p>hashtags</p>
+//  *      ambience: <p>ambience</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: array
+//  *          example: ['Calm', 'Serene']
+//  *      maximumPrice: <p>maximumPrice</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: 35
+//  *      minimumPrice: <p>minimumPrice</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: 60
+//  *      category: <p>category</p>
+//  *      required:true
+//  *      content:
+//  *        text/plain:
+//  *          schema:
+//  *            type: string
+//  *          example: Nature
+//  *    responses:
+//  *      '200':
+//  *        description: A successful response
+//  *      '500':
+//  *        description: An internal server error occurred
+//  */
 router.post('/new/', async (req, res) => {
   const place = new Place({
     name: req.body.name,
@@ -68,6 +151,7 @@ router.post('/new/', async (req, res) => {
     address: req.body.address,
     city: req.body.city,
     country: req.body.country,
+    mood: req.body.mood,
     photos: req.body.photos,
     hashtags: req.body.hashtags,
     ambience: req.body.ambience,
@@ -81,7 +165,42 @@ router.post('/new/', async (req, res) => {
   res.send(place);
 });
 
-// Get individual place
+// Get place using filter
+router.get('/filter/', async (req, res, next) => {
+  const filter = {
+    mainCategory: req.body.mainCategory,
+    ambience: req.body.ambience,
+    mood: req.body.mood,
+    currentLocation: req.body.currentLocation,
+    preferredDistance: req.body.preferredDistance,
+    budget: req.body.budget
+  };
+  const [err, places] = await to(Place
+    .find({
+      maximumPrice: { $lte: filter.budget[1] },
+      minimumPrice: { $gte: filter.budget[0] },
+      // TODO: Location
+      category: filter.mainCategory,
+      ambience: { $all: [filter.ambience] },
+      mood: { $all: [filter.mood] }
+    }));
+  const randomIndex = Math.floor(Math.random() * Math.floor(places.length));
+  const place = places[randomIndex];
+  // If an error occurred, throw to handler
+  if (err) {
+    return next(err);
+  }
+  // If no place corresponds to the filter specifications, return 'not found'
+  if (!place) {
+    res.status(404);
+    return res.send({
+      msg: 'No place was found that matches the request. Try again!'
+    });
+  }
+  return res.send(place);
+});
+
+// Get individual place by id
 router.get('/:id', async (req, res, next) => {
   const [err, place] = await to(Place.findOne({ _id: req.params.id }));
 
@@ -121,7 +240,7 @@ router.get('/name/:name', async (req, res, next) => {
   return res.send(place);
 });
 
-// Update individual place
+// Update individual place by id
 router.patch('/update/:id', async (req, res, next) => {
   const [err, place] = await to(Place.findOne({ _id: req.params.id }));
 
@@ -163,6 +282,9 @@ router.patch('/update/:id', async (req, res, next) => {
   if (req.body.country) {
     place.country = req.body.country;
   }
+  if (req.body.mood) {
+    place.mood = req.body.mood;
+  }
   if (req.body.photos) {
     place.photos = req.body.photos;
   }
@@ -186,7 +308,7 @@ router.patch('/update/:id', async (req, res, next) => {
   return res.send(place);
 });
 
-// Delete individual place
+// Delete individual place by id
 router.delete('/delete/:id', async (req, res, next) => {
   // The deleteOne() method returns an object containing three fields.
   // n – number of matched documents
