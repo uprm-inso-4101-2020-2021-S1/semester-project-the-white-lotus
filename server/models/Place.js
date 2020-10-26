@@ -16,6 +16,14 @@ const placeSchema = new Schema({
     type: String,
     required: true
   },
+  longitude: {
+    type: String,
+    required: true
+  },
+  latitude: {
+    type: String,
+    required: true
+  },
   address: {
     type: String,
     required: true
@@ -28,24 +36,29 @@ const placeSchema = new Schema({
     type: String,
     required: true
   },
+  mood: {
+    type: Array,
+    required: true
+  },
   comments: {
     type: Array
   },
   photos: {
-    type: Array
+    data: Buffer,
+    contentType: String
   },
   hashtags: {
     type: Array
   },
   ambience: {
+    type: Array,
+    required: true
+  },
+  maximumPrice: {
     type: String,
     required: true
   },
   minimumPrice: {
-    type: String,
-    required: true
-  },
-  maximumPrice: {
     type: String,
     required: true
   },
