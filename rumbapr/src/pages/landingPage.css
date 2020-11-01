@@ -14,7 +14,7 @@
 .for_you_page {
     position: absolute;
     top: 72px;
-    left: 200px;
+    left: 245px;
     z-index: 1;
     display: flex;
     align-items: center;
