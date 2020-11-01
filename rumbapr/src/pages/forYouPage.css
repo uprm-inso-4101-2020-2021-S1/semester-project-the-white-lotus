@@ -1,4 +1,9 @@
+.for_container {
+    background-color: #303639;
+}
+
 .container_cards {
     position: absolute;
-    padding-left: 3px;
+    top: 90px;
+    align-items: center;
 }
