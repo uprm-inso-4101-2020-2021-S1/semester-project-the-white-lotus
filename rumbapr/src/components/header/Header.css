@@ -31,4 +31,7 @@ box-shadow:  27px 27px 40px #303639,
 .nav-link {
     display: block;
     padding: .5rem 1rem;
-} 
+}
+.nav_link {
+    color: #ffffff;
+}

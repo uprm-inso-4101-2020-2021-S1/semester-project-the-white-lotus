@@ -1,12 +1,14 @@
 import React, { Component, useEffect, useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, DirectionsRenderer } from "react-google-maps";
+import { NavLink } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import Header from '../components/header/Header'
-import BurgerMenu from '../components/HamburgerMenu'
-import './landingPage.css'
+import Button from 'react-bootstrap/Button';
+import Header from '../components/header/Header';
+import BurgerMenu from '../components/HamburgerMenu';
+import './landingPage.css';
 import * as data from '../dummy data/data.json';
 import mapStyles from './mapStyle';
+import 'reactjs-popup/dist/index.css';
 
 let message = ``;
 let count = 0;
@@ -179,9 +181,9 @@ export class MapContainer extends Component {
                 <BurgerMenu />
                 <Popup
                     trigger={
-                        <button type="button" className="button">
+                        <Button variant="dark" className = "top_button" type="button">
                             Try Out Adding
-                        </button>
+                        </Button>
                     }
                     position={['top center', 'bottom right', 'bottom left']}
                     closeOnDocumentClick
@@ -189,10 +191,10 @@ export class MapContainer extends Component {
                     <p>Please enter the place details</p>
                     <p><label>Title: </label><input type="text" ref="title" /></p>
                     <p><label>Content: </label><input type="text" ref="content" /></p>
-                    <button onClick={this.onCreateEntry}>Done</button>
+                    <Button variant="secondary" onClick={this.onCreateEntry}>Enter</Button>
                     <p>{message}</p>
                 </Popup>
-
+                <Button variant="dark" className="for_you_page"><NavLink className="nav_link" to="/foryou">For You</NavLink></Button>
             </div>
         );
     }

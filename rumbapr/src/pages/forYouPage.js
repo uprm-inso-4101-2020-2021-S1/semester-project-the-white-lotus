@@ -1,12 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import Header from '../components/header/Header';
 
 const forYouPage = () => {
     return(
-        <div>
-            <h1>For You</h1>
-            <p>Something something</p>
-            <button><NavLink to="/">Home</NavLink></button>
+        <div className="header_container">
+            <Header />
         </div>
     )
 }
