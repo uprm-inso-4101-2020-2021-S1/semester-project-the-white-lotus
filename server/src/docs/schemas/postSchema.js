@@ -3,11 +3,13 @@ const postSchema = {
   "properties": {
      "title": {
         "type": "string",
-        "example": "The best title"
+        "example": "The best title",
+        "required": true
      },
      "content": {
         "type": "string",
-        "example": "The best content"
+        "example": "The best content",
+        "required": true
      }
   }
 };
