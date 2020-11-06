@@ -1,4 +1,5 @@
 
+const placeSchema = require("./schemas/placeSchema")
 const postSchema = require("./schemas/postSchema")
 
 // Extended: https://swagger.io/specification/#infoObject
@@ -22,13 +23,14 @@ const swaggerOptions = {
     openapi: "3.0.0",
     "components": {
       "schemas": {
-         "Posts": {...postSchema} 
+         "Posts": {...postSchema},
+         "Place": {...placeSchema},
       }
     }
   },
   // Directory to routes
   // ex to find within a folder ['./routes/*.js']
-  apis: ["./src/api/posts.js", "../models/Posts"]
+  apis: ["./src/api/*.js", "../models/Posts"]
 };
 
 module.exports = swaggerOptions
