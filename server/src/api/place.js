@@ -415,27 +415,27 @@ router.delete('/delete/name/:name', async (req, res, next) => {
   return res.send(result);
 });
 
-/**
- * @swagger
- * /place/delete_all:
- *  delete:
- *    summary: Use to delete ALL places in database
- *    security:
- *      - OAuth2: [admin]
- *    description: Deletes all places from database, effectively clearing out all entries
- *    tags:
- *      - places
- *    responses:
- *      '200':
- *        description: A successful response
- *      '401':
- *        description: Not authorized
- *      '404':
- *        description: No places found to delete
- *      '500':
- *        description: An internal server error ocurred
- *
-*/
+// /**
+//  * @swagger
+//  * /place/delete_all:
+//  *  delete:
+//  *    summary: Use to delete ALL places in database
+//  *    security:
+//  *      - OAuth2: [admin]
+//  *    description: Deletes all places from database, effectively clearing out all entries
+//  *    tags:
+//  *      - places
+//  *    responses:
+//  *      '200':
+//  *        description: A successful response
+//  *      '401':
+//  *        description: Not authorized
+//  *      '404':
+//  *        description: No places found to delete
+//  *      '500':
+//  *        description: An internal server error ocurred
+//  *
+// */
 // Delete all places
 router.delete('/delete_all/', async (req, res, next) => {
   // The deleteOne() method returns an object containing three fields.
