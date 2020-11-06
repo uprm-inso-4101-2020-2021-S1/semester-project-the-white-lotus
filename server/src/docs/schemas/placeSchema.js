@@ -46,7 +46,7 @@ const placeSchema = {
       "items": {
         "type":"string"
       },
-      "example": "['Happy', 'Sad']",
+      "example": ['Happy', 'Sad'],
       "required": true
     },
     "comments": {
@@ -54,7 +54,7 @@ const placeSchema = {
       "items": {
         "type":"string"
       },
-      "example": "['This is a', 'comment']",
+      "example": ['This is a', 'comment'],
       "required": true
     },
     "photos": {
@@ -67,6 +67,7 @@ const placeSchema = {
       "items": {
         "type":"string"
       },
+      "example": ['foodies', 'hangout'],
       "required": false
     },
     "ambience": {
@@ -74,7 +75,7 @@ const placeSchema = {
       "items": {
         "type":"string"
       },
-      "example": "['Calm', 'Serene']",
+      "example": ['Calm', 'Serene'],
       "required": true
     },
     "maximumPrice": {

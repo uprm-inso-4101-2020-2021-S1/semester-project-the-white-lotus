@@ -132,6 +132,8 @@ router.get('/:id', async (req, res, next) => {
  *    responses:
  *      '200':
  *        description: A successful response
+ *      '404':
+ *        description: Post was not found
  *      '500':
  *        description: An internal server error ocurred
  *

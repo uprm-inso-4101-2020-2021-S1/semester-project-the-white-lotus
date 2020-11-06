@@ -1,5 +1,6 @@
 
 const placeSchema = require("./schemas/placeSchema")
+const filterSchema = require("./schemas/filterSchema")
 const postSchema = require("./schemas/postSchema")
 
 // Extended: https://swagger.io/specification/#infoObject
@@ -25,6 +26,7 @@ const swaggerOptions = {
       "schemas": {
          "Posts": {...postSchema},
          "Place": {...placeSchema},
+         "Place-Filter": {...filterSchema},
       }
     }
   },
