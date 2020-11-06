@@ -15,18 +15,25 @@ export class HamburgerMenu extends React.Component{
             <div>
               <div>
                 <ul>
-                <NavDropdown title="Type of location" id="dropdown-basic-button">
-                  <NavDropdown.Item href="#action/3.1">Food</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">Hotel</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Attraction</NavDropdown.Item>
-                </NavDropdown>
+                  <div className="myPlace">
+                    <select id="myPlace" on change="place()">
+                      <option>Any</option>
+                      <option>Food</option>
+                      <option>Hotel</option>
+                      <option>Attraction</option>
+                    </select>
+                  </div>
                 <li><a href="#">Filters</a></li>
+                <p><input type="checkbox" className="filters" id="filter1" /> Filter1</p>
+                <p><input type="checkbox" className="filters" id="filter2" /> Filter2</p>
+                <p><input type="checkbox" className="filters" id="filter3" /> Filter3</p>
+                <p><input type="checkbox" className="filters" id="filter4" /> Filter4</p>
                 <li><a href="#">Preffered distance</a></li>
                 <div class="slidecontainer">
-                <input type="range" min="1" max="3" value="2" className="slider" id="myDistance" /></div>
+                <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myDistance" /></div>
                 <li><a href="#">Price range</a></li>
                 <div class="slidecontainer">
-                <input type="range" min="1" max="3" value="2" className="slider" id="myPrice" /></div>
+                <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myPrice" /></div>
                 </ul>
               </div>
             </div>
