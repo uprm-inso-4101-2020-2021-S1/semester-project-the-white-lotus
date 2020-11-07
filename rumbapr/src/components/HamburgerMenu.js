@@ -2,6 +2,7 @@ import React from 'react';
 import './HamburgerMenuDesigns/HamburgerMenu.css'
 import './HamburgerMenuDesigns/btnStyle.css'
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import SimpleSlider from './carousel/carousel.js'
 
 export class HamburgerMenu extends React.Component{
   render(){
@@ -38,6 +39,7 @@ export class HamburgerMenu extends React.Component{
               </div>
             </div>
           </div>
+          <SimpleSlider />
         </body>
       </div>
     )
