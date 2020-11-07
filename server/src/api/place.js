@@ -117,7 +117,7 @@ router.get('/name/:name', async (req, res, next) => {
 /**
  * @swagger
  * /place/filter:
- *  get:
+ *  post:
  *    summary: Use to get a list of places based on filters
  *    description: Uses attributes from the JSON in the request body to filter potential places
  *    tags:
@@ -139,7 +139,7 @@ router.get('/name/:name', async (req, res, next) => {
  *
  */
 // Get place using filter
-router.get('/filter/', async (req, res, next) => {
+router.post('/filter/', async (req, res, next) => {
   const filter = {
     mainCategory: req.body.mainCategory,
     ambience: req.body.ambience,
