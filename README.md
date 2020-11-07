@@ -24,3 +24,8 @@
 * Users are able to see the rating in the location popups.
 * Users are able to choose between dark and light mode in their preferences.
 * Users are able to add their calender and the page intelligently gives recommendations on the free time that they have.
+
+## Documentation
+* Initial Proporsal: https://docs.google.com/document/d/1H3lkBx6oMpjgmM7BR4CGF4J3nNoSpFuRQV3Vj0bmJcU/edit?usp=sharing
+* Phase 1: https://docs.google.com/document/d/16ZS4BWtjmVh8Io5dPD5IYny3DR6phKR5HPvtG9ygrOA/edit?usp=sharing
+* Phase 2 (in progress): https://docs.google.com/document/d/1I5hf5RgWb_I--fPXxWE0h14rcW_mkNc_JwiyypgQfUc/edit?usp=sharing
