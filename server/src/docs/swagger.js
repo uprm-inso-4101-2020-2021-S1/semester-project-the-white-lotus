@@ -2,6 +2,7 @@
 const placeSchema = require("./schemas/placeSchema")
 const filterSchema = require("./schemas/filterSchema")
 const postSchema = require("./schemas/postSchema")
+const userScehma = require("./schemas/userSchema")
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
@@ -24,9 +25,10 @@ const swaggerOptions = {
     openapi: "3.0.0",
     "components": {
       "schemas": {
-         "Posts": {...postSchema},
-         "Place": {...placeSchema},
-         "Place-Filter": {...filterSchema},
+        "User": {...userScehma},
+        "Place": {...placeSchema},
+        "Place-Filter": {...filterSchema},
+        "Posts": {...postSchema},
       }
     }
   },
