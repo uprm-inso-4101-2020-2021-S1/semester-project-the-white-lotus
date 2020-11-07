@@ -19,12 +19,12 @@ const userSchema = {
      },
      "phone": {
       "type": "string",
-      "example": "estudiante@colegio.com",
+      "example": "787-825-8888",
       "required": false,
      },
      "password": {
       "type": "string",
-      "example": "********",
+      "example": "password1234",
       "required": true
      },
      "ishost": {
