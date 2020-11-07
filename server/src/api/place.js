@@ -26,112 +26,6 @@ router.get('/all/', async (req, res) => {
 
   res.send(places);
 });
-
-/**
- * @swagger
- * /place/new/:
- *  post:
- *    summary: Use to create a place
- *    description: Create a place and save to database link with user
- *    tags:
- *      - places
- *    requestBody:
- *      description: <p>Example below</p>
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/Place'
- *    responses:
- *      '200':
- *        description: A successful response
- *      '500':
- *        description: An internal server error occurred
- */
-router.post('/new/', async (req, res) => {
-  const place = new Place({
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    longitude: req.body.longitude,
-    latitude: req.body.latitude,
-    address: req.body.address,
-    city: req.body.city,
-    country: req.body.country,
-    mood: req.body.mood,
-    photos: req.body.photos,
-    hashtags: req.body.hashtags,
-    ambience: req.body.ambience,
-    comments: req.body.comments,
-    category: req.body.category,
-    maximumPrice: req.body.maximumPrice,
-    minimumPrice: req.body.minimumPrice
-  });
-
-  await place.save();
-
-  res.send(place);
-});
-
-/**
- * @swagger
- * /place/filter:
- *  post:
- *    summary: Use to get a list of places based on filters
- *    description: Uses attributes from the JSON in the request body to filter potential places
- *    tags:
- *      - places
- *    requestBody:
- *      description: <p>Example below</p>
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/Place-Filter'
- *    responses:
- *      '200':
- *        description: A successful response
- *      '404':
- *        description: No place was found that matches the request.
- *      '500':
- *        description: An internal server error ocurred
- *
-*/
-// Get place using filter
-router.post('/filter/', async (req, res, next) => {
-  const filter = {
-    mainCategory: req.body.mainCategory,
-    ambience: req.body.ambience,
-    mood: req.body.mood,
-    currentLocation: req.body.currentLocation,
-    preferredDistance: req.body.preferredDistance,
-    budget: req.body.budget
-  };
-  const [err, places] = await to(Place
-    .find({
-      maximumPrice: { $lte: filter.budget[1] },
-      minimumPrice: { $gte: filter.budget[0] },
-      // TODO: Location
-      category: filter.mainCategory,
-      ambience: { $all: [filter.ambience] },
-      mood: { $all: [filter.mood] }
-    }));
-  const randomIndex = Math.floor(Math.random() * Math.floor(places.length));
-  const place = places[randomIndex];
-  // If an error occurred, throw to handler
-  if (err) {
-    return next(err);
-  }
-  // If no place corresponds to the filter specifications, return 'not found'
-  if (!place) {
-    res.status(404);
-    return res.send({
-      msg: 'No place was found that matches the request. Try again!'
-    });
-  }
-  return res.send(place);
-});
-
 /**
  * @swagger
  * /place/{id}:
@@ -220,6 +114,109 @@ router.get('/name/:name', async (req, res, next) => {
   return res.send(place);
 });
 
+/**
+ * @swagger
+ * /place/filter:
+ *  get:
+ *    summary: Use to get a list of places based on filters
+ *    description: Uses attributes from the JSON in the request body to filter potential places
+ *    tags:
+ *      - places
+ *    requestBody:
+ *      description: <p>Example below</p>
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Place-Filter'
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '404':
+ *        description: No place was found that matches the request.
+ *      '500':
+ *        description: An internal server error ocurred
+ *
+ */
+// Get place using filter
+router.get('/filter/', async (req, res, next) => {
+  const filter = {
+    mainCategory: req.body.mainCategory,
+    ambience: req.body.ambience,
+    mood: req.body.mood,
+    currentLocation: req.body.currentLocation,
+    preferredDistance: req.body.preferredDistance,
+    budget: req.body.budget
+  };
+  const [err, places] = await to(Place
+    .find({
+      maximumPrice: { $lte: filter.budget[1] },
+      minimumPrice: { $gte: filter.budget[0] },
+      // TODO: Location
+      category: filter.mainCategory,
+      ambience: { $all: [filter.ambience] },
+      mood: { $all: [filter.mood] }
+    }));
+  const randomIndex = Math.floor(Math.random() * Math.floor(places.length));
+  const place = places[randomIndex];
+  // If an error occurred, throw to handler
+  if (err) {
+    return next(err);
+  }
+  // If no place corresponds to the filter specifications, return 'not found'
+  if (!place) {
+    res.status(404);
+    return res.send({
+      msg: 'No place was found that matches the request. Try again!'
+    });
+  }
+  return res.send(place);
+});
+/**
+ * @swagger
+ * /place/new/:
+ *  post:
+ *    summary: Use to create a place
+ *    description: Create a place and save to database link with user
+ *    tags:
+ *      - places
+ *    requestBody:
+ *      description: <p>Example below</p>
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Place'
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error occurred
+ */
+router.post('/new/', async (req, res) => {
+  const place = new Place({
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    longitude: req.body.longitude,
+    latitude: req.body.latitude,
+    address: req.body.address,
+    city: req.body.city,
+    country: req.body.country,
+    mood: req.body.mood,
+    photos: req.body.photos,
+    hashtags: req.body.hashtags,
+    ambience: req.body.ambience,
+    comments: req.body.comments,
+    category: req.body.category,
+    maximumPrice: req.body.maximumPrice,
+    minimumPrice: req.body.minimumPrice
+  });
+
+  await place.save();
+
+  res.send(place);
+});
 /**
  * @swagger
  * /place/update/{id}:
@@ -438,33 +435,26 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 // */
 // Delete all places
 router.delete('/delete_all/', async (req, res, next) => {
-  // The deleteOne() method returns an object containing three fields.
-  // n – number of matched documents
-  // ok – 1 if the operation was successful
-  // deletedCount – number of documents deletedCount
-  
   res.status(401);
   return res.send({
     msg: 'Not authorized'
   });
-  
-  const [err, result] = await to(Place.remove());
-
- 
-  // If an error occurred, throw to handler
-  if (err) {
-    return next(err);
-  }
-
-  // If n is zero, the post was deleted
-  if (!result.n) {
-    res.status(404);
-    return res.send({
-      msg: 'There are no places to delete.'
-    });
-  }
-
-  return res.send(result);
+  //
+  // const [err, result] = await to(Place.remove());
+  //
+  // // If an error occurred, throw to handler
+  // if (err) {
+  //   return next(err);
+  // }
+  //
+  // // If n is zero, the post was deleted
+  // if (!result.n) {
+  //   res.status(404);
+  //   return res.send({
+  //     msg: 'There are no places to delete.'
+  //   });
+  // }
+  // return res.send(result);
 });
 
 module.exports = router;

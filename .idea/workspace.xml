@@ -25,11 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Removed placeID from Place api.">
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Organized swagger (place).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Place.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/api/place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/posts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="AlondraBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,7 +82,7 @@
       <recent name="$PROJECT_DIR$/rumbapr" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.RumbaPR">
+  <component name="RunManager" selected="npm.Server">
     <configuration name="place.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="place.js" working-dir="$PROJECT_DIR$/server/src/api">
       <method v="2" />
     </configuration>
@@ -111,12 +109,14 @@
     </configuration>
     <list>
       <item itemvalue="Node.js.place.js" />
+      <item itemvalue="npm.RumbaPR" />
       <item itemvalue="npm.Server" />
       <item itemvalue="npm.install" />
-      <item itemvalue="npm.RumbaPR" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.place.js" />
+        <item itemvalue="Node.js.place.js" />
         <item itemvalue="Node.js.place.js" />
         <item itemvalue="Node.js.place.js" />
       </list>
@@ -147,6 +147,7 @@
       <workItem from="1603738570965" duration="893000" />
       <workItem from="1603739707327" duration="1732000" />
       <workItem from="1603743091149" duration="4996000" />
+      <workItem from="1604613060860" duration="2200000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -235,7 +236,8 @@
     <MESSAGE value="Made minor changes." />
     <MESSAGE value="Removed placeID from Place api." />
     <MESSAGE value="Progress with place filter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Progress with place filter." />
+    <MESSAGE value="Organized swagger (place)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Organized swagger (place)." />
   </component>
   <component name="WindowStateProjectService">
     <state x="503" y="293" key="#ESLint" timestamp="1603301884730">
@@ -258,22 +260,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="401" y="272" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.800@0.0.1280.800" timestamp="1601337932703" />
-    <state width="1057" height="114" key="GridCell.Tab.0.bottom" timestamp="1603749068079">
+    <state width="1057" height="114" key="GridCell.Tab.0.bottom" timestamp="1604783650034">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1603749068079" />
-    <state width="1057" height="114" key="GridCell.Tab.0.center" timestamp="1603749068078">
+    <state width="1057" height="114" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604783650034" />
+    <state width="1057" height="114" key="GridCell.Tab.0.center" timestamp="1604783650033">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1603749068078" />
-    <state width="1057" height="114" key="GridCell.Tab.0.left" timestamp="1603749068077">
+    <state width="1057" height="114" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604783650033" />
+    <state width="1057" height="114" key="GridCell.Tab.0.left" timestamp="1604783650032">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1603749068077" />
-    <state width="1057" height="114" key="GridCell.Tab.0.right" timestamp="1603749068078">
+    <state width="1057" height="114" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604783650032" />
+    <state width="1057" height="114" key="GridCell.Tab.0.right" timestamp="1604783650033">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1603749068078" />
+    <state width="1057" height="114" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604783650033" />
     <state width="1253" height="188" key="GridCell.Tab.1.bottom" timestamp="1603311540870">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -330,21 +332,21 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="198" y="49" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1601928399440" />
-    <state x="242" y="135" key="Vcs.Push.Dialog.v2" timestamp="1603749372868">
+    <state x="242" y="135" key="Vcs.Push.Dialog.v2" timestamp="1604783497054">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1603749372868" />
-    <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603749162905">
+    <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604783497054" />
+    <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604781250068">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1603749162905" />
+    <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1604781250068" />
     <state x="577" y="0" width="598" height="800" key="find.popup" timestamp="1601391042836">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="577" y="0" width="598" height="800" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601391042836" />
-    <state x="267" y="106" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603749251681">
+    <state x="267" y="106" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603749955286">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="267" y="106" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.800@0.0.1280.800" timestamp="1603749251681" />
+    <state x="267" y="106" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.800@0.0.1280.800" timestamp="1603749955286" />
   </component>
 </project>
