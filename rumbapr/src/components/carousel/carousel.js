@@ -10,32 +10,42 @@ export default class SimpleSlider extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      centerMode: true,
+      //adaptiveHeight: true,
+      arrows: true,
+      //autoplaySpeed: 1,
+      //autoplay: true
+
     };
     return (
       <div>
-        <h2> Single Item</h2>
         <Slider {...settings}>
           <div>
-            <h3>1</h3>
+            <h3>Image-1</h3>
           </div>
           <div>
-            <h3>2</h3>
+            <h3>Image-2</h3>
           </div>
           <div>
-            <h3>3</h3>
+            <h3>Image-3</h3>
           </div>
           <div>
-            <h3>4</h3>
+            <h3>Image-4</h3>
           </div>
           <div>
-            <h3>5</h3>
+            <h3>Image-5</h3>
           </div>
           <div>
-            <h3>6</h3>
+            <h3>Image-6</h3>
           </div>
         </Slider>
       </div>
     );
   }
 }
+
+var img = document.createElement('img')
+
+img.src = "https://media.cntraveler.com/photos/59ef91dd8d4f736d51415c2e/master/w_2667,h_2000,c_limit/7MileBeach-2013-HiRes.jpg"
+

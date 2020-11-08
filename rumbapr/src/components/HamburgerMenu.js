@@ -35,11 +35,12 @@ export class HamburgerMenu extends React.Component{
                 <li><a href="#">Price range</a></li>
                 <div class="slidecontainer">
                 <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myPrice" /></div>
+                <li><a href="#">Hashtags</a></li>
+                <SimpleSlider />
                 </ul>
               </div>
             </div>
           </div>
-          <SimpleSlider />
         </body>
       </div>
     )
