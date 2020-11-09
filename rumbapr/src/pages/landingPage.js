@@ -1,10 +1,17 @@
-import React, { Component, Fragment, useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, DirectionsRenderer } from "react-google-maps";
-import Header from '../components/header/Header'
-import BurgerMenu from '../components/HamburgerMenu'
-import './landingPage.css'
+import { NavLink } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import Button from 'react-bootstrap/Button';
+import Header from '../components/header/Header';
+import BurgerMenu from '../components/HamburgerMenu';
+import './landingPage.css';
 import * as data from '../dummy data/data.json';
 import mapStyles from './mapStyle';
+import 'reactjs-popup/dist/index.css';
+
+let message = ``;
+let count = 0;
 
 class DirectionRender extends Component {
     state = {
@@ -60,6 +67,13 @@ export const Map = () => {
         }
         setCurrentPosition(currentPosition);
     };
+
+    useEffect( () => {
+        const apiUrl = 'http://localhost:5000/api/v2/posts';
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => console.log('This is your data', data));
+    }, [count])
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(success);
@@ -132,6 +146,25 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 
 export class MapContainer extends Component {
+
+    onCreateEntry = () => {
+        let info = {
+            title: this.refs.title.value,
+            content: this.refs.content.value
+        };
+
+        fetch('http://localhost:5000/api/v2/posts', {
+            method: 'POST',
+            headers: {'Content-type' : 'application/json'},
+            body: JSON.stringify(info)
+        }).then(r=> r.json().then(res=> {
+            if(res) {
+                message = 'Added!';
+                count++;
+            }
+        }))
+    }
+
     render() {
         return (
             <div className="landing_container">
@@ -146,7 +179,22 @@ export class MapContainer extends Component {
                     />
                 </div>
                 <BurgerMenu />
-                <button />
+                <Popup
+                    trigger={
+                        <Button variant="dark" className = "top_button" type="button">
+                            Try Out Adding
+                        </Button>
+                    }
+                    position={['top center', 'bottom right', 'bottom left']}
+                    closeOnDocumentClick
+                >
+                    <p>Please enter the place details</p>
+                    <p><label>Title: </label><input type="text" ref="title" /></p>
+                    <p><label>Content: </label><input type="text" ref="content" /></p>
+                    <Button variant="secondary" onClick={this.onCreateEntry}>Enter</Button>
+                    <p>{message}</p>
+                </Popup>
+                <Button variant="dark" className="for_you_page"><NavLink className="nav_link" to="/foryou">For You</NavLink></Button>
             </div>
         );
     }

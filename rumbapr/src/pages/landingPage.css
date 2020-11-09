@@ -2,3 +2,25 @@
     margin-top: 0.1em;
     border-radius: 100em;
 }
+.top_button {
+    position: absolute;
+    top: 72px;
+    left: 63px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.for_you_page {
+    position: absolute;
+    top: 72px;
+    left: 240px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_link {
+    color: #ffffff;
+}
