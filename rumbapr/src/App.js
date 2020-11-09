@@ -15,7 +15,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/" component={landingPage} exact/>
             <Route path="/foryou" component={forYouPage}/>
-            <Route path="/about" component={about}/>
+            <Route path="/about" component={about} exact />
             <Route component={Error}/>
           </Switch>
         </div>
