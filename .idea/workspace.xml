@@ -26,7 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Organized swagger (place).">
-      <change beforePath="$PROJECT_DIR$/server/src/api/place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rumbapr/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rumbapr/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/components/header/Header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +64,7 @@
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rumbapr/src/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,13 +78,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rumbapr/src/pages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/api" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/rumbapr" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Server">
+  <component name="RunManager" selected="npm.RumbaPR">
     <configuration name="place.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="place.js" working-dir="$PROJECT_DIR$/server/src/api">
       <method v="2" />
     </configuration>
@@ -266,22 +272,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="401" y="272" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.800@0.0.1280.800" timestamp="1601337932703" />
-    <state width="1057" height="114" key="GridCell.Tab.0.bottom" timestamp="1604783650034">
+    <state width="1057" height="114" key="GridCell.Tab.0.bottom" timestamp="1604957713346">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604783650034" />
-    <state width="1057" height="114" key="GridCell.Tab.0.center" timestamp="1604783650033">
+    <state width="1057" height="114" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604957713346" />
+    <state width="1057" height="114" key="GridCell.Tab.0.center" timestamp="1604957713345">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604783650033" />
-    <state width="1057" height="114" key="GridCell.Tab.0.left" timestamp="1604783650032">
+    <state width="1057" height="114" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604957713345" />
+    <state width="1057" height="114" key="GridCell.Tab.0.left" timestamp="1604957713345">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604783650032" />
-    <state width="1057" height="114" key="GridCell.Tab.0.right" timestamp="1604783650033">
+    <state width="1057" height="114" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604957713345" />
+    <state width="1057" height="114" key="GridCell.Tab.0.right" timestamp="1604957713346">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1057" height="114" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604783650033" />
+    <state width="1057" height="114" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604957713346" />
     <state width="1253" height="188" key="GridCell.Tab.1.bottom" timestamp="1603311540870">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

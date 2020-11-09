@@ -17,7 +17,7 @@ function Header() {
                 <Navbar.Brand href="#home"><NavLink to="/" className="nav_link">RumbaPR</NavLink></Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#about">About</Nav.Link>
+                    <Nav.Link href="about">About</Nav.Link>
                     <Nav.Link href="#help">Help</Nav.Link>
                 </Nav>
                 <Form inline>
