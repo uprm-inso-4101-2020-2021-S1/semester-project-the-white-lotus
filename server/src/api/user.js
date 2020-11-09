@@ -63,7 +63,7 @@ router.get('/all', async (req, res) => {
  *        schema:
  *          type: uuid
  *        //required: true
- *        description: Unique id of the place to get
+ *        description: Unique id of the user to get
  *    responses:
  *      '200':
  *        description: A successful response
@@ -153,7 +153,7 @@ router.post('/register', AuthController.register)
  *        schema:
  *          type: uuid
  *        //required: true
- *        description: Unique id of the place to get
+ *        description: Unique id of the user to get
  *    requestBody:
  *      description:  <p>Requires email and password to login.</p>
  *      requred:  true
