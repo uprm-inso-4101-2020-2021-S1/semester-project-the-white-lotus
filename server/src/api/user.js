@@ -17,38 +17,24 @@ const User = require('../../models/User');
  * through:
  * host/api/v2/user/all
  */
+/**
+ * @swagger
+ * /user/all:
+ *  get:
+ *      summary: Use to get all users
+ *      description: Retrieve all the users stored in the database
+ *      tags:
+ *        - user
+ *      responses:
+ *        '200':
+ *          description: A successful response
+ *        '500':
+ *          description: An internal server error occurred
+ */
 router.get('/all', async (req, res) => {
   const users = await User.find()
   res.send(users)
 })
-
-/**
- * User Registration
- * This function calls directly the authentication
- * controller for the register function of a new user.
- *
- * The proper way to call this function is by making a request
- * through:
- * host/api/v2/user/register
- * 
- * For detailed information go to 
- * repo/server/controllers/AuthController
- */
-router.post('/register', AuthController.register)
-
-/**
- * User Login
- * This function calls directly the authentication
- * controller for the login function of an existing user.
- *
- * The proper way to call this function is by making a request
- * through:
- * host/api/v2/user/login
- *
- * For detailed information go to 
- * repo/server/controllers/AuthController
- */
-router.post('/login', AuthController.login)
 
 /**
  * Get User by ID (individual)
@@ -62,6 +48,29 @@ router.post('/login', AuthController.login)
  * 
  * Where :id is replaced by the actual ID of the user
  * Example: host/api/v2/user/5f73377e556c7bf80113cfe4
+ */
+/**
+ * @swagger
+ * /user/{id}:
+ *  get:
+ *    summary: Use to get an individual user
+ *    description: Uses the id variable at the end of the path to identify and retreieve a specific place
+ *    tags:
+ *      - user
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: uuid
+ *        //required: true
+ *        description: Unique id of the place to get
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '404':
+ *        description: User was not found
+ *      '500':
+ *        description: An internal server error ocurred
  */
 router.get('/:id', async (req, res, next) => {
   const [err, user] = await to(User.findOne({_id: req.params.id}))
@@ -82,6 +91,92 @@ router.get('/:id', async (req, res, next) => {
   // Found user
   res.send(user)
 })
+
+/**
+ * User Registration
+ * This function calls directly the authentication
+ * controller for the register function of a new user.
+ *
+ * The proper way to call this function is by making a request
+ * through:
+ * host/api/v2/user/register
+ * 
+ * For detailed information go to 
+ * repo/server/controllers/AuthController
+ */
+/**
+ * @swagger
+ * /user/register:
+ *  post:
+ *    summary: Use to register an user
+ *    description: Uses a JSON with required fields to register a new "user" on the database
+ *    tags:
+ *      - user
+ *    requestBody:
+ *      description: <p>Example below</p>
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/User'
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error occurred
+ */
+router.post('/register', AuthController.register)
+
+/**
+ * User Login
+ * This function calls directly the authentication
+ * controller for the login function of an existing user.
+ *
+ * The proper way to call this function is by making a request
+ * through:
+ * host/api/v2/user/login
+ *
+ * For detailed information go to 
+ * repo/server/controllers/AuthController
+ */
+/**
+ * @swagger
+ * /user/login:
+ *  post:
+ *    summary: Use to login
+ *    description: Uses a JSON with required fields to login an existing user
+ *    tags:
+ *      - user
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: uuid
+ *        //required: true
+ *        description: Unique id of the place to get
+ *    requestBody:
+ *      description:  <p>Requires email and password to login.</p>
+ *      requred:  true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              email:
+ *                type: string
+ *                example: "hector.miranda8@upr.edu"
+ *              password:
+ *                type: string
+ *                example: "testing1234"
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '404':
+ *        description: User not found
+ *      '500':
+ *        description: An internal server error ocurred
+ */
+router.post('/login', AuthController.login)
 
 /**
  * Updating User's attributes
@@ -110,6 +205,45 @@ router.get('/:id', async (req, res, next) => {
  * to the User model under 
  * repo/server/models/User
  * for more information.
+ */
+/**
+ * @swagger
+ * /user/update/{id}:
+ *  patch:
+ *    summary:  Use to update information of an user
+ *    description:  Uses the id variable to identify the user to which modify the information and a JSON body with the update information
+ *    tags:
+ *      - user
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: uuid
+ *        //required: true
+ *        description: Unique id of the user to update
+ *    requestBody:
+ *      description: <p>Example below</p>
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              address:
+ *                type: string
+ *                example:  "Somewhere else in Puerto Rico"
+ *              hashtags:
+ *                type: array
+ *                items:
+ *                  type: string
+ *                  example: "#Wild"
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '404':
+ *        description: User was not found
+ *      '500':
+ *        description: An internal server error ocurred
  */
 router.patch('/update/:id', async (req, res, next) => {
   const [err, user] = await to(User.findOne({_id: req.params.id}))
@@ -176,6 +310,29 @@ router.patch('/update/:id', async (req, res, next) => {
  * Where :id is replaced the actual ID of the user that is
  * going to get the attributes update.
  * Example: host/api/v2/user/5f73377e556c7bf80113cfe4
+ */
+/**
+ * @swagger
+ * /user/delete/{id}:
+ *  delete:
+ *    summary: Use to delete an user by id
+ *    description: Deletes a specific user by id, removing the user from the database
+ *    tags:
+ *      - user
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: uuid
+ *        //required: true
+ *        description: Unique id of the user to delete
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '404':
+ *        description: User was not found
+ *      '500':
+ *        description: An internal server error ocurred
  */
 router.delete('/delete/:id', async (req, res, next) => {
   // The deleteOne() method returns an object containing three fields.
