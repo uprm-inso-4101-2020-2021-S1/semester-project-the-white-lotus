@@ -16,6 +16,8 @@
     "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-slick": "^0.27.13",
+    "slick-carousel": "^1.8.1",
     "reactjs-popup": "^2.0.4"
   },
   "scripts": {
