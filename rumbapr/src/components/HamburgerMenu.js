@@ -1,7 +1,8 @@
 import React from 'react';
 import './HamburgerMenuDesigns/HamburgerMenu.css'
 import './HamburgerMenuDesigns/btnStyle.css'
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import {MDBContainer} from "mdbreact";
+import {Form, Card} from 'react-bootstrap'
 import SimpleSlider from './carousel/carousel.js'
 
 export class HamburgerMenu extends React.Component{
@@ -16,6 +17,7 @@ export class HamburgerMenu extends React.Component{
             <div>
               <div>
                 <ul>
+                <MDBContainer className="mt-3">
                   <div className="myPlace">
                     <select id="myPlace" on change="place()">
                       <option>Any</option>
@@ -25,19 +27,36 @@ export class HamburgerMenu extends React.Component{
                       <option>Attraction</option>
                     </select>
                   </div>
-                <li><a href="#">Filters</a></li>
+                <Form>
+                  <Form.Group>
+                    <Form.Label style={{color: "#f9f9f9"}}>Filters</Form.Label>
+                  </Form.Group>
+                </Form>
                 <p><input type="checkbox" className="filters" id="filter1" /> Filter1</p>
                 <p><input type="checkbox" className="filters" id="filter2" /> Filter2</p>
                 <p><input type="checkbox" className="filters" id="filter3" /> Filter3</p>
                 <p><input type="checkbox" className="filters" id="filter4" /> Filter4</p>
-                <li><a href="#">Preffered distance</a></li>
+                <Form>
+                  <Form.Group>
+                    <Form.Label style={{color: "#f9f9f9"}}>Prefered distance</Form.Label>
+                  </Form.Group>
+                </Form>
                 <div class="slidecontainer">
                 <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myDistance" /></div>
-                <li><a href="#">Price range</a></li>
+                <Form>
+                  <Form.Group>
+                    <Form.Label style={{color: "#f9f9f9"}}>Price range</Form.Label>
+                  </Form.Group>
+                </Form>
                 <div class="slidecontainer">
                 <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myPrice" /></div>
-                <li><a href="#">Hashtags</a></li>
+                <Form>
+                  <Form.Group>
+                    <Form.Label style={{color: "#f9f9f9"}}>Hashtags</Form.Label>
+                  </Form.Group>
+                </Form>
                 <SimpleSlider />
+                </MDBContainer>
                 </ul>
               </div>
             </div>
