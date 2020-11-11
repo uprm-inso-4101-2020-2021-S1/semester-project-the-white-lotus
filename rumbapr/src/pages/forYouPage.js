@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/header/Header';
 import { MDBMask, MDBView, MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import './forYouPage.css';
+import SimpleSlide from '../components/carousel/ForYourCar.js'
 
 const forYouPage = () => {
     return(
@@ -10,149 +11,13 @@ const forYouPage = () => {
                 <Header />
             </div>
                 <MDBContainer className="mt-3">
-                    <MDBRow>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                    </MDBRow>
+                        <SimpleSlide/>
                     <p />
-                    <MDBRow>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                    </MDBRow>
+                        <SimpleSlide/>
                     <p />
-                    <MDBRow>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                    </MDBRow>
+                        <SimpleSlide/>
                     <p />
-                    <MDBRow>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                        <MDBCol md="4">
-                            <MDBView hover>
-                                <img src="https://mdbootstrap.com/img/Others/documentation/forest-sm-mini.jpg"
-                                     className="img-fluid"
-                                     alt=""
-                                />
-                                <MDBMask className="flex-center" overlay="teal-light">
-                                    <p className="white-text">Testing</p>
-                                </MDBMask>
-                            </MDBView>
-                        </MDBCol>
-                    </MDBRow>
+                        <SimpleSlide/>
                 </MDBContainer>
         </div>
     )

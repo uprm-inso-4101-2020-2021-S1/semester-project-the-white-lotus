@@ -8,6 +8,10 @@
     height: 50px;
     opacity: 0;
   }
+
+  .toggler:hover + .hamburger {
+    background: var(--overlay-color);
+  }
   
   .hamburger {
     position: absolute;

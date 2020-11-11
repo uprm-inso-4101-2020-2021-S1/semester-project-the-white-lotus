@@ -21,6 +21,7 @@ export class HamburgerMenu extends React.Component{
                       <option>Any</option>
                       <option>Food</option>
                       <option>Hotel</option>
+                      <option>Beach</option>
                       <option>Attraction</option>
                     </select>
                   </div>
