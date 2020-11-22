@@ -107,7 +107,7 @@ export const Map = () => {
                 }}
             />
 
-            {appState.locations.map((location) => (
+            {appState.locations.map((location) => ( // for(appState: location)
                 (location.category === "Nature" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
