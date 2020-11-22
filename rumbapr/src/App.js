@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import forYouPage from './pages/forYouPage';
 import landingPage from './pages/landingPage';
 import about from './pages/about';
+import registerPage from './pages/registerPage';
 import Error from './pages/errorPage';
 
 
@@ -16,6 +17,7 @@ class App extends React.Component {
             <Route path="/" component={landingPage} exact/>
             <Route path="/foryou" component={forYouPage}/>
             <Route path="/about" component={about} exact />
+            <Route path="/register" component={registerPage} exact />\
             <Route component={Error}/>
           </Switch>
         </div>
