@@ -5,6 +5,7 @@ const { to } = require('../utils');
 
 // Place model
 const Place = require('../../models/Place');
+const uploadController = require("../../controllers/UploadController");
 
 /**
  * @swagger
@@ -193,7 +194,7 @@ router.post('/filter/', async (req, res, next) => {
  *      '500':
  *        description: An internal server error occurred
  */
-router.post('/new/', async (req, res) => {
+router.post('/new/',  async (req, res) => {
   const place = new Place({
     name: req.body.name,
     email: req.body.email,
@@ -204,7 +205,7 @@ router.post('/new/', async (req, res) => {
     city: req.body.city,
     country: req.body.country,
     mood: req.body.mood,
-    photos: req.body.photos,
+    //photos: file,
     hashtags: req.body.hashtags,
     ambience: req.body.ambience,
     comments: req.body.comments,
@@ -434,7 +435,7 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 //  *
 // */
 // Delete all places
-router.delete('/delete_all/', async (req, res, next) => {
+router.delete('/delete_all/', async (req, res) => {
   res.status(401);
   return res.send({
     msg: 'Not authorized'
@@ -456,5 +457,26 @@ router.delete('/delete_all/', async (req, res, next) => {
   // }
   // return res.send(result);
 });
+/**
+ * @swagger
+ * /place/all/:
+ *  get:
+ *    summary: Use to request all places
+ *    description: Get all places stored from database in an array
+ *    tags:
+ *      - places
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '500':
+ *        description: An internal server error occurred
+ *
+ */
+router.get('/all/', async (req, res) => {
+  const places = await Place.find();
 
+  res.send(places);
+});
+
+router.post("/upload", uploadController.uploadFiles);
 module.exports = router;
