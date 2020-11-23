@@ -566,7 +566,4 @@ router.delete('/delete_all/', async (req, res) => {
   // return res.send(result);
 });
 
-
-
-
 module.exports = router;

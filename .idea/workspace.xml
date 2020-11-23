@@ -26,15 +26,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Implemented multipart method that adds places and images to the db.">
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Minor change.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rumbapr/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rumbapr/src/pages/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/pages/about.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rumbapr/src/pages/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/pages/about.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/PhotoFiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Place.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/api/place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +99,7 @@
       <recent name="$PROJECT_DIR$/rumbapr" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Server">
+  <component name="RunManager" selected="npm.RumbaPR">
     <configuration name="place.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="place.js" working-dir="$PROJECT_DIR$/server/src/api">
       <method v="2" />
     </configuration>
@@ -185,7 +182,7 @@
       <workItem from="1605112682139" duration="2229000" />
       <workItem from="1605968454186" duration="39000" />
       <workItem from="1605968505577" duration="53824000" />
-      <workItem from="1606090479938" duration="18288000" />
+      <workItem from="1606090479938" duration="19518000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -264,7 +261,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606145744355</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added ownerID to Place schema, implemented multipart update method for places and created image api.">
+      <created>1606160962946</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606160962946</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Minor change.">
+      <created>1606161771319</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606161771319</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +317,9 @@
     <MESSAGE value="Added About view." />
     <MESSAGE value="Completed upload method and removed Help in Header." />
     <MESSAGE value="Implemented multipart method that adds places and images to the db." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented multipart method that adds places and images to the db." />
+    <MESSAGE value="Added ownerID to Place schema, implemented multipart update method for places and created image api." />
+    <MESSAGE value="Minor change." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor change." />
   </component>
   <component name="WindowStateProjectService">
     <state x="503" y="293" key="#ESLint" timestamp="1603301884730">
@@ -334,37 +347,37 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="794" height="466" key="DebuggerActiveHint/0.0.1792.1120@0.0.1792.1120" timestamp="1606155684104" />
-    <state width="1278" height="267" key="GridCell.Tab.0.bottom" timestamp="1606160464754">
+    <state width="1278" height="189" key="GridCell.Tab.0.bottom" timestamp="1606161515542">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="2539" height="272" key="GridCell.Tab.0.bottom/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277070" />
     <state width="1771" height="272" key="GridCell.Tab.0.bottom/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605121408217" />
     <state width="1057" height="114" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604960518276" />
-    <state width="1278" height="267" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1606160464754" />
+    <state width="1278" height="189" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1606161515542" />
     <state width="1771" height="272" key="GridCell.Tab.0.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846115" />
-    <state width="1278" height="267" key="GridCell.Tab.0.center" timestamp="1606160464753">
+    <state width="1278" height="189" key="GridCell.Tab.0.center" timestamp="1606161515541">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="2539" height="272" key="GridCell.Tab.0.center/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277069" />
     <state width="1771" height="272" key="GridCell.Tab.0.center/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605121408217" />
     <state width="1057" height="114" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604960518275" />
-    <state width="1278" height="267" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1606160464753" />
+    <state width="1278" height="189" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1606161515541" />
     <state width="1771" height="272" key="GridCell.Tab.0.center/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846114" />
-    <state width="1278" height="267" key="GridCell.Tab.0.left" timestamp="1606160464753">
+    <state width="1278" height="189" key="GridCell.Tab.0.left" timestamp="1606161515541">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="2539" height="272" key="GridCell.Tab.0.left/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277068" />
     <state width="1771" height="272" key="GridCell.Tab.0.left/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605121408217" />
     <state width="1057" height="114" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604960518275" />
-    <state width="1278" height="267" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1606160464753" />
+    <state width="1278" height="189" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1606161515541" />
     <state width="1771" height="272" key="GridCell.Tab.0.left/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846114" />
-    <state width="1278" height="267" key="GridCell.Tab.0.right" timestamp="1606160464754">
+    <state width="1278" height="189" key="GridCell.Tab.0.right" timestamp="1606161515541">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="2539" height="272" key="GridCell.Tab.0.right/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277069" />
     <state width="1771" height="272" key="GridCell.Tab.0.right/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605121408217" />
     <state width="1057" height="114" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604960518276" />
-    <state width="1278" height="267" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1606160464754" />
+    <state width="1278" height="189" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1606161515541" />
     <state width="1771" height="272" key="GridCell.Tab.0.right/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846115" />
     <state width="1278" height="267" key="GridCell.Tab.1.bottom" timestamp="1606160464755">
       <screen x="0" y="0" width="1792" height="1120" />
@@ -447,11 +460,11 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="198" y="49" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1601928399440" />
-    <state x="339" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606145749104">
+    <state x="339" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606161774361">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604958030328" />
-    <state x="339" y="189" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1606145749104" />
+    <state x="339" y="189" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1606161774361" />
     <state width="815" height="560" key="XDebugger.FullValuePopup" timestamp="1606144302042">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
