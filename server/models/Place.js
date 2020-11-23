@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const placeSchema = new Schema({
+  ownerID: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   name: {
     type: String,
     required: true,
