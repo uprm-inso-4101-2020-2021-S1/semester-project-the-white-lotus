@@ -9,16 +9,14 @@ var storage = new GridFsStorage({
         const match = ["image/png", "image/jpeg"];
 
         if (match.indexOf(file.mimetype) === -1) {
-            return `${Date.now()}-rpr-${file.originalname}`;
+            return `${Date.now()}-${file.originalname}`;
         }
-
         return {
             bucketName: "photos",
-            filename: `${Date.now()}-rpr-${file.originalname}`
+            filename: `${Date.now()}-${file.originalname}`
         };
     }
 });
-
-var uploadFiles = multer({ storage: storage }).array("multi-files", 10);
+var uploadFiles = multer({ storage: storage }).array("multi-files", 2);
 var uploadFilesMiddleware = util.promisify(uploadFiles);
 module.exports = uploadFilesMiddleware;

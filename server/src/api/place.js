@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 const { to } = require('../utils');
+const uploadController = require("../../controllers/UploadController");
 
 // Place model
 const Place = require('../../models/Place');
-const uploadController = require("../../controllers/UploadController");
 
 /**
  * @swagger
@@ -70,7 +70,6 @@ router.get('/:id', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/name/{name}:
@@ -114,7 +113,6 @@ router.get('/name/:name', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/filter:
@@ -218,6 +216,39 @@ router.post('/new/',  async (req, res) => {
 
   res.send(place);
 });
+router.post("/new/multipart",async (req, res) => {
+  try {
+    const photoID = await uploadController.uploadFiles(req,res).then(r => {return r;});
+    console.log(photoID[0].id);
+
+    const placeData =JSON.parse(req.body.data);
+    const place = new Place({
+      name: placeData.name,
+      email: placeData.email,
+      phone: placeData.phone,
+      longitude: placeData.longitude,
+      latitude: placeData.latitude,
+      address: placeData.address,
+      city: placeData.city,
+      country: placeData.country,
+      mood: placeData.mood,
+      photos: [photoID[0].id],
+      hashtags: placeData.hashtags,
+      ambience: placeData.ambience,
+      comments: placeData.comments,
+      category: placeData.category,
+      maximumPrice: placeData.maximumPrice,
+      minimumPrice: placeData.minimumPrice
+    });
+
+    await place.save();
+
+    res.send(place);
+  }
+  catch(error){
+    console.log(error);
+  }
+});
 /**
  * @swagger
  * /place/update/{id}:
@@ -316,7 +347,6 @@ router.patch('/update/:id', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/delete/{id}:
@@ -364,7 +394,6 @@ router.delete('/delete/:id', async (req, res, next) => {
 
   return res.send(result);
 });
-
 /**
  * @swagger
  * /place/delete/name/{name}:
@@ -412,7 +441,6 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 
   return res.send(result);
 });
-
 // /**
 //  * @swagger
 //  * /place/delete_all:
@@ -457,26 +485,5 @@ router.delete('/delete_all/', async (req, res) => {
   // }
   // return res.send(result);
 });
-/**
- * @swagger
- * /place/all/:
- *  get:
- *    summary: Use to request all places
- *    description: Get all places stored from database in an array
- *    tags:
- *      - places
- *    responses:
- *      '200':
- *        description: A successful response
- *      '500':
- *        description: An internal server error occurred
- *
- */
-router.get('/all/', async (req, res) => {
-  const places = await Place.find();
 
-  res.send(places);
-});
-
-router.post("/upload", uploadController.uploadFiles);
 module.exports = router;

@@ -3,11 +3,10 @@ const upload = require("../src/docs/UploadMiddleware");
 const uploadFiles = async (req, res) => {
     try {
         await upload(req, res);
-        console.log(req.files);
         if (req.files.length <= 0) {
             return res.send(`You must select at least 1 file.`);
         }
-        return res.send(`Files have been uploaded.`);
+        return req.files;
     } catch (error) {
         console.log(error);
         if (error.code === "LIMIT_UNEXPECTED_FILE") {
