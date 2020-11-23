@@ -173,6 +173,7 @@ router.post('/filter/', async (req, res, next) => {
   }
   return res.send(place);
 });
+// Post new place
 /**
  * @swagger
  * /place/new/:
@@ -218,6 +219,7 @@ router.post('/new/',  async (req, res) => {
 
   res.send(place);
 });
+// Post new place and image
 router.post("/new/multipart",async (req, res) => {
   try {
     const photo = await uploadController.uploadFiles(req,res).then(r => {return r;});
@@ -279,6 +281,82 @@ router.post("/new/multipart",async (req, res) => {
  *        description: An internal server error ocurred
  *
 */
+// Update individual place by id and add new image.
+router.post("/update/multipart/:id",async (req, res) => {
+  try {
+    const photo = await uploadController.uploadFiles(req,res).then(r => {return r;});
+    const placeData =JSON.parse(req.body.data);
+    const [err, place] = await to(Place.findOne({ _id: req.params.id }));
+
+    // If an error occurred, throw to handler
+    if (err) {
+      return next(err);
+    }
+
+    // If place w/ id is not found, return 'not found'
+    if (!place) {
+      res.status(404);
+      return res.send({
+        msg: 'Place not found'
+      });
+    }
+
+    // Update attributes
+    if (photo.length !== 0){
+      place.photos.push(photo[0].id);
+    }
+    if (placeData.name) {
+      place.name = placeData.name;
+    }
+    if (placeData.email) {
+      place.email = placeData.email;
+    }
+    if (placeData.phone) {
+      place.phone = placeData.phone;
+    }
+    if (placeData.longitude) {
+      place.longitude = placeData.longitude;
+    }
+    if (placeData.latitude) {
+      place.latitude = placeData.latitude;
+    }
+    if (placeData.address) {
+      place.address = placeData.address;
+    }
+    if (placeData.city) {
+      place.city = placeData.city;
+    }
+    if (placeData.country) {
+      place.country = placeData.country;
+    }
+    if (placeData.mood) {
+      place.mood = placeData.mood;
+    }
+    if (placeData.photos) {
+      place.photos = placeData.photos;
+    }
+    if (placeData.hashtags) {
+      place.hashtags = placeData.hashtags;
+    }
+    if (placeData.ambience) {
+      place.ambience = placeData.ambience;
+    }
+    if (placeData.minimumPrice) {
+      place.minimumPrice = placeData.minimumPrice;
+    }
+    if (placeData.maximumPrice) {
+      place.maximumPrice = placeData.maximumPrice;
+    }
+    if (placeData.category) {
+      place.category = placeData.category;
+    }
+    await place.save();
+    res.send(place);
+  }
+  catch(error){
+    console.log(error);
+  }
+});
 // Update individual place by id
 router.patch('/update/:id', async (req, res, next) => {
   const [err, place] = await to(Place.findOne({ _id: req.params.id }));
@@ -486,83 +564,6 @@ router.delete('/delete_all/', async (req, res) => {
   //   });
   // }
   // return res.send(result);
-});
-
-
-router.post("/update/multipart/:id",async (req, res) => {
-  try {
-    const photo = await uploadController.uploadFiles(req,res).then(r => {return r;});
-    const placeData =JSON.parse(req.body.data);
-    const [err, place] = await to(Place.findOne({ _id: req.params.id }));
-
-    // If an error occurred, throw to handler
-    if (err) {
-      return next(err);
-    }
-
-    // If place w/ id is not found, return 'not found'
-    if (!place) {
-      res.status(404);
-      return res.send({
-        msg: 'Place not found'
-      });
-    }
-
-    // Update attributes
-    if (photo.length !== 0){
-      place.photos.push(photo[0].id);
-    }
-    if (placeData.name) {
-      place.name = placeData.name;
-    }
-    if (placeData.email) {
-      place.email = placeData.email;
-    }
-    if (placeData.phone) {
-      place.phone = placeData.phone;
-    }
-    if (placeData.longitude) {
-      place.longitude = placeData.longitude;
-    }
-    if (placeData.latitude) {
-      place.latitude = placeData.latitude;
-    }
-    if (placeData.address) {
-      place.address = placeData.address;
-    }
-    if (placeData.city) {
-      place.city = placeData.city;
-    }
-    if (placeData.country) {
-      place.country = placeData.country;
-    }
-    if (placeData.mood) {
-      place.mood = placeData.mood;
-    }
-    if (placeData.photos) {
-      place.photos = placeData.photos;
-    }
-    if (placeData.hashtags) {
-      place.hashtags = placeData.hashtags;
-    }
-    if (placeData.ambience) {
-      place.ambience = placeData.ambience;
-    }
-    if (placeData.minimumPrice) {
-      place.minimumPrice = placeData.minimumPrice;
-    }
-    if (placeData.maximumPrice) {
-      place.maximumPrice = placeData.maximumPrice;
-    }
-    if (placeData.category) {
-      place.category = placeData.category;
-    }
-    await place.save();
-    res.send(place);
-  }
-  catch(error){
-    console.log(error);
-  }
 });
 
 
