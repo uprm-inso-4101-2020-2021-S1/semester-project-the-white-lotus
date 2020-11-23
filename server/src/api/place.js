@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const { to } = require('../utils');
+const uploadController = require("../../controllers/UploadController");
 
 // Place model
 const Place = require('../../models/Place');
@@ -69,7 +70,6 @@ router.get('/:id', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/name/{name}:
@@ -113,7 +113,6 @@ router.get('/name/:name', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/filter:
@@ -193,7 +192,7 @@ router.post('/filter/', async (req, res, next) => {
  *      '500':
  *        description: An internal server error occurred
  */
-router.post('/new/', async (req, res) => {
+router.post('/new/',  async (req, res) => {
   const place = new Place({
     name: req.body.name,
     email: req.body.email,
@@ -204,7 +203,7 @@ router.post('/new/', async (req, res) => {
     city: req.body.city,
     country: req.body.country,
     mood: req.body.mood,
-    photos: req.body.photos,
+    //photos: file,
     hashtags: req.body.hashtags,
     ambience: req.body.ambience,
     comments: req.body.comments,
@@ -216,6 +215,39 @@ router.post('/new/', async (req, res) => {
   await place.save();
 
   res.send(place);
+});
+router.post("/new/multipart",async (req, res) => {
+  try {
+    const photoID = await uploadController.uploadFiles(req,res).then(r => {return r;});
+    console.log(photoID[0].id);
+
+    const placeData =JSON.parse(req.body.data);
+    const place = new Place({
+      name: placeData.name,
+      email: placeData.email,
+      phone: placeData.phone,
+      longitude: placeData.longitude,
+      latitude: placeData.latitude,
+      address: placeData.address,
+      city: placeData.city,
+      country: placeData.country,
+      mood: placeData.mood,
+      photos: [photoID[0].id],
+      hashtags: placeData.hashtags,
+      ambience: placeData.ambience,
+      comments: placeData.comments,
+      category: placeData.category,
+      maximumPrice: placeData.maximumPrice,
+      minimumPrice: placeData.minimumPrice
+    });
+
+    await place.save();
+
+    res.send(place);
+  }
+  catch(error){
+    console.log(error);
+  }
 });
 /**
  * @swagger
@@ -315,7 +347,6 @@ router.patch('/update/:id', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/delete/{id}:
@@ -363,7 +394,6 @@ router.delete('/delete/:id', async (req, res, next) => {
 
   return res.send(result);
 });
-
 /**
  * @swagger
  * /place/delete/name/{name}:
@@ -411,7 +441,6 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 
   return res.send(result);
 });
-
 // /**
 //  * @swagger
 //  * /place/delete_all:
@@ -434,7 +463,7 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 //  *
 // */
 // Delete all places
-router.delete('/delete_all/', async (req, res, next) => {
+router.delete('/delete_all/', async (req, res) => {
   res.status(401);
   return res.send({
     msg: 'Not authorized'

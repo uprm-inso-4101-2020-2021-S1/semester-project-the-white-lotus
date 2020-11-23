@@ -7,7 +7,6 @@ const posts = require('./api/posts');
 const user = require('./api/user');
 
 
-
 router.get('/', (req, res) => {
   res.json({
     msg: 'In routes.js!!'

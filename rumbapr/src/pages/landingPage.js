@@ -130,7 +130,7 @@ export const Map = () => {
                             url: "/images/hotelLocation.png",
                             scaledSize: new window.google.maps.Size(50, 50),
                         }}/>
-                        || location.category === "Food" &&
+                        || location.category === "Food/Drinks" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
                         onClick={() => {
