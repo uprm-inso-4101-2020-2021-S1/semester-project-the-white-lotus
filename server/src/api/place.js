@@ -115,6 +115,25 @@ router.get('/name/:name', async (req, res, next) => {
 
   return res.send(place);
 });
+// Get individual place by ownerID
+router.get('/ownerID/:ownerID', async (req, res, next) => {
+  const [err, place] = await to(Place.findOne({ ownerID: req.params.ownerID }));
+
+  // If an error occurred, throw to handler
+  if (err) {
+    return next(err);
+  }
+
+  // If place w/ id is not found, return 'not found'
+  if (!place) {
+    res.status(404);
+    return res.send({
+      msg: 'Place not found'
+    });
+  }
+
+  return res.send(place);
+});
 /**
  * @swagger
  * /place/filter:
