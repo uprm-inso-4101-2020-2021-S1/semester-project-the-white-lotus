@@ -1,14 +1,16 @@
 .places_container{
     background-color: #303639;
     /*background-color: #444a65;*/
-    color: white;
 }
 .header {
-    margin-top: 14px;
+    margin-top: 74px;
     color: white;
     font-weight: bold;
     font-size: 30px;
     margin-left: 14px;
+}
+.ReactTable{
+    margin-top: 0.1em;
 }
 .ReactTable .rt-tr .action {
     transition: all .2s ease;
@@ -27,9 +29,7 @@
 }
 .-previous{
     background-color: #303639;
-    color: white;
 }
 .-next{
     background-color: #303639;
-    color: white;
 }

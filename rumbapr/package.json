@@ -24,8 +24,6 @@
     "react-table": "^6.11.5",
     "reactjs-popup": "^2.0.4",
     "slick-carousel": "^1.8.1"
-    "reactjs-popup": "^2.0.4",
-    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

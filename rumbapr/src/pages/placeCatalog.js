@@ -30,25 +30,25 @@ export default class PlaceTable extends Component {
             }
             ,{
                 Header: 'Phone',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#00b7ea',  fontWeight: 'bold'},
                 accessor: 'phone',
                 sortable: false,
             },
             {
                 Header: 'Email',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#00b7ea',  fontWeight: 'bold'},
                 accessor: 'email',
                 sortable: false,
             },
             {
                 Header: 'City',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#00b7ea',  fontWeight: 'bold'},
                 accessor: 'city',
                 sortable: false,
             },
             {
                 Header: 'Country',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#00b7ea',  fontWeight: 'bold'},
                 accessor: 'country',
                 sortable: false,
             },
