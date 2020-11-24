@@ -6,6 +6,11 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom'
+import { Container } from 'react-bootstrap';
+import Popup from 'reactjs-popup';
+
+// import './Header.css'
+
 
 
 function Header() {
