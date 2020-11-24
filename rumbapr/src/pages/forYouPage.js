@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../components/header/Header';
 import './forYouPage.css';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
@@ -13,7 +13,7 @@ const FlippyStyle = {
 }
 
 
-const DefaultCardContents = ({ children, image, namePlace}) => (
+const DefaultCardContents = ({ children, image, name, ambiance, about}) => (
     <React.Fragment>
         <FrontSide
             style={{
@@ -72,7 +72,17 @@ const FlippyOnHover = ({ flipDirection = 'vertical' }) => (
 );
 
 
-const forYouPage = () => {
+const ForYouPage = () => {
+    const [dataSet, setDataSet] = useState({locations: []});
+
+    useEffect(() => {
+        const apiUrl = 'http://localhost:5000/api/v2/place/all/';
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((databaseInfo) => setDataSet({locations: databaseInfo}))
+
+    }, []);
+
     return(
         <div>
             <div className="header_container">
@@ -102,4 +112,4 @@ const forYouPage = () => {
     )
 }
 
-export default forYouPage;
+export default ForYouPage;

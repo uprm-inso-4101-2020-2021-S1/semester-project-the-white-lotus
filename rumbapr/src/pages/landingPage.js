@@ -73,7 +73,7 @@ class DirectionRender extends Component {
 export const Map = () => {
     const [currentPosition, setCurrentPosition] = useState({});
     const [selectedLocation, setSelectedLocation] = useState(null);
-    const [appState, setAppState] = useState({locations: []});
+    const [dataSet, setDataSet] = useState({locations: []});
 
 
     const success = position => {
@@ -88,7 +88,7 @@ export const Map = () => {
         const apiUrl = 'http://localhost:5000/api/v2/place/all/';
         fetch(apiUrl)
             .then((response) => response.json())
-            .then((tests) => setAppState({locations: tests}))
+            .then((tests) => setDataSet({locations: tests}))
 
     }, []);
 
@@ -122,7 +122,7 @@ export const Map = () => {
                 }}
             />
 
-            {appState.locations.map((location) => ( // for(appState: location)
+            {dataSet.locations.map((location) => ( // for(appState: location)
                 (location.category === "Nature" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
