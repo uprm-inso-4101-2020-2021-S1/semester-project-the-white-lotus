@@ -1,7 +1,7 @@
 /* CORE STYLES */
 :root {
-    --primary-color: rgba(37, 44, 83, 0.75);
-    --overlay-color: rgba(24, 39, 51 , 0.85);
+    --primary-color: rgba(11, 15, 19, 0.85);
+    --overlay-color: rgba(30, 36, 39, 0.75);
     --menu-speed: 0.75s;
   }
   
