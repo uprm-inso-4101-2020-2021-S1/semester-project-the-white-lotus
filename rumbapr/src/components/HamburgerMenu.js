@@ -20,45 +20,56 @@ export class HamburgerMenu extends React.Component{
                   <Container>
                     <form color= "white">
                       <div className="myPlace">
-                    <select id="myPlace" on change="place()">
-                      <option>Any</option>
-                      <option>Food</option>
-                      <option>Hotel</option>
-                      <option>Beach</option>
-                      <option>Attraction</option>
-                    </select>
-                  </div>
-                    <p>Filters</p>
-                    <select name="Filters" multiple>
-                      <option>Elegant</option>
-                      <option>Sophisticated</option>
-                      <option>Traditional</option>
-                      <option>Modern</option>
-                      <option>Old fashioned</option>
-                      <option>Vintage</option>
-                      <option>Cultural</option>
-                      <option>Serene</option>
-                      <option>Cozy</option>
-                      <option>Soothing</option>
-                      <option>Familiar</option>
-                      <option>Adult</option>
-                      <option>Young</option>
-                      <option>Casual</option>
-                      <option>Cultural</option>
-                    </select>
-                    <p class=".text-muted">Preffered Distance</p>
-                  <div class="slidecontainer">
-                <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myDistance" /></div>
-                <label>
-                  <p>Price Range</p>
-                </label>
-                <div class="slidecontainer">
-                <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myPrice" /></div>
-                <label>
-                  <p>Hashtags</p>
-                </label>
-                
-                <SimpleSlider />
+
+                        {/* Place of chice */}
+                        <p  style = {{color: "#fff"}}>Place</p>
+                        <select id="myPlace" on change="place()">
+                          <option>Any</option>
+                          <option>Food</option>
+                          <option>Hotel</option>
+                          <option>Beach</option>
+                          <option>Attraction</option>
+                        </select>
+                      </div>
+
+                      {/* Filters */}
+                      <p  style = {{color: "#fff"}}>Filters</p>
+                      <select name="Filters" id="myFilters" on multiple ismulti>
+                        <option>Elegant</option>
+                        <option>Sophisticated</option>
+                        <option>Traditional</option>
+                        <option>Modern</option>
+                        <option>Old fashioned</option>
+                        <option>Vintage</option>
+                        <option>Cultural</option>
+                        <option>Serene</option>
+                        <option>Cozy</option>
+                        <option>Soothing</option>
+                        <option>Familiar</option>
+                        <option>Adult</option>
+                        <option>Young</option>
+                        <option>Casual</option>
+                        <option>Cultural</option>
+                      </select>
+
+                      {/* Preffered Distance */}
+                      <p class=".text-muted" style = {{color: "#fff"}}>Preffered Distance</p>
+                      <div class="slidecontainer">
+                      <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myDistance" /></div>
+
+                      {/* Price range slider */}
+                      <label>
+                        <p  style = {{color: "#fff"}}>Price Range</p>
+                      </label>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="3" defaultValue="2" className="slider" id="myPrice" />
+                      </div>
+
+                      {/* Carousel */}
+                      <label>
+                        <p  style = {{color: "#fff"}}>Hashtags</p>
+                      </label>
+                      <SimpleSlider />
                     </form>
                   
                   </Container>
