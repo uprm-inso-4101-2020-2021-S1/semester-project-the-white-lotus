@@ -1,9 +1,63 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './HamburgerMenuDesigns/HamburgerMenu.css'
 import './HamburgerMenuDesigns/btnStyle.css'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {form, label, card, Container} from 'react-bootstrap'
 import SimpleSlider from './carousel/carousel.js'
+import Select from 'react-select'
+
+
+const optionFilter = [
+  {value: 'Elegant', label:'Elegant'},
+  {value: 'Sophisticated', label:'Sophisticated'},
+  {value: 'Traditional', label:'Traditional'},
+  {value: 'Modern', label:'Modern'},
+  {value: 'Old fashioned', label:'Old fashioned'},
+  {value: 'Vintage', label:'Vintage'},
+  {value: 'Cultural', label:'Cultural'},
+  {value: 'Serene', label:'Serene'},
+  {value: 'Cozy', label:'Cozy'},
+  {value: 'Soothing', label:'Soothing'},
+  {value: 'Familiar', label:'Familiar'},
+  {value: 'Adult', label:'Adult'},
+  {value: 'Young', label:'Young'},
+  {value: 'Casual', label:'Casual'},
+  {value: 'Cultural', label:'Cultural'},
+  {value: 'Curious', label:'Curious'},
+  {value: 'Humorous', label:'Humorous'},
+  {value: 'Calm', label:'Calm'},
+  {value: 'Festive', label:'Festive'},
+  {value: 'Happy', label:'Happy'},
+  {value: 'Social', label:'Social'},
+  {value: 'Adventurous', label:'Adventurous'},
+  {value: 'Sad', label:'Sad'},
+  {value: 'Tense', label:'Tense'},
+  {value: 'Nature', label:'Nature'},
+  {value: 'Food/Drinks', label:'Food/Drinks'},
+  {value: 'History', label:'History'},
+  {value: 'Entertainment ', label:'Entertainment '},
+  {value: 'Shopping', label:'Shopping'},
+  {value: 'Sports', label:'Sports'},
+  {value: 'Hotel/Motel/Lodges', label:'Hotel/Motel/Lodges'},
+];
+
+export function Filters({data, setOrdered}) {
+  const [fil, setFil] = useState([]);
+  return (
+    <div>
+      <Select 
+        isMulti
+        options={optionFilter}
+        onChange={setFil}
+        noOptionsMessage={()=> 'No filter selected'}
+        onFocus
+        isSearchable
+        placeholder="Select filters"
+        className="mb-3"
+      />
+    </div>
+  )
+}
 
 export class HamburgerMenu extends React.Component{
   render(){
@@ -34,23 +88,7 @@ export class HamburgerMenu extends React.Component{
 
                       {/* Filters */}
                       <p  style = {{color: "#fff"}}>Filters</p>
-                      <select name="Filters" id="myFilters" on multiple ismulti>
-                        <option>Elegant</option>
-                        <option>Sophisticated</option>
-                        <option>Traditional</option>
-                        <option>Modern</option>
-                        <option>Old fashioned</option>
-                        <option>Vintage</option>
-                        <option>Cultural</option>
-                        <option>Serene</option>
-                        <option>Cozy</option>
-                        <option>Soothing</option>
-                        <option>Familiar</option>
-                        <option>Adult</option>
-                        <option>Young</option>
-                        <option>Casual</option>
-                        <option>Cultural</option>
-                      </select>
+                      <Filters/>
 
                       {/* Preffered Distance */}
                       <p class=".text-muted" style = {{color: "#fff"}}>Preffered Distance</p>
