@@ -5,7 +5,7 @@ import './about.css';
 
 const about = () => {
     return(
-        <div className="for_container">
+        <div className="about_container">
             <div className="header_container">
                 <Header />
                 <h1>The White Lotus</h1>

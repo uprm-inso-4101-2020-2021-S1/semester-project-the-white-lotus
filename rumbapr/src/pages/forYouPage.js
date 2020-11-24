@@ -4,8 +4,8 @@ import './forYouPage.css';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 const FlippyStyle = {
-    width: '200px',
-    height: '300px',
+    width: '380px',
+    height: '280px',
     textAlign: 'center',
     color: '#FFF',
     fontSize: '30px',
@@ -13,7 +13,7 @@ const FlippyStyle = {
 }
 
 
-const DefaultCardContents = ({ children, image, namePlace  }) => (
+const DefaultCardContents = ({ children, image, namePlace}) => (
     <React.Fragment>
         <FrontSide
             style={{
@@ -25,9 +25,8 @@ const DefaultCardContents = ({ children, image, namePlace  }) => (
         >
             <img
                 src="https://thumbs.dreamstime.com/b/charming-beautiful-waterfall-selfoss-iceland-rainbow-exotic-countries-amazing-places-popular-tourist-atraction-154603711.jpg"
-                style={{ maxWidth: '100%', maxHeight: '100%' }}
+                style={{ maxWidth: '95%', maxHeight: '95%' }}
             />
-            RICK
             <span
                 style={{
                     fontSize:'12px',
@@ -80,11 +79,24 @@ const forYouPage = () => {
                 <Header />
             </div>
             <div className="row for_container" style={{padding: '25px'}}>
-            <FlippyOnHover/>
-            <FlippyOnHover/>
-            <FlippyOnHover/>
-            <FlippyOnHover/>
-            <FlippyOnHover />
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
+                <FlippyOnHover/>
             </div>
         </div>
     )
