@@ -11,22 +11,25 @@ import mapStyles from './mapStyle';
 import 'reactjs-popup/dist/index.css';
 
 let message = ``;
-let count = 0;
+
 
 class DirectionRender extends Component {
     state = {
-        directions: null,
-        error: null,
+        directions: "",
+        error: "",
     }
 
+
     componentDidMount() {
+
         const {currentPosition, destinationLat, destinationLng} = this.props;
 
         const destinationPosition = {
             lat: destinationLat,
             lng: destinationLng
         }
-        var directionsService = new window.google.maps.DirectionsService();
+
+        let directionsService = new window.google.maps.DirectionsService();
 
         directionsService.route(
             {
@@ -35,10 +38,16 @@ class DirectionRender extends Component {
                 travelMode: window.google.maps.TravelMode.DRIVING,
             },
             (result, status) => {
+                if(this.state.directions != null) {
+                    this.setState({
+                        directions: null,
+                    })
+                }
                 if (status === window.google.maps.DirectionsStatus.OK) {
                     this.setState({
                         directions: result,
                     });
+
                 } else {
                     this.setState({error: result});
                 }
@@ -50,7 +59,13 @@ class DirectionRender extends Component {
         if (this.state.error) {
             return <h1>{this.state.error}</h1>
         }
-        return (this.state.directions && <DirectionsRenderer directions={this.state.directions}/>)
+        return (this.state.directions && <DirectionsRenderer
+            options={{
+                suppressMarkers: true,
+                hideRouteList: true,
+            }}
+            directions={this.state.directions}
+        />)
     }
 }
 
@@ -58,7 +73,7 @@ class DirectionRender extends Component {
 export const Map = () => {
     const [currentPosition, setCurrentPosition] = useState({});
     const [selectedLocation, setSelectedLocation] = useState(null);
-    const [appState, setAppState] = useState({locations: []});
+    const [dataSet, setDataSet] = useState({locations: []});
 
 
     const success = position => {
@@ -73,9 +88,9 @@ export const Map = () => {
         const apiUrl = 'http://localhost:5000/api/v2/place/all/';
         fetch(apiUrl)
             .then((response) => response.json())
-            .then((tests) => setAppState({locations: tests}))
+            .then((tests) => setDataSet({locations: tests}))
 
-    }, [count]);
+    }, []);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(success);
@@ -107,7 +122,7 @@ export const Map = () => {
                 }}
             />
 
-            {appState.locations.map((location) => ( // for(appState: location)
+            {dataSet.locations.map((location) => ( // for(appState: location)
                 (location.category === "Nature" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
@@ -187,7 +202,6 @@ export class MapContainer extends Component {
         }).then(r => r.json().then(res => {
             if (res) {
                 message = 'Added!';
-                count++;
             }
         }))
     }
@@ -198,7 +212,7 @@ export class MapContainer extends Component {
                 <div className="header_container">
                     <Header></Header>
                 </div>
-                <div className="map_container" style={{width: '94vm', height: '94vh'}}>
+                <div className="map_container" style={{width: '94vm', height: '100vh'}}>
                     <WrappedMap
                         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCA2ZMGjdPdwHx6FLSnu0d2Nro6OoukJOA`}
                         loadingElement={<div style={{height: "100%"}}/>}
