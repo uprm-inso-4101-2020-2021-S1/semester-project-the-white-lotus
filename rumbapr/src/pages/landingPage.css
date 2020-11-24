@@ -1,6 +1,16 @@
+.header_container {
+    overflow: hidden;
+}
+
+.landing_container{
+    overflow: hidden;
+}
+
 .map_container {
+    background-color: #303639;
     margin-top: 0.1em;
-    border-radius: 100em;
+    border-radius: 2vh;
+    overflow: hidden;
 }
 .top_button {
     position: absolute;
