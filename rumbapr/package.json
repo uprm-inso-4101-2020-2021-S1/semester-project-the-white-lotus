@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "react-slick": "^0.27.13",
+    "react-table": "^6.11.5",
     "reactjs-popup": "^2.0.4",
     "slick-carousel": "^1.8.1"
   },
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.21.0",
     "react-search-panel": "^1.0.7"
   }
 }

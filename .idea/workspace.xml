@@ -25,11 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Organized swagger (place).">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rumbapr/src/pages/forYouPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/pages/forYouPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rumbapr/src/pages/landingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/pages/landingPage.js" afterDir="false" />
-    </list>
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Organized swagger (place)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,7 +167,7 @@
       <workItem from="1606146422172" duration="124000" />
       <workItem from="1606146550168" duration="8040000" />
       <workItem from="1606162990994" duration="5502000" />
-      <workItem from="1606240465083" duration="3065000" />
+      <workItem from="1606240465083" duration="3339000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
