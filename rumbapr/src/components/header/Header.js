@@ -20,8 +20,8 @@ function Header() {
                 <Navbar.Brand href="#home"><NavLink to="/" className="nav_link">RumbaPR</NavLink></Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="places">Places</Nav.Link>
-                    <Nav.Link href="contact">Contact Us</Nav.Link>
                     <Nav.Link href="about">About</Nav.Link>
+                    <Nav.Link href="contact">Contact</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />

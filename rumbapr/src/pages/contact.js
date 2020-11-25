@@ -4,11 +4,14 @@ import './placeCatalog.css';
 
 const contact = () => {
     return(
-        <div style={{backgroundColor: '#303639'}}>
+        <div>
             <Header />
-            <div className={"header"}  style={{marginTop:'74px'}}>Contact Us</div>
-            <div style={{marginLeft:'28px', color:'#33b5e5', fontSize: '18px'}}>Front-end Team</div>
-            <div style={{marginLeft:'50px'}}>
+            <body style={{backgroundColor: '#303639'}}>
+            <br />
+            <div className={"header"}  style={{marginTop:'74px', textAlign: 'center'}}>The White Lotus</div>
+            <br />
+            <div style={{color:'#33b5e5', fontSize: '20px', textAlign: 'center'}}>Front-end Team</div>
+            <div style={{fontSize: '18px', textAlign: 'center'}}>
                 <p> M. Alejandra Muñoz:
                     <a href="mailto:maria.munoz10@upr.edu" target="_blank" rel="noopener noreferrer"> maria.munoz10@upr.edu</a>
                     <br />
@@ -19,8 +22,8 @@ const contact = () => {
                     <a href="mailto:jomar.santos@upr.edu" target="_blank" rel="noopener noreferrer"> jomar.santos@upr.edu</a>
                 </p>
             </div>
-            <div style={{marginLeft:'28px', color:'#33b5e5', fontSize: '18px'}}>Back-end Team</div>
-            <div style={{marginLeft:'50px', marginBottom: '100 px'}}>
+            <div style={{color:'#33b5e5', fontSize: '20px', textAlign: 'center'}}>Back-end Team</div>
+            <div style={{marginBottom: '100 px', fontSize: '18px', textAlign: 'center'}}>
                 <p> Alondra Pereira:
                     <a href="mailto:alondra.pereira@upr.edu" target="_blank" rel="noopener noreferrer"> alondra.pereira@upr.edu</a>
                     <br />
@@ -36,6 +39,7 @@ const contact = () => {
                 </p>
                 <br />
             </div>
+            </body>
         </div>
 
     )

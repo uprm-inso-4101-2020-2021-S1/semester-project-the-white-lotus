@@ -56,7 +56,10 @@ export default class PlaceTable extends Component {
         return (
             <div style={{backgroundColor: '#303639'}}>
                 <Header />
+                <br />
                 <div className={"header"}>Places</div>
+                <br />
+                <body style={{backgroundColor: '#303639'}}>
                     <ReactTable
                         style= {
                             {
@@ -70,6 +73,7 @@ export default class PlaceTable extends Component {
                         data={this.state.places.sort((a,b) => (a.name > b.name) ? 1:-1)}
                         columns={columns}
                     />
+                </body>
             </div>
         )
     }
