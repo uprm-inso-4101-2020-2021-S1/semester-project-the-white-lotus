@@ -1,11 +1,23 @@
-.for_container {
+.for_container{
+    width: auto;
+    height: 1000vh;
     background-color: #303639;
-    margin-top: 65px;
+}
+
+.card_container {
+    background-color: #303639;
+    margin-top: 70px;
+    margin-left: 0px;
+    margin-right: 0px;
     display: inline-flex;
     gap: 15px;
     flex-wrap: wrap;
     flex: 8 63 350px;
     justify-content: space-around;
     align-content: flex-start;
+}
+
+.flippy_front{
+    justify-content: center;
 }
 

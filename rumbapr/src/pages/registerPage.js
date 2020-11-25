@@ -269,7 +269,9 @@ export class RegisterPage extends Component {
 
                     <div className="form-group">
                         <label htmlFor="isHost">Will this be host account?   <span className="help_icon" id="host_about">?</span></label><br/>
-                        <UncontrolledTooltip target="host_about" placement="bottom">A host account is the account of someone who owns businesses inside our database and wants to manage them.</UncontrolledTooltip>
+                        <UncontrolledTooltip target="host_about" placement="bottom">
+                            A host account is the account of someone who owns businesses inside our database and wants to manage them. <br/>If this
+                        is your account, please type "y", if not, just type "n"</UncontrolledTooltip>
                         <input
                             type="text"
                             name="isHost"
