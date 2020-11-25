@@ -122,7 +122,7 @@ export const Map = () => {
                 }}
             />
 
-            {dataSet.locations.map((location) => ( // for(appState: location)
+            {dataSet.locations.map((location) => (
                 (location.category === "Nature" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}

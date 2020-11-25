@@ -1,0 +1,7 @@
+.register_page{
+    position: absolute;
+    background-color: #303639 !important;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}

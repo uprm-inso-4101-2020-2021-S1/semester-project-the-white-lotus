@@ -1,7 +1,7 @@
 import React, {Component, UseState} from 'react';
 import Button from 'react-bootstrap/Button';
-import { Form } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom'
+import './registerPage.css'
 
 
 
@@ -184,8 +184,10 @@ export class RegisterPage extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Register</h2>
+            <div className="register_page">
+                <div className="register_container">
+
+                <h2 className="white-text">Register</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
@@ -274,11 +276,16 @@ export class RegisterPage extends Component {
 
                     {/* THE SUBMIT BTN SHOULD TAKE YOU TO HOME PAGE IF POSSIBLE */}
                     {/* <NavLink to="/" className="nav_link"><input type="submit" value="Submit" className="btn btn-success" /></NavLink> */}
+                    <div className="buttons_register">
                     <input type="submit" value="Submit" className="btn btn-success" />
+                    <NavLink to="/" className="nav_link"><Button>Back</Button></NavLink>
+                    </div>
                 </form>
-                
+
                 {/* PLACEHOLDER 'BACK' BUTTON */}
-                <NavLink to="/" className="nav_link"><Button>Back</Button></NavLink>
+
+
+            </div>
             </div>
         )
     }
