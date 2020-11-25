@@ -23,13 +23,15 @@
 }
 
 .ReactTable .rt-tr:hover .rt-td {
-    background: #454D51;
-    color: #00b7ea;
+    color: #0070ee;
     opacity: 0.75;
 }
-.-previous{
-    background-color: #303639;
+.ReactTable .-pagination .-btn {
+    border: 2px solid #33b5e5;
+    color: #33b5e5;
 }
-.-next{
-    background-color: #303639;
+.ReactTable .-pagination .-btn:not([disabled]):hover {
+    border: 2px solid #008bae;
+    background-color: transparent !important;
+    color: #008bae;
 }
