@@ -191,7 +191,7 @@ export class RegisterPage extends Component {
                 <h2 className="white-text">Register</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Name</label><br/>
                         <input
                             type="text"
                             name="name"
@@ -203,7 +203,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email</label><br/>
                         <input
                             type="text"
                             name="email"
@@ -215,7 +215,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="address">Address<label/>
+                        <label htmlFor="address">Address<label/><br/>
                             <input
                                 type="text"
                                 name="address"
@@ -228,7 +228,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
+                        <label htmlFor="phone">Phone</label><br/>
                         <input
                             type="text"
                             name="phone"
@@ -240,7 +240,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password</label><br/>
                         <input
                             type="password"
                             name="password"
@@ -252,7 +252,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Confirm Password</label>
+                        <label htmlFor="password">Confirm Password</label><br/>
                         <input
                             type="password"
                             name="confirm_password"
@@ -264,7 +264,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="isHost">Is this a host account?</label><span id"help_host" className="help_icon">?</span>
+                        <label htmlFor="isHost">Is this a host account?</label><span id"help_host" className="help_icon">?</span><br/>
                         <UncontrolledTooltip target="help_host" placement="bottom">A host account is the account of someone who owns businesses inside our database and wants to manage them. <br/>
                         If this is the case for you, please type 'y' into the input box, if not just 'n'.</UncontrolledTooltip>
                         <input
