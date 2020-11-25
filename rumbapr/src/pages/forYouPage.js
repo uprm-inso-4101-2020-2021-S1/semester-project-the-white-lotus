@@ -59,8 +59,25 @@ const DefaultCardContents = ({ children, image, name, ambiance, about}) => (
         </BackSide>
     </React.Fragment>);
 
-const FlippyOnHover = ({ flipDirection = 'vertical' }) => {
+const getLocations = dataSet => {
+    let content =[];
+    for(let i = 0; i < 12; i++){
+         const item = dataSet[i];
+         content.push(
+             <Flippy flipOnHover={true}
+                              flipDirection='vertical'
+                              style={FlippyStyle}>
+                 <DefaultCardContents>
+                     I flip verticaly on hover
+                 </DefaultCardContents>
+            </Flippy>)
+    }
+    return content;
+}
+
+const FlippyOnHover = () => {
     const [dataSet, setDataSet] = useState({locations: []});
+
 
     useEffect(() => {
         const apiUrl = 'http://localhost:5000/api/v2/place/all/';
@@ -70,15 +87,7 @@ const FlippyOnHover = ({ flipDirection = 'vertical' }) => {
 
     }, []);
     return (
-    <Flippy
-        flipOnHover={true}
-        flipDirection={flipDirection}
-        style={FlippyStyle}
-    >
-        <DefaultCardContents>
-            I flip {flipDirection}ly on hover
-        </DefaultCardContents>
-    </Flippy>
+        getLocations(dataSet)
     )};
 
 
@@ -89,23 +98,6 @@ const ForYouPage = () => {
                 <Header />
             </div>
             <div className="row for_container" style={{padding: '25px'}}>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
                 <FlippyOnHover/>
             </div>
         </div>

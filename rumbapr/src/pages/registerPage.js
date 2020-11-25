@@ -2,7 +2,8 @@ import React, {Component, UseState} from 'react';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom'
 import './registerPage.css'
-
+import Header from "../components/header/Header";
+import {UncontrolledTooltip} from 'reactstrap';
 
 
 let message ='';
@@ -185,12 +186,16 @@ export class RegisterPage extends Component {
     render() {
         return (
             <div className="register_page">
+                <div className="header_container">
+                    <Header />
+                </div>
                 <div className="register_container">
-
-                <h2 className="white-text">Register</h2>
+                    <h2 className="white-text">Register</h2>
+                <p>              </p>
+                    <p/>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Name</label><br/>
                         <input
                             type="text"
                             name="name"
@@ -202,7 +207,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email</label><br/>
                         <input
                             type="text"
                             name="email"
@@ -214,8 +219,8 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="address">Address<label/>
-                            <input
+                        <label htmlFor="address">Address<label/><br/>
+                            <br/><input
                                 type="text"
                                 name="address"
                                 value={this.state.input.address}
@@ -227,7 +232,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
+                        <label htmlFor="phone">Phone</label><br/>
                         <input
                             type="text"
                             name="phone"
@@ -239,7 +244,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password</label><br/>
                         <input
                             type="password"
                             name="password"
@@ -251,7 +256,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Confirm Password</label>
+                        <label htmlFor="password">Confirm Password</label><br/>
                         <input
                             type="password"
                             name="confirm_password"
@@ -263,7 +268,8 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="isHost">is this a host account?</label>
+                        <label htmlFor="isHost">Will this be host account?   <span className="help_icon" id="host_about">?</span></label><br/>
+                        <UncontrolledTooltip target="host_about" placement="bottom">A host account is the account of someone who owns businesses inside our database and wants to manage them.</UncontrolledTooltip>
                         <input
                             type="text"
                             name="isHost"
@@ -277,8 +283,8 @@ export class RegisterPage extends Component {
                     {/* THE SUBMIT BTN SHOULD TAKE YOU TO HOME PAGE IF POSSIBLE */}
                     {/* <NavLink to="/" className="nav_link"><input type="submit" value="Submit" className="btn btn-success" /></NavLink> */}
                     <div className="buttons_register">
-                    <input type="submit" value="Submit" className="btn btn-success" />
-                    <NavLink to="/" className="nav_link"><Button>Back</Button></NavLink>
+                    <input type="submit" value="Enter" className="btn btn-success" />
+                    <NavLink to="/" className="nav_link"><Button variant="dark">Back</Button></NavLink>
                     </div>
                 </form>
 

@@ -1,5 +1,6 @@
 .header_container {
     overflow: hidden;
+    position: absolute;
 }
 
 .landing_container{

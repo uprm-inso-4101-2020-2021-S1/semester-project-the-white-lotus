@@ -2,6 +2,35 @@
     position: absolute;
     background-color: #303639 !important;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
+    color: white;
+    margin-top: 72px;
+    text-align: center;
+}
+
+
+.register_container {
+    background: #5a6469;
+    margin-top: 80px;
+    width: 400px;
+    text-align: center;
+    padding: 0px 60px;
+    box-sizing: border-box;
+    margin-left: 40%;
+}
+
+.help_icon {
+    color:#ffffff;
+    background-color: #09d3ac;
+    width:20px;
+    height:20px;
+    display:inline-block;
+    border-radius:100%;
+    font-size:15px;
+    text-align:center;
+    text-decoration:none;
+    -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
 }

@@ -191,8 +191,8 @@ export class MapContainer extends Component {
                     />
                 </div>
                 <BurgerMenu/>
-                <Button variant="dark" className="top_button"><NavLink className="nav_link" to="/foryou">For
-                    You</NavLink></Button>
+                <NavLink className="nav_link" to="/foryou"><Button variant="dark" className="top_button">For
+                    You</Button></NavLink>
             </div>
         );
     }
