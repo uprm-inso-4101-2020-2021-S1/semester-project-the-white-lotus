@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 import {UncontrolledTooltip} from "reactstrap";
 import './registerPage.css';
+import Header from "../components/header/Header";
 
 
 
@@ -186,6 +187,7 @@ export class RegisterPage extends Component {
     render() {
         return (
             <div className="register_page">
+                <Header />
                 <div className="register_container">
 
                 <h2 className="white-text">Register</h2>
@@ -264,7 +266,7 @@ export class RegisterPage extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="isHost">Is this a host account?</label><span id"help_host" className="help_icon">?</span><br/>
+                        <label htmlFor="isHost">Is this a host account?</label>  <span id="help_host" className="help_icon">?</span><br/>
                         <UncontrolledTooltip target="help_host" placement="bottom">A host account is the account of someone who owns businesses inside our database and wants to manage them. <br/>
                         If this is the case for you, please type 'y' into the input box, if not just 'n'.</UncontrolledTooltip>
                         <input

@@ -1,12 +1,11 @@
 import React, {Component, useEffect, useState} from 'react';
-import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, DirectionsRenderer} from "react-google-maps";
+import {GoogleMap, withScriptjs, withGoogleMap, Marker, DirectionsRenderer} from "react-google-maps";
 import {NavLink} from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Button from 'react-bootstrap/Button';
 import Header from '../components/header/Header';
 import BurgerMenu from '../components/HamburgerMenu';
 import './landingPage.css'
-import * as data from '../dummy data/data.json';
 import mapStyles from './mapStyle';
 import 'reactjs-popup/dist/index.css';
 

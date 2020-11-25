@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Header from '../components/header/Header';
 import './forYouPage.css';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-import {GoogleMap, Marker} from "react-google-maps";
 
 const FlippyStyle = {
     width: '380px',
@@ -39,6 +38,7 @@ const DefaultCardContents = ({ children, image, name, ambiance1, ambiance2, emai
                 <b>Name: </b>{name}<br/>
                 <b>Ambiance: </b>{ambiance1}, {ambiance2}
                 </div>
+
             </span>
         </FrontSide>
         <BackSide
@@ -51,12 +51,9 @@ const DefaultCardContents = ({ children, image, name, ambiance1, ambiance2, emai
             }}>
             <span
                 style={{
-                    fontSize:'12px',
-                    position: 'absolute',
-                    top: '10px',
-                    width: '100%'
+                    fontSize:'15px',
                 }}>
-                <div className="flippy_front">
+                <div className="flippy_back">
                     <b>Email: </b>{email}<br/>
                     <b>Phone: </b>{phone}<br/>
                     <b>Address: </b>{address}<br/>
@@ -91,7 +88,7 @@ export const FlippyOnHover = () => {
                         flipDirection='vertical'
                         style={FlippyStyle}>
                         <DefaultCardContents name={location.name} ambiance1={location.ambience[0]} ambiance2={location.ambience[1]} email={location.email} phone={location.phone}
-                        address={location.address} category={location.category}>
+                        address={location.address} category={location.category} >
                             I flip and this is a check
                         </DefaultCardContents>
                     </Flippy>

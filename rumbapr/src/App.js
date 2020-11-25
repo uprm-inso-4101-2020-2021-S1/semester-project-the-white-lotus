@@ -6,10 +6,9 @@ import landingPage from './pages/landingPage';
 import placeCatalog from './pages/placeCatalog';
 import contact from './pages/contact';
 import about from './pages/about';
-// import registerPage from './pages/registerPage';
+import registerPage from './pages/OLDregisterPage';
 import Error from './pages/errorPage';
-
-import RegisterPage from './pages/RegisterPage';
+// import RegisterPage from './pages/RegisterPage';
 
 
 class App extends React.Component {
@@ -23,7 +22,7 @@ class App extends React.Component {
             <Route path="/about" component={about} exact />
             <Route path="/contact" component={contact} exact />
             <Route path="/places" component={placeCatalog} exact />
-            <Route path="/register" component={RegisterPage} exact />\
+            <Route path="/register" component={registerPage} exact />
             <Route component={Error}/>
           </Switch>
         </div>
