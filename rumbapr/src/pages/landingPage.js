@@ -176,36 +176,6 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export class MapContainer extends Component {
 
-    onCreateEntry = () => {
-        let info = {
-            name: this.refs.name.value,
-            email: this.refs.email.value,
-            longitude: this.refs.longitude.value,
-            latitude: this.refs.latitude.value,
-            address: this.refs.address.value,
-            city: this.refs.city.value,
-            country: this.refs.country.value,
-            mood: [],
-            comments: [],
-            hashtags: [],
-            ambience: [],
-            maximumPrice: " ",
-            minimumPrice: " ",
-            phone: " ",
-            category: this.refs.category.value,
-        };
-
-        fetch('http://localhost:5000/api/v2/place/new/', {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(info)
-        }).then(r => r.json().then(res => {
-            if (res) {
-                message = 'Added!';
-            }
-        }))
-    }
-
     render() {
         return (
             <div className="landing_container">
@@ -221,28 +191,7 @@ export class MapContainer extends Component {
                     />
                 </div>
                 <BurgerMenu/>
-                <Popup
-                    trigger={
-                        <Button variant="dark" className="top_button" type="button">
-                            Try Out Adding
-                        </Button>
-                    }
-                    position={['top center', 'bottom right', 'bottom left']}
-                    closeOnDocumentClick
-                >
-                    <p>Please enter the place details</p>
-                    <p><label>Name: </label><input type="text" ref="name"/></p>
-                    <p><label>Email: </label><input type="text" ref="email"/></p>
-                    <p><label>Latitude: </label><input type="text" ref="latitude"/></p>
-                    <p><label>Longitude: </label><input type="text" ref="longitude"/></p>
-                    <p><label>Address: </label><input type="text" ref="address"/></p>
-                    <p><label>City: </label><input type="text" ref="city"/></p>
-                    <p><label>Country: </label><input type="text" ref="country"/></p>
-                    <p><label>Category: </label><input type="text" ref="category"/></p>
-                    <Button variant="secondary" onClick={this.onCreateEntry}>Enter</Button>
-                    <p>{message}</p>
-                </Popup>
-                <Button variant="dark" className="for_you_page"><NavLink className="nav_link" to="/foryou">For
+                <Button variant="dark" className="top_button"><NavLink className="nav_link" to="/foryou">For
                     You</NavLink></Button>
             </div>
         );

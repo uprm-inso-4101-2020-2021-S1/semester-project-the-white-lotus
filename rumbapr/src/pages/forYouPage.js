@@ -59,20 +59,7 @@ const DefaultCardContents = ({ children, image, name, ambiance, about}) => (
         </BackSide>
     </React.Fragment>);
 
-const FlippyOnHover = ({ flipDirection = 'vertical' }) => (
-    <Flippy
-        flipOnHover={true}
-        flipDirection={flipDirection}
-        style={FlippyStyle}
-    >
-        <DefaultCardContents>
-            I flip {flipDirection}ly on hover
-        </DefaultCardContents>
-    </Flippy>
-);
-
-
-const ForYouPage = () => {
+const FlippyOnHover = ({ flipDirection = 'vertical' }) => {
     const [dataSet, setDataSet] = useState({locations: []});
 
     useEffect(() => {
@@ -82,7 +69,20 @@ const ForYouPage = () => {
             .then((databaseInfo) => setDataSet({locations: databaseInfo}))
 
     }, []);
+    return (
+    <Flippy
+        flipOnHover={true}
+        flipDirection={flipDirection}
+        style={FlippyStyle}
+    >
+        <DefaultCardContents>
+            I flip {flipDirection}ly on hover
+        </DefaultCardContents>
+    </Flippy>
+    )};
 
+
+const ForYouPage = () => {
     return(
         <div>
             <div className="header_container">
