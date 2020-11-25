@@ -1,9 +1,11 @@
 .for_container {
     background-color: #303639;
+    margin-top: 65px;
+    display: inline-flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    flex: 8 63 350px;
+    justify-content: space-around;
+    align-content: flex-start;
 }
 
-.container_cards {
-    position: absolute;
-    top: 90px;
-    align-items: center;
-}
