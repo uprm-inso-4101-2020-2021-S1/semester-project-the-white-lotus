@@ -13,7 +13,8 @@ class loginPage extends Component {
             islogged: false,
             users: [],
             input: {},
-            errors: {}
+            errors: {},
+            data: []
 
         };
         this.handleChange = this.handleChange.bind(this);
@@ -100,6 +101,7 @@ class loginPage extends Component {
             body: JSON.stringify(info)
         }).then(r => r.json().then(res => {
             if (res) {
+                console.log(res);
                 message = 'Logged In!';
                 console.log("Logged In");
             }
