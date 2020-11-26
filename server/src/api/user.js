@@ -170,7 +170,7 @@ router.patch('/update/:id', async (req, res, next) => {
   var passErr = false; //Purpose of sending the right response
   if(req.body.newpassword){ //Password change requested
     if(req.body.newpassword2){ //Password confirmation
-      if(req.body.newpassword == req.body.newpassword2){ //Make sure both passwords are a match
+      if(req.body.newpassword === req.body.newpassword2){ //Make sure both passwords are a match
         //To change the password, User has to put the current password
         bcrypt.compare(req.body.currentpassword, user.password, function(err, result) {
           if(err){
@@ -181,7 +181,7 @@ router.patch('/update/:id', async (req, res, next) => {
           }
           if(result){
             //Current password matches with the one input as current, hence we can change password
-            bcrypt.hash(req.body.newpassword, 10, function(err1, hashedPass){
+            bcrypt.hash(req.body.newpassword, 10, async function(err1, hashedPass){
               if(err1){
                 passErr = true
                 res.json({
@@ -189,6 +189,7 @@ router.patch('/update/:id', async (req, res, next) => {
                 })
               }
               user.password = hashedPass
+              await user.save()
             })
           }
           else {
@@ -214,7 +215,6 @@ router.patch('/update/:id', async (req, res, next) => {
       })
     }
   }
-
   // Save and send updated user
   await user.save()
   if(!passErr){
