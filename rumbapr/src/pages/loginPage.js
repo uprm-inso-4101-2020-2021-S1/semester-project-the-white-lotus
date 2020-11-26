@@ -89,7 +89,7 @@ class loginPage extends Component {
     login = () => {
         
         let info = {
-            email: this.state.input.email,
+            username: this.state.input.email,
             password: this.state.input.password
         };
 
