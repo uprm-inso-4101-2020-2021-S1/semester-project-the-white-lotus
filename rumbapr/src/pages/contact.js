@@ -11,7 +11,7 @@ const contact = () => {
             <div className={"header"}  style={{marginTop:'74px', textAlign: 'center'}}>The White Lotus</div>
             <br />
             <div style={{color:'#33b5e5', fontSize: '20px', textAlign: 'center'}}>Front-end Team</div>
-            <div style={{fontSize: '18px', textAlign: 'center'}}>
+            <div style={{fontSize: '18px', textAlign: 'center', color: 'white'}}>
                 <p> M. Alejandra Muñoz:
                     <a href="mailto:maria.munoz10@upr.edu" target="_blank" rel="noopener noreferrer"> maria.munoz10@upr.edu</a>
                     <br />
@@ -23,7 +23,7 @@ const contact = () => {
                 </p>
             </div>
             <div style={{color:'#33b5e5', fontSize: '20px', textAlign: 'center'}}>Back-end Team</div>
-            <div style={{marginBottom: '100 px', fontSize: '18px', textAlign: 'center'}}>
+            <div style={{marginBottom: '100 px', fontSize: '18px', textAlign: 'center', color: 'white'}}>
                 <p> Alondra Pereira:
                     <a href="mailto:alondra.pereira@upr.edu" target="_blank" rel="noopener noreferrer"> alondra.pereira@upr.edu</a>
                     <br />

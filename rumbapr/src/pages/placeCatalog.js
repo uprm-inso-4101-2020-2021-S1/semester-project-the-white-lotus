@@ -25,30 +25,30 @@ export default class PlaceTable extends Component {
             {
                 Header: 'Name',
                 id : 'name',
-                headerStyle: {color: '#33b5e5'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'name',
             }
             ,{
                 Header: 'Phone',
-                headerStyle: {color: '#33b5e5'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'phone',
                 sortable: false,
             },
             {
                 Header: 'Email',
-                headerStyle: {color: '#33b5e5'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'email',
                 sortable: false,
             },
             {
                 Header: 'City',
-                headerStyle: {color: '#33b5e5'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'city',
                 sortable: false,
             },
             {
                 Header: 'Country',
-                headerStyle: {color: '#33b5e5'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'country',
                 sortable: false,
             },

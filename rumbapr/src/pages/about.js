@@ -9,7 +9,7 @@ const about = () => {
                 <br />
                 <div className={"header"}>About Us</div>
                     <br />
-                    <div style={{marginLeft:'28px', fontSize: '20px', textAlign: 'center'}}>
+                    <div style={{marginLeft:'28px', marginRight:'28px', fontSize: '20px', textAlign: 'center', color: 'white'}}>
                         <p>
                             The White Lotus team was formed in August 2020 as part of a software design project for the
                             course “Introduction to Software”, led  by Prof. Marko Schütz from the University of Puerto Rico
