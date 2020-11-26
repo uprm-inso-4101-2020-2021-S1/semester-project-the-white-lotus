@@ -48,7 +48,7 @@ export class RegisterPage extends Component {
             input["isHost"] = "";
             this.setState({ input: input });
             this.onRegister();
-            alert('Demo Form is submited');
+            alert('Form is submited');
         }
     }
 
@@ -150,6 +150,7 @@ export class RegisterPage extends Component {
 
     onRegister = () => {
         var host = this.state.input.isHost == 'y' ? true : false;
+        console.log("password: "+this.state.input.password);
         let info = {
             name: this.state.input.name,
             address: this.state.input.address,

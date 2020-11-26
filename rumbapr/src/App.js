@@ -7,6 +7,7 @@ import placeCatalog from './pages/placeCatalog';
 import contact from './pages/contact';
 import about from './pages/about';
 import registerPage from './pages/OLDregisterPage';
+import loginPage from './pages/loginPage';
 import Error from './pages/errorPage';
 // import RegisterPage from './pages/RegisterPage';
 
@@ -23,6 +24,7 @@ class App extends React.Component {
             <Route path="/contact" component={contact} exact />
             <Route path="/places" component={placeCatalog} exact />
             <Route path="/register" component={registerPage} exact />
+            <Route path="/login" component={loginPage} exact />
             <Route component={Error}/>
           </Switch>
         </div>

@@ -33,6 +33,7 @@ function Header() {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/4.3">Log-out</NavDropdown.Item>
                     <NavDropdown.Item href="register">Register</NavDropdown.Item>
+                    <NavDropdown.Item href="login">Login</NavDropdown.Item>
                 </NavDropdown>
             </Navbar>
         </div>   
