@@ -4,7 +4,7 @@ import './HamburgerMenuDesigns/btnStyle.css'
 import {Container} from 'react-bootstrap'
 import SimpleSlider from './carousel/carousel.js'
 import {RangeSlider, DistanceSlider} from './HamBurgerComponents/Sliders.js'
-import {Filters, Place} from './HamBurgerComponents/Selections.js'
+import {Ambience, Mood, Category, Place} from './HamBurgerComponents/Selections.js'
 
 
 
@@ -35,8 +35,14 @@ export function HamburgerMenu () {
                       </div>
 
                       {/* Filters */}
-                      <p  style = {{color: "#fff"}}>Filters</p>
-                      <Filters/>
+                      <p  style = {{color: "#fff"}}>Which ambience?</p>
+                      <Ambience/>
+
+                      <p  style = {{color: "#fff"}}>What mood?</p>
+                      <Mood/>
+
+                      <p  style = {{color: "#fff"}}>Category</p>
+                      <Category/>
 
                       {/* Preffered Distance */}
                       <p class=".text-muted" style = {{color: "#fff"}}>Preffered Distance</p>
@@ -49,10 +55,10 @@ export function HamburgerMenu () {
                       <RangeSlider/>
 
                       {/* Carousel */}
-                      <label>
+                      {/* <label>
                         <p  style = {{color: "#fff"}}>Hashtags</p>
                       </label>
-                      <SimpleSlider />
+                      <SimpleSlider /> */}
                     </form>
                   
                   </Container>
