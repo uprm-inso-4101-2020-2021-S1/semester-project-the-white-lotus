@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Select from 'react-select'
 
 
+
 // Function for the filter selection using hooks for data storage
 export function Ambience({data, setOrdered}) {
     const [fil, setFil] = useState([]);
@@ -26,14 +27,8 @@ export function Ambience({data, setOrdered}) {
   
   
     ];
-  
-    //   useEffect(() => {
-  //     const apiUrl = '';
-  //     fetch(apiUrl)
-  //         .then((response) => response.json())
-  //         .then((databaseInfo) => setDataSet({locations: databaseInfo}))
-  
-  // }, []);
+
+
     return (
       <div>
         <Select 
@@ -69,13 +64,7 @@ export function Mood({data, setOrdered}) {
 
   ];
 
-  //   useEffect(() => {
-//     const apiUrl = '';
-//     fetch(apiUrl)
-//         .then((response) => response.json())
-//         .then((databaseInfo) => setDataSet({locations: databaseInfo}))
 
-// }, []);
   return (
     <div>
       <Select 
@@ -109,13 +98,7 @@ export function Category({data, setOrdered}) {
 
   ];
 
-  //   useEffect(() => {
-//     const apiUrl = '';
-//     fetch(apiUrl)
-//         .then((response) => response.json())
-//         .then((databaseInfo) => setDataSet({locations: databaseInfo}))
 
-// }, []);
   return (
     <div>
       <Select 

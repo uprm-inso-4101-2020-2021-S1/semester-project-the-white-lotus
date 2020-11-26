@@ -16,14 +16,7 @@ const useStyles = makeStyles({
   //Preffered distance slider
  export function DistanceSlider() {
     const classes = useStyles();
-  
-    //   useEffect(() => {
-  //     const apiUrl = '';
-  //     fetch(apiUrl)
-  //         .then((response) => response.json())
-  //         .then((databaseInfo) => setDataSet({locations: databaseInfo}))
-  
-  // }, []);
+
   
     return (
       <div className={classes.root}>
@@ -65,14 +58,7 @@ const useStyles = makeStyles({
       setValue(newValue);
     };
   
-    //   useEffect(() => {
-  //     const apiUrl = '';
-  //     fetch(apiUrl)
-  //         .then((response) => response.json())
-  //         .then((databaseInfo) => setDataSet({locations: databaseInfo}))
-  
-  // }, []);
-  
+    
     return (
       <div className={classes.root}>
         <Slider style = {{color: "#4CAF50"}}

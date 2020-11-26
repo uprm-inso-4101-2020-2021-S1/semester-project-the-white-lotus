@@ -9,9 +9,11 @@ import {Ambience, Mood, Category, Place} from './HamBurgerComponents/Selections.
 
 
 //Main function
-export function HamburgerMenu () {
+export class HamburgerMenu extends React.Component {
+
 
   // HamburgerMenu
+  render(){
     return(
       <div className="hamburger-container">
       <body>
@@ -27,8 +29,7 @@ export function HamburgerMenu () {
                   <Container>
                     <form color= "white">
 
-
-                      {/* Place of chice */}
+                      {/* Place of choice */}
                       <div className="myPlace">
                         <p  style = {{color: "#fff"}}>Place</p>
                         <Place/>
@@ -70,6 +71,7 @@ export function HamburgerMenu () {
       </div>
     )
   }
+}
 
 
 export default HamburgerMenu;
