@@ -36,7 +36,7 @@ class DirectionRender extends Component {
                 travelMode: window.google.maps.TravelMode.DRIVING,
             },
             (result, status) => {
-                if(this.state.directions != null) {
+                if (this.state.directions != null) {
                     this.setState({
                         directions: null,
                     })
@@ -57,7 +57,7 @@ class DirectionRender extends Component {
 
         if (loggedInUser) {
             const foundUser = JSON.parse(loggedInUser);
-            console.log("current user from loading page: "+foundUser);
+            console.log("current user from loading page: " + foundUser);
             // setUser(foundUser);
         }
     }
@@ -152,7 +152,7 @@ export const Map = () => {
                             url: "/images/hotelLocation.png",
                             scaledSize: new window.google.maps.Size(50, 50),
                         }}/>
-                        || location.category === "Food/Drinks" &&
+                    || location.category === "Food/Drinks" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
                         onClick={() => {

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { userActions } from '../_actions';
+import {userActions} from '../_actions';
 
 function RegisterPage() {
     const [user, setUser] = useState({
@@ -22,8 +22,8 @@ function RegisterPage() {
     }, []);
 
     function handleChange(e) {
-        const { name, value } = e.target;
-        setUser(user => ({ ...user, [name]: value }));
+        const {name, value} = e.target;
+        setUser(user => ({...user, [name]: value}));
     }
 
     function handleSubmit(e) {
@@ -41,30 +41,34 @@ function RegisterPage() {
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>First Name</label>
-                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
+                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange}
+                           className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')}/>
                     {submitted && !user.firstName &&
-                        <div className="invalid-feedback">First Name is required</div>
+                    <div className="invalid-feedback">First Name is required</div>
                     }
                 </div>
                 <div className="form-group">
                     <label>Last Name</label>
-                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
+                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange}
+                           className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')}/>
                     {submitted && !user.lastName &&
-                        <div className="invalid-feedback">Last Name is required</div>
+                    <div className="invalid-feedback">Last Name is required</div>
                     }
                 </div>
                 <div className="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
+                    <input type="text" name="username" value={user.username} onChange={handleChange}
+                           className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')}/>
                     {submitted && !user.username &&
-                        <div className="invalid-feedback">Username is required</div>
+                    <div className="invalid-feedback">Username is required</div>
                     }
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
+                    <input type="password" name="password" value={user.password} onChange={handleChange}
+                           className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')}/>
                     {submitted && !user.password &&
-                        <div className="invalid-feedback">Password is required</div>
+                    <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
                 <div className="form-group">
@@ -79,4 +83,4 @@ function RegisterPage() {
     );
 }
 
-export default { RegisterPage }
+export default {RegisterPage}
