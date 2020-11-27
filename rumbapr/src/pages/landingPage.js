@@ -189,8 +189,8 @@ export class MapContainer extends Component {
             comments: [],
             hashtags: [],
             ambience: this.state.ambience,
-            maximumPrice: " ",
-            minimumPrice: " ",
+            price: this.state.price,// An array which pos 0 is min value and pos 1 is max value
+            categoryFilter: this.state.category,
             phone: " ",
             category: this.refs.category.value,
         };

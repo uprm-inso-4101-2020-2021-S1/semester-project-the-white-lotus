@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './HamburgerMenuDesigns/HamburgerMenu.css'
 import './HamburgerMenuDesigns/btnStyle.css'
 import {Container} from 'react-bootstrap'
 import SimpleSlider from './carousel/carousel.js'
-import {RangeSlider, DistanceSlider} from './HamBurgerComponents/Sliders.js'
 import Select from 'react-select'
-import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
 
@@ -78,59 +76,6 @@ export default class HamburgerMenu extends React.Component {
     super(props);
   }
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     place: 'Any',
-  //     ambience: [],
-  //     mood: [],
-  //     category: [],
-  //     distance: {},
-  //     priceMin: {},
-  //     priceMax: {},
-
-  //   };
-
-
-  //   // Binding method
-  //   this.setPlace = this.setPlace.bind(this);
-  //   this.setAmb = this.setAmb.bind(this);
-  //   this.setMood = this.setMood.bind(this);
-  //   this.setCategory = this.setCategory.bind(this);
-  //   this.setDistance = this.setDistance.bind(this);
-  // }
-
-  // setPlace(e) {
-  //   console.log("Place Selected!!");
-  //   this.state.place=e
-  //   console.log(this.state.place)
-  // }
-
-
-  // setAmb(e) {
-  //   console.log("Ambience Updated!!");
-  //   this.state.ambience=e
-  //   console.log(this.state.ambience)
-  // }
-
-  // setMood(e) {
-  //   console.log("Mood Updated!!");
-  //   this.state.mood=e
-  //   console.log(this.state.mood)
-  // }
-
-  // setCategory(e) {
-  //   console.log("Category Updated!!");
-  //   this.state.category=e
-  //   console.log(this.state.category)
-  // }
-
-  // setDistance(e) {
-  //   console.log("Distance Updated!!");
-  //   this.state.distance=e
-  //   console.log(this.state.distance)
-  // }
-
   marks = [
     {
       value: 0,
@@ -178,7 +123,7 @@ export default class HamburgerMenu extends React.Component {
 
                       {/* Filters */}
                       {/* Ambiance selectioon */}
-                      <p  style = {{color: "#fff"}}>Which ambience?</p>
+                      <p  style = {{color: "#fff"}}>Filters:</p>
                       <Select 
                         isMulti
                         options={this.ambienceFilter}
@@ -186,12 +131,11 @@ export default class HamburgerMenu extends React.Component {
                         noOptionsMessage={()=> 'No filter selected'}
                         onFocus
                         isSearchable
-                        placeholder="Select filters"
+                        placeholder="Which ambience would you like?"
                         className="mb-3"
                       />
 
                       {/* Mood selection */}
-                      <p  style = {{color: "#fff"}}>What mood?</p>
                       <Select 
                         isMulti
                         options={this.moodFilter}
@@ -199,12 +143,11 @@ export default class HamburgerMenu extends React.Component {
                         noOptionsMessage={()=> 'No filter selected'}
                         onFocus
                         isSearchable
-                        placeholder="Select filters"
+                        placeholder="Which mood are you looking for?"
                         className="mb-3"
                       />
 
                       {/* Category selection */}
-                      <p  style = {{color: "#fff"}}>Category</p>
                       <Select 
                         isMulti
                         options={this.categoryFilter}
@@ -212,7 +155,7 @@ export default class HamburgerMenu extends React.Component {
                         noOptionsMessage={()=> 'No filter selected'}
                         onFocus
                         isSearchable
-                        placeholder="Select filters"
+                        placeholder="Category"
                         className="mb-3"
                       />
 
@@ -228,6 +171,7 @@ export default class HamburgerMenu extends React.Component {
                         marks
                         min={10}
                         max={30}
+                        className="mb-3"
                       />
 
                       {/* Price range slider */}
@@ -236,19 +180,21 @@ export default class HamburgerMenu extends React.Component {
                       </label>
                       <Slider style = {{color: "#4CAF50"}}
                         //value={this.props.value}
+                        defaultValue = {[0,20]}
                         onChange={this.props.setPrice}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                         min={0}
                         max={100}
                         marks={this.marks}
+                        className="mb-3"
                       />
 
                       {/* Carousel */}
-                      {/* <label>
-                        <p  style = {{color: "#fff"}}>Hashtags</p>
+                      <label>
+                        <p  style = {{color: "#fff"}} className="mb-1">Hashtags</p>
                       </label>
-                      <SimpleSlider /> */}
+                      <SimpleSlider />
                     </form>
                   
                   </Container>
