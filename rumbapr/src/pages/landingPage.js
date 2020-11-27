@@ -18,7 +18,6 @@ class DirectionRender extends Component {
         error: "",
     }
 
-
     componentDidMount() {
 
         const {currentPosition, destinationLat, destinationLng} = this.props;
@@ -52,6 +51,15 @@ class DirectionRender extends Component {
                 }
             }
         );
+
+        const loggedInUser = localStorage.getItem("user");
+        console.log("current user from loading page: " + loggedInUser);
+
+        if (loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            console.log("current user from loading page: "+foundUser);
+            // setUser(foundUser);
+        }
     }
 
     render() {
@@ -171,7 +179,6 @@ export const Map = () => {
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
-
 
 export class MapContainer extends Component {
 

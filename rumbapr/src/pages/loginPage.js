@@ -95,13 +95,16 @@ class loginPage extends Component {
 
         console.log(info);
 
+
         fetch('http://localhost:5000/api/v2/user/login', {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 'Content-type': 'application/json' },  
             body: JSON.stringify(info)
         }).then(r => r.json().then(res => {
             if (res) {
                 console.log(res);
+                localStorage.setItem('user_id', res.user._id);
+                console.log("id: "+localStorage.getItem('user_id'));
                 message = 'Logged In!';
                 console.log("Logged In");
             }

@@ -67,8 +67,9 @@ const DefaultCardContents = ({ children, image, name, ambiance1, ambiance2, emai
 
 export const FlippyOnHover = () => {
    let [dataSet, setDataSet] = useState({locations:[]})
-
-
+   let [user, setUser] = useState({user:[]})
+   let loggedInUserId = localStorage.getItem('user_id'); 
+   
     useEffect(() => {
         const apiUrl = 'http://localhost:5000/api/v2/place/all/';
         fetch(apiUrl)
@@ -77,6 +78,15 @@ export const FlippyOnHover = () => {
 
     }, []);
 
+    useEffect(() => {
+        const apiUrl = 'http://localhost:5000/api/v2/user/'+loggedInUserId;
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((test) => setUser({ user: test }))
+
+    }, []);
+
+    console.log("name: "+user.user.name);
 
    return(
        <div className="for_container">
