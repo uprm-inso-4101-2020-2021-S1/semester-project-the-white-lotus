@@ -12,6 +12,12 @@ import 'reactjs-popup/dist/index.css';
 
 let message = ``;
 
+var place = '';
+var ambience = [];
+var mood = [];
+var category = []
+var distance = 0;
+var price = [];     //value at pos 0 is min and value at pos 1 is max
 
 class DirectionRender extends Component {
     state = {
@@ -231,6 +237,7 @@ export class MapContainer extends Component {
         console.log("Place Selected!!");
         //this.setState({place:e})
         this.state.place=e
+        place = e
         console.log(this.state.place)
       }
     
@@ -238,30 +245,35 @@ export class MapContainer extends Component {
       setAmb(e) {
         console.log("Ambience Updated!!");
         this.state.ambience=e
+        ambience = e
         console.log(this.state.ambience)
       }
     
       setMood(e) {
         console.log("Mood Updated!!");
         this.state.mood=e
+        mood = e
         console.log(this.state.mood)
       }
     
       setCategory(e) {
         console.log("Category Updated!!");
         this.state.category=e
+        category = e
         console.log(this.state.category)
       }
     
       setDistance(e) {
         console.log("Distance Updated!!");
         this.state.distance=e
+        distance = e
         console.log(this.state.distance)
       }
 
       setPrice(e) {
           console.log("Price Updated!!");
           this.state.price=e
+          price = e
           console.log(this.state.price)
       }
 
