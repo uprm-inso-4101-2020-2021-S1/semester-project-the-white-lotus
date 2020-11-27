@@ -185,10 +185,10 @@ export class MapContainer extends Component {
             address: this.refs.address.value,
             city: this.refs.city.value,
             country: this.refs.country.value,
-            mood: [],
+            mood: this.state.mood,
             comments: [],
             hashtags: [],
-            ambience: [],
+            ambience: this.state.ambience,
             maximumPrice: " ",
             minimumPrice: " ",
             phone: " ",
@@ -205,7 +205,77 @@ export class MapContainer extends Component {
             }
         }))
     }
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+          place: 'Any',
+          ambience: [],
+          mood: [],
+          category: [],
+          distance: 20,
+          price: [0,20]
+    
+        };
+    
+    
+        // Binding method
+        this.setPlace = this.setPlace.bind(this);
+        this.setAmb = this.setAmb.bind(this);
+        this.setMood = this.setMood.bind(this);
+        this.setCategory = this.setCategory.bind(this);
+        this.setDistance = this.setDistance.bind(this);
+      }
 
+      setPlace(e) {
+        console.log("Place Selected!!");
+        //this.setState({place:e})
+        this.state.place=e
+        console.log(this.state.place)
+      }
+    
+    
+      setAmb(e) {
+        console.log("Ambience Updated!!");
+        this.state.ambience=e
+        console.log(this.state.ambience)
+      }
+    
+      setMood(e) {
+        console.log("Mood Updated!!");
+        this.state.mood=e
+        console.log(this.state.mood)
+      }
+    
+      setCategory(e) {
+        console.log("Category Updated!!");
+        this.state.category=e
+        console.log(this.state.category)
+      }
+    
+      setDistance(e) {
+        console.log("Distance Updated!!");
+        this.state.distance=e
+        console.log(this.state.distance)
+      }
+
+      setPrice(e) {
+          console.log("Price Updated!!");
+          this.state.price=e
+          console.log(this.state.price)
+      }
+
+      //Starting funtion for setting distance and price values
+      handleDistance = (event, newValue) => {
+        this.setDistance(newValue);
+      };
+
+      value = [0,20]
+
+      handlePrice = (event, newValue) => {
+        this.setPrice(newValue);
+        this.value = newValue
+      };
     render() {
         return (
             <div className="landing_container">
@@ -220,7 +290,15 @@ export class MapContainer extends Component {
                         mapElement={<div style={{height: "100%"}}/>}
                     />
                 </div>
-                <BurgerMenu/>
+                <BurgerMenu
+                    setPlace ={this.setPlace}
+                    setAmb ={this.setAmb}
+                    setMood = {this.setMood}       
+                    setCategory = {this.setCategory}        
+                    setDistance = {this.handleDistance}   
+                    setPrice = {this.handlePrice}     
+                    //value = {this.value}
+                />
                 <Popup
                     trigger={
                         <Button variant="dark" className="top_button" type="button">

@@ -11,7 +11,7 @@ import Slider from '@material-ui/core/Slider';
 
 
 //Main function
-export class HamburgerMenu extends React.Component {
+export default class HamburgerMenu extends React.Component {
 
   optionFilter = [
     {value: 'Any', label:'Any'},
@@ -74,58 +74,73 @@ export class HamburgerMenu extends React.Component {
 
   ];
 
-  constructor() {
-    super();
-    this.state = {
-      place: 'Any',
-      ambience: [],
-      mood: [],
-      category: [],
-      distance: {},
-      priceMin: {},
-      priceMax: {},
-
-    };
-
-
-    // Binding method
-    this.setPlace = this.setPlace.bind(this);
-    this.setAmb = this.setAmb.bind(this);
-    this.setMood = this.setMood.bind(this);
-    this.setCategory = this.setCategory.bind(this);
-    this.setDistance = this.setDistance.bind(this);
+  constructor(props) {
+    super(props);
   }
 
-  setPlace(e) {
-    console.log("Place Selected!!");
-    this.state.place=e
-    console.log(this.state.place)
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     place: 'Any',
+  //     ambience: [],
+  //     mood: [],
+  //     category: [],
+  //     distance: {},
+  //     priceMin: {},
+  //     priceMax: {},
+
+  //   };
 
 
-  setAmb(e) {
-    console.log("Ambience Updated!!");
-    this.state.ambience=e
-    console.log(this.state.ambience)
-  }
+  //   // Binding method
+  //   this.setPlace = this.setPlace.bind(this);
+  //   this.setAmb = this.setAmb.bind(this);
+  //   this.setMood = this.setMood.bind(this);
+  //   this.setCategory = this.setCategory.bind(this);
+  //   this.setDistance = this.setDistance.bind(this);
+  // }
 
-  setMood(e) {
-    console.log("Mood Updated!!");
-    this.state.mood=e
-    console.log(this.state.mood)
-  }
+  // setPlace(e) {
+  //   console.log("Place Selected!!");
+  //   this.state.place=e
+  //   console.log(this.state.place)
+  // }
 
-  setCategory(e) {
-    console.log("Category Updated!!");
-    this.state.category=e
-    console.log(this.state.category)
-  }
 
-  setDistance(e) {
-    console.log("Distance Updated!!");
-    this.state.distance=e
-    console.log(this.state.distance)
-  }
+  // setAmb(e) {
+  //   console.log("Ambience Updated!!");
+  //   this.state.ambience=e
+  //   console.log(this.state.ambience)
+  // }
+
+  // setMood(e) {
+  //   console.log("Mood Updated!!");
+  //   this.state.mood=e
+  //   console.log(this.state.mood)
+  // }
+
+  // setCategory(e) {
+  //   console.log("Category Updated!!");
+  //   this.state.category=e
+  //   console.log(this.state.category)
+  // }
+
+  // setDistance(e) {
+  //   console.log("Distance Updated!!");
+  //   this.state.distance=e
+  //   console.log(this.state.distance)
+  // }
+
+  marks = [
+    {
+      value: 0,
+      label: '0',
+    },
+    {
+      value: 100,
+      label: '100+',
+    },
+  ];
 
   // HamburgerMenu
   render() {
@@ -151,7 +166,7 @@ export class HamburgerMenu extends React.Component {
                         
                         <Select 
                           options={this.optionFilter}
-                          onChange={this.setPlace}
+                          onChange={this.props.setPlace}
                           noOptionsMessage={()=> 'Any'}
                           onFocus
                           isSearchable
@@ -167,7 +182,7 @@ export class HamburgerMenu extends React.Component {
                       <Select 
                         isMulti
                         options={this.ambienceFilter}
-                        onChange={this.setAmb}
+                        onChange={this.props.setAmb}
                         noOptionsMessage={()=> 'No filter selected'}
                         onFocus
                         isSearchable
@@ -180,7 +195,7 @@ export class HamburgerMenu extends React.Component {
                       <Select 
                         isMulti
                         options={this.moodFilter}
-                        onChange={this.setMood}
+                        onChange={this.props.setMood}
                         noOptionsMessage={()=> 'No filter selected'}
                         onFocus
                         isSearchable
@@ -193,7 +208,7 @@ export class HamburgerMenu extends React.Component {
                       <Select 
                         isMulti
                         options={this.categoryFilter}
-                        onChange={this.setCategory}
+                        onChange={this.props.setCategory}
                         noOptionsMessage={()=> 'No filter selected'}
                         onFocus
                         isSearchable
@@ -204,7 +219,7 @@ export class HamburgerMenu extends React.Component {
                       {/* Preffered Distance */}
                       <p class=".text-muted" style = {{color: "#fff"}}>Preffered Distance</p>
                       <Slider style = {{color: "#4CAF50"}}
-                        onChange={this.setDistance}
+                        onChange={this.props.setDistance}
                         defaultValue={20}
                         //getAriaValueText={valuetext}
                         aria-labelledby="distance-slider"
@@ -219,7 +234,15 @@ export class HamburgerMenu extends React.Component {
                       <label>
                         <p  style = {{color: "#fff"}}>Price Range</p>
                       </label>
-                      <RangeSlider/>
+                      <Slider style = {{color: "#4CAF50"}}
+                        //value={this.props.value}
+                        onChange={this.props.setPrice}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        min={0}
+                        max={100}
+                        marks={this.marks}
+                      />
 
                       {/* Carousel */}
                       {/* <label>
@@ -239,6 +262,3 @@ export class HamburgerMenu extends React.Component {
   }
     
   }
-
-
-export default HamburgerMenu;
