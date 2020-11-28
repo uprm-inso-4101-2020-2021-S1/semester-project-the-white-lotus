@@ -26,10 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Made major corrections to the filter.">
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Added Search Result Page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rumbapr/src/components/HamburgerMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/rumbapr/src/components/HamburgerMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/AuthController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/AuthController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/api/place.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/place.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -284,7 +283,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606347767119</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Made major corrections to the filter.">
+      <created>1606594132776</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1606594132777</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added Search Result Page.">
+      <created>1606594691806</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1606594691806</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +343,8 @@
     <MESSAGE value="Added info in About Us and made some style modifications." />
     <MESSAGE value="Merge" />
     <MESSAGE value="Made major corrections to the filter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made major corrections to the filter." />
+    <MESSAGE value="Added Search Result Page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Search Result Page." />
   </component>
   <component name="WindowStateProjectService">
     <state x="704" y="410" key="#ESLint" timestamp="1606585381697">
@@ -490,11 +504,11 @@
     </state>
     <state x="-2164" y="130" key="SettingsEditor/-2560.65.2560.1055/0.25.1792.1026@-2560.65.2560.1055" timestamp="1605985728068" />
     <state x="198" y="49" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1601928399440" />
-    <state x="339" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606593880776">
+    <state x="339" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606594693740">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604958030328" />
-    <state x="339" y="189" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1606593880776" />
+    <state x="339" y="189" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1606594693740" />
     <state x="724" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606250535640">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

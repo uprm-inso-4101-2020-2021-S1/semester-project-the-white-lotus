@@ -202,7 +202,7 @@ router.post('/filter', async (req, res, next) => {
       msg: 'No place was found that matches the request. Try again!'
     });
   }
-  return res.send(place);
+  return res.send(alternatives);
 });
 // Post new place
 /**
