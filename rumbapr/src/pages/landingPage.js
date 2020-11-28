@@ -11,6 +11,12 @@ import 'reactjs-popup/dist/index.css';
 
 let message = ``;
 
+var place = '';
+var ambience = [];
+var mood = [];
+var category = []
+var distance = 0;
+var price = [];     //value at pos 0 is min and value at pos 1 is max
 
 class DirectionRender extends Component {
     state = {
@@ -182,6 +188,112 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export class MapContainer extends Component {
 
+    onCreateEntry = () => {
+        let info = {
+            name: this.refs.name.value,
+            email: this.refs.email.value,
+            longitude: this.refs.longitude.value,
+            latitude: this.refs.latitude.value,
+            address: this.refs.address.value,
+            city: this.refs.city.value,
+            country: this.refs.country.value,
+            mood: this.state.mood,
+            comments: [],
+            hashtags: [],
+            ambience: this.state.ambience,
+            price: this.state.price,// An array which pos 0 is min value and pos 1 is max value
+            categoryFilter: this.state.category,
+            phone: " ",
+            category: this.refs.category.value,
+        };
+
+        fetch('http://localhost:5000/api/v2/place/new/', {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(info)
+        }).then(r => r.json().then(res => {
+            if (res) {
+                message = 'Added!';
+            }
+        }))
+    }
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+          place: 'Any',
+          ambience: [],
+          mood: [],
+          category: [],
+          distance: 20,
+          price: [0,20]
+    
+        };
+    
+    
+        // Binding method
+        this.setPlace = this.setPlace.bind(this);
+        this.setAmb = this.setAmb.bind(this);
+        this.setMood = this.setMood.bind(this);
+        this.setCategory = this.setCategory.bind(this);
+        this.setDistance = this.setDistance.bind(this);
+      }
+
+      setPlace(e) {
+        console.log("Place Selected!!");
+        //this.setState({place:e})
+        this.state.place=e
+        place = e
+        console.log(this.state.place)
+      }
+    
+    
+      setAmb(e) {
+        console.log("Ambience Updated!!");
+        this.state.ambience=e
+        ambience = e
+        console.log(this.state.ambience)
+      }
+    
+      setMood(e) {
+        console.log("Mood Updated!!");
+        this.state.mood=e
+        mood = e
+        console.log(this.state.mood)
+      }
+    
+      setCategory(e) {
+        console.log("Category Updated!!");
+        this.state.category=e
+        category = e
+        console.log(this.state.category)
+      }
+    
+      setDistance(e) {
+        console.log("Distance Updated!!");
+        this.state.distance=e
+        distance = e
+        console.log(this.state.distance)
+      }
+
+      setPrice(e) {
+          console.log("Price Updated!!");
+          this.state.price=e
+          price = e
+          console.log(this.state.price)
+      }
+
+      //Starting funtion for setting distance and price values
+      handleDistance = (event, newValue) => {
+        this.setDistance(newValue);
+      };
+
+      value = [0,20]
+
+      handlePrice = (event, newValue) => {
+        this.setPrice(newValue);
+        this.value = newValue
+      };
     render() {
         return (
             <div className="landing_container">
@@ -196,9 +308,38 @@ export class MapContainer extends Component {
                         mapElement={<div style={{height: "100%"}}/>}
                     />
                 </div>
-                <BurgerMenu/>
-                <NavLink className="nav_link" to="/foryou"><Button variant="dark" className="top_button">For
-                    You</Button></NavLink>
+                <BurgerMenu
+                    setPlace ={this.setPlace}
+                    setAmb ={this.setAmb}
+                    setMood = {this.setMood}       
+                    setCategory = {this.setCategory}        
+                    setDistance = {this.handleDistance}   
+                    setPrice = {this.handlePrice}     
+                    //value = {this.value}
+                />
+                <Popup
+                    trigger={
+                        <Button variant="dark" className="top_button" type="button">
+                            Try Out Adding
+                        </Button>
+                    }
+                    position={['top center', 'bottom right', 'bottom left']}
+                    closeOnDocumentClick
+                >
+                    <p>Please enter the place details</p>
+                    <p><label>Name: </label><input type="text" ref="name"/></p>
+                    <p><label>Email: </label><input type="text" ref="email"/></p>
+                    <p><label>Latitude: </label><input type="text" ref="latitude"/></p>
+                    <p><label>Longitude: </label><input type="text" ref="longitude"/></p>
+                    <p><label>Address: </label><input type="text" ref="address"/></p>
+                    <p><label>City: </label><input type="text" ref="city"/></p>
+                    <p><label>Country: </label><input type="text" ref="country"/></p>
+                    <p><label>Category: </label><input type="text" ref="category"/></p>
+                    <Button variant="secondary" onClick={this.onCreateEntry}>Enter</Button>
+                    <p>{message}</p>
+                </Popup>
+                <Button variant="dark" className="for_you_page"><NavLink className="nav_link" to="/foryou">For
+                    You</NavLink></Button>
             </div>
         );
     }
