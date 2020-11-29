@@ -8,35 +8,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
 import Popup from 'reactjs-popup';
-//
-// import './Header.css'
-// function Header(){
-//     return (
-//         <div>
-//             <Navbar bg="dark" variant="dark" fixed="top">
-//                 <Navbar.Brand href="#home"><NavLink to="/" className="nav_link">RumbaPR</NavLink></Navbar.Brand>
-//                 <Nav className="mr-auto">
-//                     <Nav.Link href="places">Places</Nav.Link>
-//                     <Nav.Link href="about">About</Nav.Link>
-//                     <Nav.Link href="contact">Contact</Nav.Link>
-//                 </Nav>
-//                 <Form inline>
-//                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-//                     <Button variant="outline-info">Search</Button>
-//                 </Form>
-//                 <NavDropdown title="User" id="dropdown-basic-button" drop="left">
-//                     <NavDropdown.Item href="#action/4.1">Profile</NavDropdown.Item>
-//                     <NavDropdown.Item href="#action/4.2">Preferences</NavDropdown.Item>
-//                     <NavDropdown.Divider />
-//                     <NavDropdown.Item href="#action/4.3">Log-out</NavDropdown.Item>
-//                     <NavDropdown.Item href="register">Register</NavDropdown.Item>
-//                 </NavDropdown>
-//             </Navbar>
-//         </div>
-//     );
-// }
-//
-// export default Header;
 import { withRouter } from "react-router-dom";
 
 

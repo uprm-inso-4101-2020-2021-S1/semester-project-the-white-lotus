@@ -1,5 +1,6 @@
 .header_container {
     overflow: hidden;
+    position: absolute;
 }
 
 .landing_container{
@@ -16,15 +17,6 @@
     position: absolute;
     top: 72px;
     left: 63px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.for_you_page {
-    position: absolute;
-    top: 72px;
-    left: 240px;
     z-index: 1;
     display: flex;
     align-items: center;

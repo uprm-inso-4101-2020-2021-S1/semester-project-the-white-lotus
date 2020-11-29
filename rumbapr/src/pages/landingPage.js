@@ -1,24 +1,28 @@
 import React, {Component, useEffect, useState} from 'react';
-import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, DirectionsRenderer} from "react-google-maps";
+import {GoogleMap, withScriptjs, withGoogleMap, Marker, DirectionsRenderer} from "react-google-maps";
 import {NavLink} from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Button from 'react-bootstrap/Button';
 import Header from '../components/header/Header';
 import BurgerMenu from '../components/HamburgerMenu';
 import './landingPage.css'
-import * as data from '../dummy data/data.json';
 import mapStyles from './mapStyle';
 import 'reactjs-popup/dist/index.css';
 
 let message = ``;
 
+var place = '';
+var ambience = [];
+var mood = [];
+var category = []
+var distance = 0;
+var price = [];     //value at pos 0 is min and value at pos 1 is max
 
 class DirectionRender extends Component {
     state = {
         directions: "",
         error: "",
     }
-
 
     componentDidMount() {
 
@@ -38,7 +42,7 @@ class DirectionRender extends Component {
                 travelMode: window.google.maps.TravelMode.DRIVING,
             },
             (result, status) => {
-                if(this.state.directions != null) {
+                if (this.state.directions != null) {
                     this.setState({
                         directions: null,
                     })
@@ -53,6 +57,15 @@ class DirectionRender extends Component {
                 }
             }
         );
+
+        const loggedInUser = localStorage.getItem("user");
+        console.log("current user from loading page: " + loggedInUser);
+
+        if (loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            console.log("current user from loading page: " + foundUser);
+            // setUser(foundUser);
+        }
     }
 
     render() {
@@ -122,7 +135,7 @@ export const Map = () => {
                 }}
             />
 
-            {dataSet.locations.map((location) => ( // for(appState: location)
+            {dataSet.locations.map((location) => (
                 (location.category === "Nature" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
@@ -145,7 +158,7 @@ export const Map = () => {
                             url: "/images/hotelLocation.png",
                             scaledSize: new window.google.maps.Size(50, 50),
                         }}/>
-                        || location.category === "Food/Drinks" &&
+                    || location.category === "Food/Drinks" &&
                     <Marker
                         position={{lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)}}
                         onClick={() => {
@@ -173,7 +186,6 @@ export const Map = () => {
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-
 export class MapContainer extends Component {
 
     onCreateEntry = () => {
@@ -185,12 +197,12 @@ export class MapContainer extends Component {
             address: this.refs.address.value,
             city: this.refs.city.value,
             country: this.refs.country.value,
-            mood: [],
+            mood: this.state.mood,
             comments: [],
             hashtags: [],
-            ambience: [],
-            maximumPrice: " ",
-            minimumPrice: " ",
+            ambience: this.state.ambience,
+            price: this.state.price,// An array which pos 0 is min value and pos 1 is max value
+            categoryFilter: this.state.category,
             phone: " ",
             category: this.refs.category.value,
         };
@@ -205,7 +217,83 @@ export class MapContainer extends Component {
             }
         }))
     }
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+          place: 'Any',
+          ambience: [],
+          mood: [],
+          category: [],
+          distance: 20,
+          price: [0,20]
+    
+        };
+    
+    
+        // Binding method
+        this.setPlace = this.setPlace.bind(this);
+        this.setAmb = this.setAmb.bind(this);
+        this.setMood = this.setMood.bind(this);
+        this.setCategory = this.setCategory.bind(this);
+        this.setDistance = this.setDistance.bind(this);
+      }
 
+      setPlace(e) {
+        console.log("Place Selected!!");
+        //this.setState({place:e})
+        this.state.place=e
+        place = e
+        console.log(this.state.place)
+      }
+    
+    
+      setAmb(e) {
+        console.log("Ambience Updated!!");
+        this.state.ambience=e
+        ambience = e
+        console.log(this.state.ambience)
+      }
+    
+      setMood(e) {
+        console.log("Mood Updated!!");
+        this.state.mood=e
+        mood = e
+        console.log(this.state.mood)
+      }
+    
+      setCategory(e) {
+        console.log("Category Updated!!");
+        this.state.category=e
+        category = e
+        console.log(this.state.category)
+      }
+    
+      setDistance(e) {
+        console.log("Distance Updated!!");
+        this.state.distance=e
+        distance = e
+        console.log(this.state.distance)
+      }
+
+      setPrice(e) {
+          console.log("Price Updated!!");
+          this.state.price=e
+          price = e
+          console.log(this.state.price)
+      }
+
+      //Starting funtion for setting distance and price values
+      handleDistance = (event, newValue) => {
+        this.setDistance(newValue);
+      };
+
+      value = [0,20]
+
+      handlePrice = (event, newValue) => {
+        this.setPrice(newValue);
+        this.value = newValue
+      };
     render() {
         return (
             <div className="landing_container">
@@ -220,7 +308,15 @@ export class MapContainer extends Component {
                         mapElement={<div style={{height: "100%"}}/>}
                     />
                 </div>
-                <BurgerMenu/>
+                <BurgerMenu
+                    setPlace ={this.setPlace}
+                    setAmb ={this.setAmb}
+                    setMood = {this.setMood}       
+                    setCategory = {this.setCategory}        
+                    setDistance = {this.handleDistance}   
+                    setPrice = {this.handlePrice}     
+                    //value = {this.value}
+                />
                 <Popup
                     trigger={
                         <Button variant="dark" className="top_button" type="button">

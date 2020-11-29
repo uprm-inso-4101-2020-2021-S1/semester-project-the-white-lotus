@@ -1,117 +1,94 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './HamburgerMenuDesigns/HamburgerMenu.css'
 import './HamburgerMenuDesigns/btnStyle.css'
-import {form, label, card, Container} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import SimpleSlider from './carousel/carousel.js'
 import Select from 'react-select'
-import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
 
-const useStyles = makeStyles({
-  root: {
-    width: 300,
-  },
-});
 
-//Preferred distance slider
-function DistanceSlider() {
-  const classes = useStyles();
+//Main function
+export default class HamburgerMenu extends React.Component {
 
-  return (
-    <div className={classes.root}>
-      <Slider style = {{color: "#4CAF50"}}
-        defaultValue={20}
-        //getAriaValueText={valuetext}
-        aria-labelledby="distance-slider"
-        valueLabelDisplay="auto"
-        step={10}
-        marks
-        min={10}
-        max={30}
-      />
-    </div>
-  );
-}
+  optionFilter = [
+    {value: 'Any', label:'Any'},
+    {value: 'Food', label:'Food'},
+    {value: 'Hotel', label:'Hotel'},
+    {value: 'Beach', label:'Beach'},
+    {value: 'Attraction', label:'Attraction'}
 
-//Price range slider
-function RangeSlider() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState([20, 37]);
+  ];
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <div className={classes.root}>
-      <Slider style = {{color: "#4CAF50"}}
-        value={value}
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        aria-labelledby="range-slider"
-        //getAriaValueText={valuetext}
-      />
-    </div>
-  );
-}
-
-export function HamburgerMenu () {
+  ambienceFilter = [
+  
+    // Ambience options
+    {className: 'Ambience' , value: 'Elegant', label:'Elegant'},
+    {className: 'Ambience' , value: 'Sophisticated', label:'Sophisticated'},
+    {className: 'Ambience' , value: 'Traditional', label:'Traditional'},
+    {className: 'Ambience' , value: 'Modern', label:'Modern'},
+    {className: 'Ambience' , value: 'Old fashioned', label:'Old fashioned'},
+    {className: 'Ambience' , value: 'Vintage', label:'Vintage'},
+    {className: 'Ambience' , value: 'Cultural', label:'Cultural'},
+    {className: 'Ambience' , value: 'Serene', label:'Serene'},
+    {className: 'Ambience' , value: 'Cozy', label:'Cozy'},
+    {className: 'Ambience' , value: 'Soothing', label:'Soothing'},
+    {className: 'Ambience' , value: 'Familiar', label:'Familiar'},
+    {className: 'Ambience' , value: 'Adult', label:'Adult'},
+    {className: 'Ambience' , value: 'Young', label:'Young'},
+    {className: 'Ambience' , value: 'Casual', label:'Casual'},
+    {className: 'Ambience' , value: 'Cultural', label:'Cultural'},
 
 
-  // Function for the filter selection using hooks for data storage
-  function Filters({data, setOrdered}) {
-    const [fil, setFil] = useState([]);
-    const optionFilter = [
-      {value: 'Elegant', label:'Elegant'},
-      {value: 'Sophisticated', label:'Sophisticated'},
-      {value: 'Traditional', label:'Traditional'},
-      {value: 'Modern', label:'Modern'},
-      {value: 'Old fashioned', label:'Old fashioned'},
-      {value: 'Vintage', label:'Vintage'},
-      {value: 'Cultural', label:'Cultural'},
-      {value: 'Serene', label:'Serene'},
-      {value: 'Cozy', label:'Cozy'},
-      {value: 'Soothing', label:'Soothing'},
-      {value: 'Familiar', label:'Familiar'},
-      {value: 'Adult', label:'Adult'},
-      {value: 'Young', label:'Young'},
-      {value: 'Casual', label:'Casual'},
-      {value: 'Cultural', label:'Cultural'},
-      {value: 'Curious', label:'Curious'},
-      {value: 'Humorous', label:'Humorous'},
-      {value: 'Calm', label:'Calm'},
-      {value: 'Festive', label:'Festive'},
-      {value: 'Happy', label:'Happy'},
-      {value: 'Social', label:'Social'},
-      {value: 'Adventurous', label:'Adventurous'},
-      {value: 'Sad', label:'Sad'},
-      {value: 'Tense', label:'Tense'},
-      {value: 'Nature', label:'Nature'},
-      {value: 'Food/Drinks', label:'Food/Drinks'},
-      {value: 'History', label:'History'},
-      {value: 'Entertainment ', label:'Entertainment '},
-      {value: 'Shopping', label:'Shopping'},
-      {value: 'Sports', label:'Sports'},
-      {value: 'Hotel/Motel/Lodges', label:'Hotel/Motel/Lodges'},
-    ];
-    return (
-      <div>
-        <Select 
-          isMulti
-          options={optionFilter}
-          onChange={setFil}
-          noOptionsMessage={()=> 'No filter selected'}
-          onFocus
-          isSearchable
-          placeholder="Select filters"
-          className="mb-3"
-        />
-      </div>
-    )
+  ];
+
+  moodFilter = [
+
+    // Mood options
+    {className: 'Mood' , value: 'Curious', label:'Curious'},
+    {className: 'Mood' , value: 'Humorous', label:'Humorous'},
+    {className: 'Mood' , value: 'Calm', label:'Calm'},
+    {className: 'Mood' , value: 'Festive', label:'Festive'},
+    {className: 'Mood' , value: 'Happy', label:'Happy'},
+    {className: 'Mood' , value: 'Social', label:'Social'},
+    {className: 'Mood' , value: 'Adventurous', label:'Adventurous'},
+    {className: 'Mood' , value: 'Sad', label:'Sad'},
+    {className: 'Mood' , value: 'Tense', label:'Tense'},
+
+
+  ];
+
+  categoryFilter = [
+
+    // Category
+    {className: 'Category' , value: 'Nature', label:'Nature'},
+    {className: 'Category' , value: 'Food/Drinks', label:'Food/Drinks'},
+    {className: 'Category' , value: 'History', label:'History'},
+    {className: 'Category' , value: 'Entertainment ', label:'Entertainment '},
+    {className: 'Category' , value: 'Shopping', label:'Shopping'},
+    {className: 'Category' , value: 'Sports', label:'Sports'},
+    {className: 'Category' , value: 'Hotel/Motel/Lodges', label:'Hotel/Motel/Lodges'},
+
+
+  ];
+
+  constructor(props) {
+    super(props);
   }
 
+  marks = [
+    {
+      value: 0,
+      label: '0',
+    },
+    {
+      value: 100,
+      label: '100+',
+    },
+  ];
+
   // HamburgerMenu
+  render() {
     return(
       <div className="hamburger-container">
       <body>
@@ -122,38 +99,100 @@ export function HamburgerMenu () {
             <div>
               <div>
                 <ul>
+                  
+                  {/* Container prevents the components inside hamburger to spill out boundaries */}
                   <Container>
                     <form color= "white">
-                      <div className="myPlace">
 
-                        {/* Place of chice */}
+
+                      {/* Place of choice */}
+                      <div className="myPlace">
                         <p  style = {{color: "#fff"}}>Place</p>
-                        <select id="myPlace" on change="place()">
-                          <option>Any</option>
-                          <option>Food</option>
-                          <option>Hotel</option>
-                          <option>Beach</option>
-                          <option>Attraction</option>
-                        </select>
+                        
+                        <Select 
+                          options={this.optionFilter}
+                          onChange={this.props.setPlace}
+                          noOptionsMessage={()=> 'Any'}
+                          onFocus
+                          isSearchable
+                          placeholder="Any"
+                          className="mb-3"
+                        />
+                        
                       </div>
 
                       {/* Filters */}
-                      <p  style = {{color: "#fff"}}>Filters</p>
-                      <Filters/>
+                      {/* Ambiance selectioon */}
+                      <p  style = {{color: "#fff"}}>Filters:</p>
+                      <Select 
+                        isMulti
+                        options={this.ambienceFilter}
+                        onChange={this.props.setAmb}
+                        noOptionsMessage={()=> 'No filter selected'}
+                        onFocus
+                        isSearchable
+                        placeholder="Which ambience would you like?"
+                        className="mb-3"
+                      />
 
-                      {/* Preferred Distance */}
-                      <p class=".text-muted" style = {{color: "#fff"}}>Preferred Distance</p>
-                      <DistanceSlider/>
+                      {/* Mood selection */}
+                      <Select 
+                        isMulti
+                        options={this.moodFilter}
+                        onChange={this.props.setMood}
+                        noOptionsMessage={()=> 'No filter selected'}
+                        onFocus
+                        isSearchable
+                        placeholder="Which mood are you looking for?"
+                        className="mb-3"
+                      />
+
+                      {/* Category selection */}
+                      <Select 
+                        isMulti
+                        options={this.categoryFilter}
+                        onChange={this.props.setCategory}
+                        noOptionsMessage={()=> 'No filter selected'}
+                        onFocus
+                        isSearchable
+                        placeholder="Category"
+                        className="mb-3"
+                      />
+
+                      {/* Preffered Distance */}
+                      <p class=".text-muted" style = {{color: "#fff"}}>Preffered Distance</p>
+                      <Slider style = {{color: "#4CAF50"}}
+                        onChange={this.props.setDistance}
+                        defaultValue={20}
+                        //getAriaValueText={valuetext}
+                        aria-labelledby="distance-slider"
+                        valueLabelDisplay="auto"
+                        step={10}
+                        marks
+                        min={10}
+                        max={30}
+                        className="mb-3"
+                      />
 
                       {/* Price range slider */}
                       <label>
                         <p  style = {{color: "#fff"}}>Price Range</p>
                       </label>
-                      <RangeSlider/>
+                      <Slider style = {{color: "#4CAF50"}}
+                        //value={this.props.value}
+                        defaultValue = {[0,20]}
+                        onChange={this.props.setPrice}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        min={0}
+                        max={100}
+                        marks={this.marks}
+                        className="mb-3"
+                      />
 
                       {/* Carousel */}
                       <label>
-                        <p  style = {{color: "#fff"}}>Hashtags</p>
+                        <p  style = {{color: "#fff"}} className="mb-1">Hashtags</p>
                       </label>
                       <SimpleSlider />
                     </form>
@@ -167,6 +206,5 @@ export function HamburgerMenu () {
       </div>
     )
   }
-
-
-export default HamburgerMenu;
+    
+  }
