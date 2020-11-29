@@ -2,9 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 const { to } = require('../utils');
+const uploadController = require('../../controllers/UploadController');
 
 // Place model
 const Place = require('../../models/Place');
+const PhotoFiles = require('../../models/PhotoFiles');
+const PhotoChunks = require('../../models/PhotoChunks');
 
 /**
  * @swagger
@@ -69,7 +72,6 @@ router.get('/:id', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/name/{name}:
@@ -113,7 +115,25 @@ router.get('/name/:name', async (req, res, next) => {
 
   return res.send(place);
 });
+// Get individual place by ownerID
+router.get('/ownerID/:ownerID', async (req, res, next) => {
+  const [err, place] = await to(Place.findOne({ ownerID: req.params.ownerID }));
 
+  // If an error occurred, throw to handler
+  if (err) {
+    return next(err);
+  }
+
+  // If place w/ id is not found, return 'not found'
+  if (!place) {
+    res.status(404);
+    return res.send({
+      msg: 'Place not found'
+    });
+  }
+
+  return res.send(place);
+});
 /**
  * @swagger
  * /place/filter:
@@ -139,30 +159,42 @@ router.get('/name/:name', async (req, res, next) => {
  *
  */
 // Get place using filter
-router.post('/filter/', async (req, res, next) => {
+router.post('/filter', async (req, res, next) => {
   const filter = {
     mainCategory: req.body.mainCategory,
     ambience: req.body.ambience,
     mood: req.body.mood,
+    hashtags: req.body.hashtags,
     currentLocation: req.body.currentLocation,
     preferredDistance: req.body.preferredDistance,
     budget: req.body.budget
   };
-  const [err, places] = await to(Place
-    .find({
-      maximumPrice: { $lte: filter.budget[1] },
-      minimumPrice: { $gte: filter.budget[0] },
-      // TODO: Location
-      category: filter.mainCategory,
-      ambience: { $all: [filter.ambience] },
-      mood: { $all: [filter.mood] }
-    }));
-  const randomIndex = Math.floor(Math.random() * Math.floor(places.length));
-  const place = places[randomIndex];
+  const [err, places] = await to(Place.find());
+  const alternatives = [];
+  places.forEach((place) => {
+    if (filter.mainCategory === undefined || place.category === filter.mainCategory) {
+      if (filter.budget === undefined
+              || (filter.budget[1] >= place.maximumPrice
+                && filter.budget[0] >= place.minimumPrice)) {
+        if (filter.ambience === undefined
+              || filter.ambience.every((amb) => place.ambience.includes(amb))) {
+          if (filter.hashtags === undefined
+                || filter.hashtags.every((hst) => place.ambience.includes(hst))) {
+            if (filter.mood === undefined
+                || filter.mood.every((mood) => place.mood.includes(mood))) {
+              alternatives.push(place);
+            }
+          }
+        }
+      }
+    }
+  });
   // If an error occurred, throw to handler
   if (err) {
     return next(err);
   }
+  const randomIndex = Math.floor(Math.random() * Math.floor(alternatives.length));
+  const place = alternatives[randomIndex];
   // If no place corresponds to the filter specifications, return 'not found'
   if (!place) {
     res.status(404);
@@ -170,8 +202,9 @@ router.post('/filter/', async (req, res, next) => {
       msg: 'No place was found that matches the request. Try again!'
     });
   }
-  return res.send(place);
+  return res.send(alternatives);
 });
+// Post new place
 /**
  * @swagger
  * /place/new/:
@@ -195,6 +228,7 @@ router.post('/filter/', async (req, res, next) => {
  */
 router.post('/new/', async (req, res) => {
   const place = new Place({
+    ownerID: req.body.ownerID,
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,
@@ -204,7 +238,6 @@ router.post('/new/', async (req, res) => {
     city: req.body.city,
     country: req.body.country,
     mood: req.body.mood,
-    photos: req.body.photos,
     hashtags: req.body.hashtags,
     ambience: req.body.ambience,
     comments: req.body.comments,
@@ -216,6 +249,36 @@ router.post('/new/', async (req, res) => {
   await place.save();
 
   res.send(place);
+});
+// Post new place and image
+router.post('/new/multipart', async (req, res) => {
+  try {
+    const photo = await uploadController.uploadFiles(req, res).then((r) => r);
+    const placeData = JSON.parse(req.body.data);
+    const place = new Place({
+      ownerID: placeData.ownerID,
+      name: placeData.name,
+      email: placeData.email,
+      phone: placeData.phone,
+      longitude: placeData.longitude,
+      latitude: placeData.latitude,
+      address: placeData.address,
+      city: placeData.city,
+      photos: [photo[0].id],
+      country: placeData.country,
+      mood: placeData.mood,
+      hashtags: placeData.hashtags,
+      ambience: placeData.ambience,
+      comments: placeData.comments,
+      category: placeData.category,
+      maximumPrice: placeData.maximumPrice,
+      minimumPrice: placeData.minimumPrice
+    });
+    await place.save();
+    res.send(place);
+  } catch (error) {
+    console.log(error);
+  }
 });
 /**
  * @swagger
@@ -248,6 +311,81 @@ router.post('/new/', async (req, res) => {
  *        description: An internal server error ocurred
  *
 */
+// Update individual place by id and add new image.
+router.post('/update/multipart/:id', async (req, res) => {
+  try {
+    const photo = await uploadController.uploadFiles(req, res).then((r) => r);
+    const placeData = JSON.parse(req.body.data);
+    const [err, place] = await to(Place.findOne({ _id: req.params.id }));
+
+    // If an error occurred, throw to handler
+    if (err) {
+      return next(err);
+    }
+
+    // If place w/ id is not found, return 'not found'
+    if (!place) {
+      res.status(404);
+      return res.send({
+        msg: 'Place not found'
+      });
+    }
+
+    // Update attributes
+    if (photo.length !== 0) {
+      place.photos.push(photo[0].id);
+    }
+    if (placeData.name) {
+      place.name = placeData.name;
+    }
+    if (placeData.email) {
+      place.email = placeData.email;
+    }
+    if (placeData.phone) {
+      place.phone = placeData.phone;
+    }
+    if (placeData.longitude) {
+      place.longitude = placeData.longitude;
+    }
+    if (placeData.latitude) {
+      place.latitude = placeData.latitude;
+    }
+    if (placeData.address) {
+      place.address = placeData.address;
+    }
+    if (placeData.city) {
+      place.city = placeData.city;
+    }
+    if (placeData.country) {
+      place.country = placeData.country;
+    }
+    if (placeData.mood) {
+      place.mood = placeData.mood;
+    }
+    if (placeData.photos) {
+      place.photos = placeData.photos;
+    }
+    if (placeData.hashtags) {
+      place.hashtags = placeData.hashtags;
+    }
+    if (placeData.ambience) {
+      place.ambience = placeData.ambience;
+    }
+    if (placeData.minimumPrice) {
+      place.minimumPrice = placeData.minimumPrice;
+    }
+    if (placeData.maximumPrice) {
+      place.maximumPrice = placeData.maximumPrice;
+    }
+    if (placeData.category) {
+      place.category = placeData.category;
+    }
+    await place.save();
+    res.send(place);
+  } catch (error) {
+    console.log(error);
+  }
+});
 // Update individual place by id
 router.patch('/update/:id', async (req, res, next) => {
   const [err, place] = await to(Place.findOne({ _id: req.params.id }));
@@ -315,7 +453,6 @@ router.patch('/update/:id', async (req, res, next) => {
 
   return res.send(place);
 });
-
 /**
  * @swagger
  * /place/delete/{id}:
@@ -346,13 +483,17 @@ router.delete('/delete/:id', async (req, res, next) => {
   // n – number of matched documents
   // ok – 1 if the operation was successful
   // deletedCount – number of documents deletedCount
+  const [error, place] = await to(Place.findOne({ _id: req.params.id }));
+  // Must delete stored photos first.
+  for (const id of place.photos) {
+    await to(PhotoFiles.deleteMany({ _id: id }));
+    await to(PhotoChunks.deleteMany({ _id: id }));
+  }
   const [err, result] = await to(Place.deleteOne({ _id: req.params.id }));
-
   // If an error occurred, throw to handler
   if (err) {
     return next(err);
   }
-
   // If n is zero, the post was deleted
   if (!result.n) {
     res.status(404);
@@ -360,10 +501,8 @@ router.delete('/delete/:id', async (req, res, next) => {
       msg: 'Place not found'
     });
   }
-
   return res.send(result);
 });
-
 /**
  * @swagger
  * /place/delete/name/{name}:
@@ -411,7 +550,6 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 
   return res.send(result);
 });
-
 // /**
 //  * @swagger
 //  * /place/delete_all:
@@ -434,7 +572,7 @@ router.delete('/delete/name/:name', async (req, res, next) => {
 //  *
 // */
 // Delete all places
-router.delete('/delete_all/', async (req, res, next) => {
+router.delete('/delete_all/', async (req, res) => {
   res.status(401);
   return res.send({
     msg: 'Not authorized'

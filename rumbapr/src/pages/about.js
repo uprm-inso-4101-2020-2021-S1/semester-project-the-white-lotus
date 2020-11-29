@@ -1,28 +1,28 @@
 import React from 'react';
 import Header from '../components/header/Header';
-import { MDBMask, MDBView, MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import './about.css';
 
 const about = () => {
     return(
-        <div className="for_container">
-            <div className="header_container">
-                <Header />
-                <h1>The White Lotus</h1>
-                <p>Members:</p>
-                <div>
-                    <p>M.Alejandra</p>
-                    <p>Fher</p>
-                    <p>Héctor</p>
-                    <p>Jean</p>
-                    <p>Diego</p>
-                    <p>Jomar</p>
-                    <p>Alondra</p>
-                </div>
-            </div>
+        <div>
+            <Header />
+            <body style={{backgroundColor: '#303639'}}>
+                <br />
+                <div className={"header"}>About Us</div>
+                    <br />
+                    <div style={{marginLeft:'28px', marginRight:'28px', fontSize: '20px', textAlign: 'center', color: 'white'}}>
+                        <p>
+                            The White Lotus team was formed in August 2020 as part of a software design project for the
+                            course “Introduction to Software”, led  by Prof. Marko Schütz from the University of Puerto Rico
+                            at Mayagüez. This application is the result of the efforts of seven computer and software
+                            engineering students from all over Puerto Rico seeking to contribute to their country by promoting
+                            internal tourism.
+                            <br />
+                        </p>
+                        <br />
+                    </div>
+            </body>
         </div>
     )
 }
 
 export default about;
-

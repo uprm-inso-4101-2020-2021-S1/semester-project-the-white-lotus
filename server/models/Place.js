@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const placeSchema = new Schema({
+  ownerID: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   name: {
     type: String,
     required: true,
@@ -44,8 +49,8 @@ const placeSchema = new Schema({
     type: Array
   },
   photos: {
-    data: Buffer,
-    contentType: String
+    type: Array,
+    required: true
   },
   hashtags: {
     type: Array

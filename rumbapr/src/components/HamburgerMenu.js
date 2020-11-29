@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-//Preffered distance slider
+//Preferred distance slider
 function DistanceSlider() {
   const classes = useStyles();
 
@@ -94,8 +94,6 @@ export function HamburgerMenu () {
       {value: 'Shopping', label:'Shopping'},
       {value: 'Sports', label:'Sports'},
       {value: 'Hotel/Motel/Lodges', label:'Hotel/Motel/Lodges'},
-
-
     ];
     return (
       <div>
@@ -143,8 +141,8 @@ export function HamburgerMenu () {
                       <p  style = {{color: "#fff"}}>Filters</p>
                       <Filters/>
 
-                      {/* Preffered Distance */}
-                      <p class=".text-muted" style = {{color: "#fff"}}>Preffered Distance</p>
+                      {/* Preferred Distance */}
+                      <p class=".text-muted" style = {{color: "#fff"}}>Preferred Distance</p>
                       <DistanceSlider/>
 
                       {/* Price range slider */}
