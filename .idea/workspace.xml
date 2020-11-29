@@ -25,10 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="package.json update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="heroku stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +164,7 @@
       <workItem from="1605985016764" duration="1309000" />
       <workItem from="1606070440876" duration="764000" />
       <workItem from="1606087473304" duration="1232000" />
-      <workItem from="1606611467650" duration="8710000" />
+      <workItem from="1606611467650" duration="9024000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -309,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606619510423</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="heroku stuff">
+      <created>1606620395166</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1606620395166</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +361,8 @@
     <MESSAGE value="Procfile update v4" />
     <MESSAGE value="removd package-lock.json" />
     <MESSAGE value="package.json update" />
-    <option name="LAST_COMMIT_MESSAGE" value="package.json update" />
+    <MESSAGE value="heroku stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="heroku stuff" />
   </component>
   <component name="WindowStateProjectService">
     <state x="503" y="293" key="#ESLint" timestamp="1603301884730">
@@ -492,11 +497,11 @@
     </state>
     <state x="242" y="135" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604958030328" />
     <state x="363" y="2342" width="800" height="535" key="Vcs.Push.Dialog.v2/0.2160.1920.1080/0.0.3840.2160@0.2160.1920.1080" timestamp="1606615777460" />
-    <state x="776" y="2558" width="392" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606615901059">
+    <state x="776" y="2558" width="392" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606620492581">
       <screen x="0" y="2160" width="1920" height="1080" />
     </state>
     <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1604960333387" />
-    <state x="776" y="2558" width="392" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.2160.1920.1080/0.0.3840.2160@0.2160.1920.1080" timestamp="1606615901059" />
+    <state x="776" y="2558" width="392" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.2160.1920.1080/0.0.3840.2160@0.2160.1920.1080" timestamp="1606620492581" />
     <state x="577" y="0" width="598" height="800" key="find.popup" timestamp="1601391042836">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
