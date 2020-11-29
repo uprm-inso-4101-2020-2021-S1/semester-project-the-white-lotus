@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "cd rumbapr && npm start"
+    "start": "cd rumbapr && npm install && npm start"
   }
 }
