@@ -25,8 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="removd package-lock.json">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="package.json update">
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +166,7 @@
       <workItem from="1605985016764" duration="1309000" />
       <workItem from="1606070440876" duration="764000" />
       <workItem from="1606087473304" duration="1232000" />
-      <workItem from="1606611467650" duration="7926000" />
+      <workItem from="1606611467650" duration="8036000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -295,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606618911769</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="package.json update">
+      <created>1606619405390</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1606619405390</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +348,8 @@
     <MESSAGE value="Procfile update v3" />
     <MESSAGE value="Procfile update v4" />
     <MESSAGE value="removd package-lock.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="removd package-lock.json" />
+    <MESSAGE value="package.json update" />
+    <option name="LAST_COMMIT_MESSAGE" value="package.json update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="503" y="293" key="#ESLint" timestamp="1603301884730">
