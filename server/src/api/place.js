@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const { to } = require('../utils');
-const uploadController = require("../../controllers/UploadController");
+const uploadController = require('../../controllers/UploadController');
 
 // Place model
 const Place = require('../../models/Place');
@@ -159,30 +159,42 @@ router.get('/ownerID/:ownerID', async (req, res, next) => {
  *
  */
 // Get place using filter
-router.post('/filter/', async (req, res, next) => {
+router.post('/filter', async (req, res, next) => {
   const filter = {
     mainCategory: req.body.mainCategory,
     ambience: req.body.ambience,
     mood: req.body.mood,
+    hashtags: req.body.hashtags,
     currentLocation: req.body.currentLocation,
     preferredDistance: req.body.preferredDistance,
     budget: req.body.budget
   };
-  const [err, places] = await to(Place
-    .find({
-      maximumPrice: { $lte: filter.budget[1] },
-      minimumPrice: { $gte: filter.budget[0] },
-      // TODO: Location
-      category: filter.mainCategory,
-      ambience: { $all: [filter.ambience] },
-      mood: { $all: [filter.mood] }
-    }));
-  const randomIndex = Math.floor(Math.random() * Math.floor(places.length));
-  const place = places[randomIndex];
+  const [err, places] = await to(Place.find());
+  const alternatives = [];
+  places.forEach((place) => {
+    if (filter.mainCategory === undefined || place.category === filter.mainCategory) {
+      if (filter.budget === undefined
+              || (filter.budget[1] >= place.maximumPrice
+                && filter.budget[0] >= place.minimumPrice)) {
+        if (filter.ambience === undefined
+              || filter.ambience.every((amb) => place.ambience.includes(amb))) {
+          if (filter.hashtags === undefined
+                || filter.hashtags.every((hst) => place.ambience.includes(hst))) {
+            if (filter.mood === undefined
+                || filter.mood.every((mood) => place.mood.includes(mood))) {
+              alternatives.push(place);
+            }
+          }
+        }
+      }
+    }
+  });
   // If an error occurred, throw to handler
   if (err) {
     return next(err);
   }
+  const randomIndex = Math.floor(Math.random() * Math.floor(alternatives.length));
+  const place = alternatives[randomIndex];
   // If no place corresponds to the filter specifications, return 'not found'
   if (!place) {
     res.status(404);
@@ -190,7 +202,7 @@ router.post('/filter/', async (req, res, next) => {
       msg: 'No place was found that matches the request. Try again!'
     });
   }
-  return res.send(place);
+  return res.send(alternatives);
 });
 // Post new place
 /**
@@ -214,7 +226,7 @@ router.post('/filter/', async (req, res, next) => {
  *      '500':
  *        description: An internal server error occurred
  */
-router.post('/new/',  async (req, res) => {
+router.post('/new/', async (req, res) => {
   const place = new Place({
     ownerID: req.body.ownerID,
     name: req.body.name,
@@ -239,10 +251,10 @@ router.post('/new/',  async (req, res) => {
   res.send(place);
 });
 // Post new place and image
-router.post("/new/multipart",async (req, res) => {
+router.post('/new/multipart', async (req, res) => {
   try {
-    const photo = await uploadController.uploadFiles(req,res).then(r => {return r;});
-    const placeData =JSON.parse(req.body.data);
+    const photo = await uploadController.uploadFiles(req, res).then((r) => r);
+    const placeData = JSON.parse(req.body.data);
     const place = new Place({
       ownerID: placeData.ownerID,
       name: placeData.name,
@@ -264,8 +276,7 @@ router.post("/new/multipart",async (req, res) => {
     });
     await place.save();
     res.send(place);
-  }
-  catch(error){
+  } catch (error) {
     console.log(error);
   }
 });
@@ -301,10 +312,10 @@ router.post("/new/multipart",async (req, res) => {
  *
 */
 // Update individual place by id and add new image.
-router.post("/update/multipart/:id",async (req, res) => {
+router.post('/update/multipart/:id', async (req, res) => {
   try {
-    const photo = await uploadController.uploadFiles(req,res).then(r => {return r;});
-    const placeData =JSON.parse(req.body.data);
+    const photo = await uploadController.uploadFiles(req, res).then((r) => r);
+    const placeData = JSON.parse(req.body.data);
     const [err, place] = await to(Place.findOne({ _id: req.params.id }));
 
     // If an error occurred, throw to handler
@@ -321,7 +332,7 @@ router.post("/update/multipart/:id",async (req, res) => {
     }
 
     // Update attributes
-    if (photo.length !== 0){
+    if (photo.length !== 0) {
       place.photos.push(photo[0].id);
     }
     if (placeData.name) {
@@ -371,8 +382,7 @@ router.post("/update/multipart/:id",async (req, res) => {
     }
     await place.save();
     res.send(place);
-  }
-  catch(error){
+  } catch (error) {
     console.log(error);
   }
 });
@@ -476,8 +486,8 @@ router.delete('/delete/:id', async (req, res, next) => {
   const [error, place] = await to(Place.findOne({ _id: req.params.id }));
   // Must delete stored photos first.
   for (const id of place.photos) {
-    await to (PhotoFiles.deleteMany({_id: id}));
-    await to (PhotoChunks.deleteMany({_id: id}));
+    await to(PhotoFiles.deleteMany({ _id: id }));
+    await to(PhotoChunks.deleteMany({ _id: id }));
   }
   const [err, result] = await to(Place.deleteOne({ _id: req.params.id }));
   // If an error occurred, throw to handler

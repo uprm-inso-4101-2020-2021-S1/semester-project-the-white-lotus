@@ -25,30 +25,30 @@ export default class PlaceTable extends Component {
             {
                 Header: 'Name',
                 id : 'name',
-                headerStyle: {color: '#00b7ea',  fontWeight: 'bold'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'name',
             }
             ,{
                 Header: 'Phone',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'phone',
                 sortable: false,
             },
             {
                 Header: 'Email',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'email',
                 sortable: false,
             },
             {
                 Header: 'City',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'city',
                 sortable: false,
             },
             {
                 Header: 'Country',
-                headerStyle: {color: '#00b7ea', fontWeight: 'bold'},
+                headerStyle: {color: '#33b5e5', fontSize: '20px'},
                 accessor: 'country',
                 sortable: false,
             },
@@ -56,7 +56,10 @@ export default class PlaceTable extends Component {
         return (
             <div style={{backgroundColor: '#303639'}}>
                 <Header />
+                <br />
                 <div className={"header"}>Places</div>
+                <br />
+                <body style={{backgroundColor: '#303639'}}>
                     <ReactTable
                         style= {
                             {
@@ -65,16 +68,12 @@ export default class PlaceTable extends Component {
                                 marginRight: '29px',
                                 border: 'none',
                             }}
-                        sorted={[
-                            {
-                                id: 'name',
-                                desc: false
-                            }]}
                         minRows={0}
                         defaultPageSize={10}
-                        data={this.state.places}
+                        data={this.state.places.sort((a,b) => (a.name > b.name) ? 1:-1)}
                         columns={columns}
                     />
+                </body>
             </div>
         )
     }
