@@ -1,2 +1,2 @@
-web:cd rumbapr && npm start
-worker:cd server/ && npm start
+web:node rumbapr/src/index.js
+worker:node server/src/index.js
