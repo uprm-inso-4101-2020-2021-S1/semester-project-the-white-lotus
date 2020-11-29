@@ -25,9 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Procfile update">
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Procfile update v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,7 @@
       <workItem from="1605985016764" duration="1309000" />
       <workItem from="1606070440876" duration="764000" />
       <workItem from="1606087473304" duration="1232000" />
-      <workItem from="1606611467650" duration="6455000" />
+      <workItem from="1606611467650" duration="6787000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -260,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606617834967</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Procfile update v2">
+      <created>1606617929257</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606617929257</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +309,8 @@
     <MESSAGE value="Did &quot;npm install&quot; &lt;- updates" />
     <MESSAGE value="removed node_modules from root" />
     <MESSAGE value="Procfile update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Procfile update" />
+    <MESSAGE value="Procfile update v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Procfile update v2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="503" y="293" key="#ESLint" timestamp="1603301884730">
