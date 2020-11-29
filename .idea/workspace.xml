@@ -303,6 +303,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -314,7 +317,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/AlondraBranch" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -337,14 +340,18 @@
     <MESSAGE value="Progress with place filter." />
     <MESSAGE value="Organized swagger (place)." />
     <MESSAGE value="Added About view." />
-    <MESSAGE value="Fixed margin issues." />
-    <MESSAGE value="Worked on the table design." />
-    <MESSAGE value="Added mailto links in Contact Us." />
-    <MESSAGE value="Added info in About Us and made some style modifications." />
-    <MESSAGE value="Merge" />
-    <MESSAGE value="Made major corrections to the filter." />
-    <MESSAGE value="Added Search Result Page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Search Result Page." />
+    <MESSAGE value="Did &quot;npm install&quot; &lt;- updates" />
+    <MESSAGE value="removed node_modules from root" />
+    <MESSAGE value="Procfile update" />
+    <MESSAGE value="Procfile update v2" />
+    <MESSAGE value="Procfile update v3" />
+    <MESSAGE value="Procfile update v4" />
+    <MESSAGE value="removd package-lock.json" />
+    <MESSAGE value="package.json update" />
+    <MESSAGE value="heroku stuff" />
+    <MESSAGE value="package-lock was ignored" />
+    <MESSAGE value="heroku fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="heroku fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="704" y="410" key="#ESLint" timestamp="1606585381697">
