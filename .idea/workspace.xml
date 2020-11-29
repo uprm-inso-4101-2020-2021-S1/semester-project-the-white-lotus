@@ -22,10 +22,14 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
         <item name="BRANCH:origin/AlondraBranch" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="heroku fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     <list default="true" id="26789095-5e95-467b-b83c-dcfaa6560a39" name="Default Changelist" comment="Added Search Result Page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/api/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/image.js" afterDir="false" />
@@ -94,6 +98,7 @@
       <recent name="$PROJECT_DIR$/rumbapr/src/pages" />
     </key>
   </component>
+  <component name="RunManager" selected="npm.RumbaPR">
   <component name="RunManager" selected="npm.Server">
     <configuration name="Run" type="CompoundRunConfigurationType">
       <toRun name="RumbaPR" type="js.build_tools.npm" />
@@ -184,6 +189,11 @@
       <workItem from="1606146550168" duration="8040000" />
       <workItem from="1606162990994" duration="5502000" />
       <workItem from="1606240465083" duration="1957000" />
+      <workItem from="1606599889928" duration="463000" />
+      <workItem from="1606600493504" duration="400000" />
+      <workItem from="1606087473304" duration="1232000" />
+      <workItem from="1606611467650" duration="12279000" />
+      <workItem from="1606689406929" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Added the final A3 for RumbaPR.">
       <created>1600286221677</created>
@@ -340,6 +350,13 @@
     <MESSAGE value="Progress with place filter." />
     <MESSAGE value="Organized swagger (place)." />
     <MESSAGE value="Added About view." />
+    <MESSAGE value="Fixed margin issues." />
+    <MESSAGE value="Worked on the table design." />
+    <MESSAGE value="Added mailto links in Contact Us." />
+    <MESSAGE value="Added info in About Us and made some style modifications." />
+    <MESSAGE value="Merge" />
+    <MESSAGE value="Made major corrections to the filter." />
+    <MESSAGE value="Added Search Result Page." />
     <MESSAGE value="Did &quot;npm install&quot; &lt;- updates" />
     <MESSAGE value="removed node_modules from root" />
     <MESSAGE value="Procfile update" />
@@ -373,6 +390,7 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="378" y="204" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1601337438670" />
+    <state x="567" y="2435" width="515" height="400" key="#com.intellij.fileTypes.FileTypeChooser/0.2160.1920.1080/0.0.3840.2160@0.2160.1920.1080" timestamp="1606614503670" />
     <state x="-1542" y="343" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606166274122">
       <screen x="-2560" y="65" width="2560" height="1055" />
     </state>
@@ -385,6 +403,12 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="23" y="3" key="DiffContextDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1606347777506" />
+    <state width="2539" height="260" key="GridCell.Tab.0.bottom" timestamp="1606689624417">
+      <screen x="-2560" y="65" width="2560" height="1055" />
+    </state>
+    <state width="2539" height="272" key="GridCell.Tab.0.bottom/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277070" />
+    <state width="1771" height="272" key="GridCell.Tab.0.bottom/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605134172829" />
+    <state width="2539" height="260" key="GridCell.Tab.0.bottom/-2560.65.2560.1055/0.25.1792.1024@-2560.65.2560.1055" timestamp="1606689624417" />
     <state width="1393" height="361" key="GridCell.Tab.0.bottom" timestamp="1606593867621">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -395,6 +419,12 @@
     <state width="1057" height="114" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604960518276" />
     <state width="1393" height="361" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1606593867621" />
     <state width="1771" height="272" key="GridCell.Tab.0.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846115" />
+    <state width="2539" height="260" key="GridCell.Tab.0.center" timestamp="1606689624416">
+      <screen x="-2560" y="65" width="2560" height="1055" />
+    </state>
+    <state width="2539" height="272" key="GridCell.Tab.0.center/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277069" />
+    <state width="1771" height="272" key="GridCell.Tab.0.center/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605134172829" />
+    <state width="2539" height="260" key="GridCell.Tab.0.center/-2560.65.2560.1055/0.25.1792.1024@-2560.65.2560.1055" timestamp="1606689624416" />
     <state width="1393" height="361" key="GridCell.Tab.0.center" timestamp="1606593867620">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -405,6 +435,12 @@
     <state width="1057" height="114" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604960518275" />
     <state width="1393" height="361" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1606593867620" />
     <state width="1771" height="272" key="GridCell.Tab.0.center/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846114" />
+    <state width="2539" height="260" key="GridCell.Tab.0.left" timestamp="1606689624416">
+      <screen x="-2560" y="65" width="2560" height="1055" />
+    </state>
+    <state width="2539" height="272" key="GridCell.Tab.0.left/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277068" />
+    <state width="1771" height="272" key="GridCell.Tab.0.left/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605134172828" />
+    <state width="2539" height="260" key="GridCell.Tab.0.left/-2560.65.2560.1055/0.25.1792.1024@-2560.65.2560.1055" timestamp="1606689624416" />
     <state width="1393" height="361" key="GridCell.Tab.0.left" timestamp="1606593867620">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -415,6 +451,12 @@
     <state width="1057" height="114" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604960518275" />
     <state width="1393" height="361" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1606593867620" />
     <state width="1771" height="272" key="GridCell.Tab.0.left/0.23.1792.1033@0.23.1792.1033" timestamp="1605113846114" />
+    <state width="2539" height="260" key="GridCell.Tab.0.right" timestamp="1606689624417">
+      <screen x="-2560" y="65" width="2560" height="1055" />
+    </state>
+    <state width="2539" height="272" key="GridCell.Tab.0.right/-2560.63.2560.1057/0.23.1792.1033@-2560.63.2560.1057" timestamp="1605109277069" />
+    <state width="1771" height="272" key="GridCell.Tab.0.right/-2560.63.2560.1057/0.23.1792.1033@0.23.1792.1033" timestamp="1605134172829" />
+    <state width="2539" height="260" key="GridCell.Tab.0.right/-2560.65.2560.1055/0.25.1792.1024@-2560.65.2560.1055" timestamp="1606689624417" />
     <state width="1393" height="361" key="GridCell.Tab.0.right" timestamp="1606593867620">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -520,6 +562,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="517" y="295" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1604960333387" />
+    <state x="776" y="2558" width="392" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.2160.1920.1080/0.0.3840.2160@0.2160.1920.1080" timestamp="1606620492581" />
+    <state x="577" y="0" width="598" height="800" key="find.popup" timestamp="1601391042836">
+      <screen x="0" y="0" width="1280" height="800" />
     <state x="724" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1792.1120@0.0.1792.1120" timestamp="1606250535640" />
     <state x="-1406" y="65" width="1196" height="1055" key="find.popup" timestamp="1606165961372">
       <screen x="-2560" y="65" width="2560" height="1055" />

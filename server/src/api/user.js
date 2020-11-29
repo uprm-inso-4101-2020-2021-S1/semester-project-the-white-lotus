@@ -156,13 +156,13 @@ router.post('/register', AuthController.register);
  *        description: Unique id of the user to get
  *    requestBody:
  *      description:  <p>Requires email and password to login.</p>
- *      requred:  true
+ *      required:  true
  *      content:
  *        application/json:
  *          schema:
  *            type: object
  *            properties:
- *              email:
+ *              username:
  *                type: string
  *                example: "hector.miranda8@upr.edu"
  *              password:

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../components/header/Header';
 import './forYouPage.css';
-import Flippy, { FrontSide, BackSide } from 'react-flippy';
+import Flippy, {FrontSide, BackSide} from 'react-flippy';
 
 const FlippyStyle = {
     width: '380px',
@@ -13,7 +13,7 @@ const FlippyStyle = {
 }
 
 
-const DefaultCardContents = ({ children, image, name, ambiance, about}) => (
+const DefaultCardContents = ({children, image, name, ambiance1, ambiance2, email, phone, address, category}) => (
     <React.Fragment>
         <FrontSide
             style={{
@@ -25,17 +25,21 @@ const DefaultCardContents = ({ children, image, name, ambiance, about}) => (
         >
             <img
                 src="https://thumbs.dreamstime.com/b/charming-beautiful-waterfall-selfoss-iceland-rainbow-exotic-countries-amazing-places-popular-tourist-atraction-154603711.jpg"
-                style={{ maxWidth: '95%', maxHeight: '95%' }}
+                style={{maxWidth: '100%', maxHeight: '90%'}}
             />
             <span
                 style={{
-                    fontSize:'12px',
+                    fontSize: '13px',
                     position: 'absolute',
                     bottom: '10px',
                     width: '100%'
                 }}>
-        {children}<br />
-      </span>
+                <div className="flippy_front">
+                <b>Name: </b>{name}<br/>
+                <b>Ambiance: </b>{ambiance1}, {ambiance2}
+                </div>
+
+            </span>
         </FrontSide>
         <BackSide
             style={{
@@ -45,67 +49,84 @@ const DefaultCardContents = ({ children, image, name, ambiance, about}) => (
                 justifyContent: 'center',
                 flexDirection: 'column'
             }}>
-            ROCKS
             <span
                 style={{
-                    fontSize:'12px',
-                    position: 'absolute',
-                    bottom: '10px',
-                    width: '100%'
+                    fontSize: '15px',
                 }}>
-        {children}<br />
-        (BACK SIDE)
+                <div className="flippy_back">
+                    <b>Email: </b>{email}<br/>
+                    <b>Phone: </b>{phone}<br/>
+                    <b>Address: </b>{address}<br/>
+                    <b>Category: </b>{category}<br/>
+                </div>
       </span>
         </BackSide>
     </React.Fragment>);
 
-const FlippyOnHover = ({ flipDirection = 'vertical' }) => (
-    <Flippy
-        flipOnHover={true}
-        flipDirection={flipDirection}
-        style={FlippyStyle}
-    >
-        <DefaultCardContents>
-            I flip {flipDirection}ly on hover
-        </DefaultCardContents>
-    </Flippy>
-);
 
-
-const ForYouPage = () => {
-    const [dataSet, setDataSet] = useState({locations: []});
+export const FlippyOnHover = () => {
+    let [dataSet, setDataSet] = useState({locations: []})
+    let [user, setUser] = useState({user: []})
+    let loggedInUserId = localStorage.getItem('user_id');
 
     useEffect(() => {
         const apiUrl = 'http://localhost:5000/api/v2/place/all/';
         fetch(apiUrl)
             .then((response) => response.json())
-            .then((databaseInfo) => setDataSet({locations: databaseInfo}))
+            .then((test) => setDataSet({locations: test}))
 
     }, []);
 
-    return(
+    useEffect(() => {
+        const apiUrl = 'http://localhost:5000/api/v2/user/' + loggedInUserId;
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((test) => setUser({user: test}))
+
+    }, []);
+
+    console.log("name: " + user.user.name);
+
+
+    return (
+        (loggedInUserId !== null &&
+            <div className="for_container">
+                <div className="card_container">
+                    {dataSet.locations.map((location, index) => (
+                        (index < 12 && {
+                                user: user.hashtags.map((hashtags) => (
+                                    (hashtags === location.hashtags && <Flippy
+                                        flipOnClick={true}
+                                        flipDirection='vertical'
+                                        style={FlippyStyle}>
+                                        <DefaultCardContents name={location.name} ambiance1={location.ambience[0]}
+                                                             ambiance2={location.ambience[1]} email={location.email}
+                                                             phone={location.phone}
+                                                             address={location.address} category={location.category}>
+                                            I flip and this is a check
+                                        </DefaultCardContents>
+                                    </Flippy>)
+
+                                ))
+                            })
+                    ))}
+                </div>
+            </div> || loggedInUserId === null &&
+                <div className="card_container">
+                    <p className="white-text">Please log in to see tailored recommendations!</p>
+                </div>
+        )
+    )
+};
+
+
+const ForYouPage = () => {
+    return (
         <div>
             <div className="header_container">
-                <Header />
+                <Header/>
             </div>
             <div className="row for_container" style={{padding: '25px'}}>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
-                <FlippyOnHover/>
                 <FlippyOnHover/>
             </div>
         </div>
