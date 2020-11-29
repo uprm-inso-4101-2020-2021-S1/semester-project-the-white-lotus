@@ -1,1 +1,7 @@
-{}
+{
+  "scripts": {
+    "start": "start-frontend && start-backend",
+    "start-frontend": "cd rumbapr && npm start",
+    "start-backend": "cd server && npm start"
+  }
+}
